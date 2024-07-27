@@ -1,4 +1,5 @@
 src/** filter=git-crypt diff=git-crypt
+src/interface.ts filter=git-crypt diff=git-crypt !filter !diff
 
 # 指定文件的語言，並將 .min.js 文件計入語言統計
 *.ts linguist-language=JavaScript

@@ -1,16 +1,34 @@
 {
-    "name": "PDMarkdownKit",
+    "name": "pdmarkdownkit",
     "version": "1.0.0",
-    "description": "",
+    "description": "PDMarkdownKit is a lightweight Markdown editor and viewer library based on JavaScript. It offers rich features to edit and preview Markdown content in real-time.",
     "main": "dist/PDMarkdownKit.js",
     "scripts": {
         "minify": "npx terser src/*.js -c -m -o dist/PDMarkdownKit.js --config-file terser.config.json --name-cache terser.cache.json",
         "minify-w": "chokidar 'src/*.js' -c 'npm run minify'",
-        "minify-index": "npx terser static/js/index.js -c -m -o static/js/index.min.js --config-file terser.config.json --name-cache terser.cache.json",
         "sass": "sass src/PDMarkdownKit.sass:dist/PDMarkdownKit.css -w --style compressed --no-source-map",
         "sass-index": "sass static/sass/:static/css/ -w --style compressed --no-source-map"
     },
-    "author": "",
-    "license": "ISC",
+    "files": [
+        "dist",
+        "static",
+        "index.html",
+        "interface.ts",
+        "LICENSE",
+        "README.md"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pardnchiu/PDMarkdownKit.git"
+    },
+    "keywords": [
+        "markdown-editor",
+        "markdown-parser",
+        "javascript-library"
+    ],
+    "author": "Pardn Chiu",
+    "license": "GPL-3.0",
+    "bugs": {},
+    "homepage": "https://github.com/pardnchiu/PDMarkdownKit#readme",
     "devDependencies": {}
 }

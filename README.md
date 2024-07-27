@@ -1,17 +1,20 @@
-# Markdown Editor (JavaScript Library)
+# PDMarkdownKit (JavaScript Library)
+
+> PDMarkdownKit 是一個基於 JavaScript 的輕量級 Markdown 編輯器和檢視器庫。提供了豐富的功能來編輯和即時預覽 Markdown 內容。<br>
+> PDMarkdownKit is a lightweight Markdown editor and viewer library based on JavaScript. It offers rich features to edit and preview Markdown content in real-time.
 
 ![](https://img.shields.io/github/v/release/pardnchiu/PDMarkdownKit?color=red) ![](https://img.shields.io/github/size/pardnchiu/PDMarkdownKit/dist%2FPDMarkdownKit.js?color=green) ![](https://img.shields.io/github/license/pardnchiu/PDMarkdownKit?color=blue) ![](https://img.shields.io/badge/creator-Pardn%20Chiu%20邱敬幃-A374BF)
 
 ## 特點 / Feature
 
-- 提供獨立使用的編輯器和檢視器模組。<br>
-    Provides separate editor and viewer modules for independent use.
+- 提供獨立使用的編輯器和檢視器模組，並支持實時預覽和滾動同步。<br>
+    Provide standalone editor and viewer modules, supporting real-time preview and scroll synchronization.
   
-- 當編輯器和檢視器一起使用時能實現即時預覽。<br>
-    Achieves real-time preview when the editor and viewer are used together.
+- 支持多種 Markdown 標記語法，包括標題、加粗、斜體、鏈接、圖片、代碼塊等。<br>
+    Support various Markdown syntax, including headings, bold, italic, links, images, code blocks, etc.
   
-- 使用純 JavaScript / CSS 開發。<br>
-    Built using pure JavaScript and CSS.
+- 提供撤銷和重做功能，並支持文件的導入和導出（.md 和 .html 格式）。<br>
+    Offer undo and redo functionality, and support file import and export (.md and .html formats).
   
 - 使用 [PDExtension-js](https://github.com/pardnchiu/PDExtension-js) 進行渲染。<br>
     Rendered using [PDExtension-js](https://github.com/pardnchiu/PDExtension-js).
@@ -40,6 +43,12 @@
 此源代碼項目採用 [GPL-3.0](https://github.com/pardnchiu/PDMarkdownKit/blob/main/LICENSE) 許可證授權。<br>
 This source code project is licensed under the [GPL-3.0](https://github.com/pardnchiu/PDMarkdownKit/blob/main/LICENSE) license.
 
+## 下載 / Download
+
+```Shell
+npm i pdmarkdownkit
+```
+
 ## 如何使用 / How to use
 
 - 添加依賴 `PDExtension-js`
@@ -47,11 +56,11 @@ This source code project is licensed under the [GPL-3.0](https://github.com/pard
 <script src="https://cdn.jsdelivr.net/gh/pardnchiu/PDExtension-js@[VERSION]/js/PDExtension.min.js" copyright="Pardn Ltd"></script>
 ```
 
-- 導入 `MDEditor`、`MDViewer`
+- 導入 `editor`、`viewer`
 ```Javascript
-import { MDEditor, MDViewer } from "https://cdn.jsdelivr.net/gh/pardnchiu/PDMarkdownKit@[VERSION]/dist/PDMarkdownKit.js";
+import { editor,  iewer } from "https://cdn.jsdelivr.net/gh/pardnchiu/PDMarkdownKit@[VERSION]/dist/PDMarkdownKit.js";
 
-const editor = new MDEditor({
+const elm_editor = new editor({
     id: "",                             // 預設 PDMDEditor
     placeholder: "Content",             // 預設 Type here ..
     placeholderColor: "#ff000080",      // 預設 #0000ff1a
@@ -61,11 +70,11 @@ const editor = new MDEditor({
     fillMode: 1                         // 填滿模式，隨著父元素的大小變化，預設 1
 });
 
-const viewer = new MDViewer({
+const elm_viewer = new viewer({
     id: "",                 // 預設 PDMDViewer
     pre: "",                // 預設內容。當 PDEditor 為空時顯示
     delay: 50,              // 更新延遲，預設 300ms，最低只能 1
-    editor: editor,         // 連結 PDEditor
+    editor: elm_editor,     // 連結 PDEditor
     scrollSync: 1,          // 是否跟著 PDEditor 一起滑動
     tagPath: "?keyword=",   // Hashtag 指向，需設定才會偵測 Hashtag
     tagTarget: "_blank",    // 開啟 Hashtag 方式，預設 _blank
@@ -73,12 +82,12 @@ const viewer = new MDViewer({
 });
 
 /* 將元素添加到視圖中。 */
-{DOM}.appendChild(editor.body);
-{DOM}.appendChild(viewer.body);
+{DOM}.appendChild(elm_editor.body);
+{DOM}.appendChild(elm_viewer.body);
 
 /* 初始化編輯器和檢視器。 */
-editor.init(pre: string);
-viewer.init(pre: string);
+elm_editor.init(pre: string);
+elm_viewer.init(pre: string);
 ```
 
 ## 標題 / Heading

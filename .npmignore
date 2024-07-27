@@ -1,0 +1,19 @@
+# 忽略 VSCode 的工作台設定檔案
+*.code-workspace
+
+# 忽略 macOS 系統自動生成的 .DS_Store 檔案與資料夾圖標
+.DS_Store
+Icon?
+
+# 忽略 git 相關
+.git
+.git-crypt
+.gitattributes
+.gitignore
+
+# 忽略源碼
+src/
+
+# 忽略其他
+reset.sh
+memo.md

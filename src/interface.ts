@@ -1,5 +1,5 @@
 interface MDEditor {
-    // HTML元件，用於添加至視圖中
+    // HTML元件，用於添加至視圖
     body: HTMLElement;
     // 連接的檢視器
     viewer: MDViewer | null;
