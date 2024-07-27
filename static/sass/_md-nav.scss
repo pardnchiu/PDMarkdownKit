@@ -1,0 +1,181 @@
+#md-nav {
+  z-index: 1000;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  height: calc(44px + 32px);
+  background-color: #efefef;
+  border-bottom: 1.5px solid #dfdfdf;
+  font-size: 0;
+
+  @media screen and (min-width: 1024px) {
+    height: 44px;
+  }
+
+  > img {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    margin-left: 0.5rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+  }
+  > h1 {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    margin: 0;
+    padding-left: 0.5rem;
+    line-height: 44px;
+    font-size: 1.25rem;
+    border: none;
+  }
+  > i {
+    position: absolute;
+    display: block;
+    margin: 0;
+    padding: 0;
+    top: 0;
+    right: 0.5rem;
+    line-height: 44px;
+    font-size: 1rem;
+    @media screen and (min-width: 1024px) {
+      display: none;
+    }
+  }
+  > ul {
+    position: relative;
+    display: block;
+    margin: 0;
+    padding: 0 0.5rem;
+    height: 32px;
+    white-space: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    @media screen and (min-width: 1024px) {
+      display: inline-block;
+      vertical-align: top;
+      margin-left: 0.5rem;
+      padding: 0;
+      width: initial;
+      height: 44px;
+    }
+    > li {
+      position: relative;
+      display: inline-block;
+      vertical-align: top;
+      cursor: pointer;
+      color: #000;
+      @media screen and (min-width: 1024px) {
+        @media (hover: hover) and (pointer: fine) {
+          &:hover {
+            color: $brand5;
+            > p {
+              display: block;
+            }
+          }
+        }
+      }
+      &.mobile {
+        display: none;
+        @media screen and (min-width: 1024px) {
+          display: inline-block;
+        }
+      }
+      > p {
+        position: fixed;
+        display: none;
+        top: calc(44px + 0.5rem);
+        padding: 0.25rem 0.5rem;
+        font-size: 0.75rem;
+        border-radius: 0.25rem;
+        background-color: $brand5;
+        color: #fff;
+        -moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.1);
+        -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.1);
+        z-index: 10000;
+      }
+      > label {
+        position: relative;
+        margin: 0;
+        width: 2rem;
+        line-height: 32px;
+        height: 32px;
+        text-align: center;
+        color: inherit;
+        cursor: pointer;
+        @media screen and (min-width: 1024px) {
+          line-height: 44px;
+          height: 44px;
+        }
+        > input {
+          display: none;
+        }
+        > i {
+          position: relative;
+          margin: 0;
+          width: 2rem;
+          line-height: 32px;
+          height: 32px;
+          text-align: center;
+          color: inherit;
+          @media screen and (min-width: 1024px) {
+            line-height: 44px;
+            height: 44px;
+          }
+        }
+      }
+      > i {
+        position: relative;
+        margin: 0;
+        width: 2rem;
+        line-height: 32px;
+        height: 32px;
+        text-align: center;
+        color: inherit;
+        @media screen and (min-width: 1024px) {
+          line-height: 44px;
+          height: 44px;
+        }
+      }
+      > b {
+        display: block;
+        margin: 0;
+        width: 2rem;
+        line-height: 32px;
+        height: 32px;
+        text-align: center;
+        font-size: 1rem;
+        letter-spacing: -1px;
+        color: inherit;
+        @media screen and (min-width: 1024px) {
+          line-height: 44px;
+          height: 44px;
+        }
+        > i {
+          font-size: 0.875rem;
+          font-style: normal;
+          color: inherit;
+        }
+      }
+      > s {
+        display: block;
+        margin: 0;
+        width: 2rem;
+        line-height: 32px;
+        height: 32px;
+        text-align: center;
+        font-size: 1rem;
+        letter-spacing: -1px;
+        color: #000;
+        @media screen and (min-width: 1024px) {
+          line-height: 44px;
+          height: 44px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+    "name": "PDMarkdownKit",
+    "version": "1.0.0",
+    "description": "",
+    "main": "dist/PDMarkdownKit.js",
+    "scripts": {
+        "minify": "npx terser src/*.js -c -m -o dist/PDMarkdownKit.js --config-file terser.config.json --name-cache terser.cache.json",
+        "minify-w": "chokidar 'src/*.js' -c 'npm run minify'",
+        "minify-index": "npx terser static/js/index.js -c -m -o static/js/index.min.js --config-file terser.config.json --name-cache terser.cache.json",
+        "sass": "sass src/PDMarkdownKit.sass:dist/PDMarkdownKit.css -w --style compressed --no-source-map",
+        "sass-index": "sass static/sass/:static/css/ -w --style compressed --no-source-map"
+    },
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {}
+}

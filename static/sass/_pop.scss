@@ -1,0 +1,122 @@
+#pop {
+	position: fixed;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1000;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5);
+
+	>div {
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+		gap: 1rem;
+		width: 100%;
+		max-width: 20rem;
+		min-width: 15rem;
+		background-color: #eee;
+		border-radius: 0.25rem;
+		-moz-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.1);
+		-webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05), 0 4px 8px rgba(0, 0, 0, 0.1);
+
+		>section:nth-child(1) {
+			display: flex;
+			align-items: center;
+			width: 100%;
+			background-color: rgba(0, 0, 0, 0.05);
+			border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+			>h6 {
+				padding: 0 0.5rem;
+				width: 100%;
+				line-height: 2rem;
+				font-size: 0.875rem;
+			}
+
+			>i {
+				flex-shrink: 0;
+				width: 2rem;
+				line-height: 1.5rem;
+				height: 1.5rem;
+				text-align: center;
+				transition: 0.2s;
+				cursor: pointer;
+
+				@media (hover: hover) and (pointer: fine) {
+					&:hover {
+						font-size: 1.25rem;
+					}
+				}
+			}
+		}
+
+		>p {
+
+			width: calc(100% - 2rem);
+			line-height: 1.5rem;
+			letter-spacing: 1.5px;
+			font-size: 0.875rem;
+		}
+
+		>input {
+			padding: 0 0.5rem;
+			width: calc(100% - 2rem);
+			line-height: 1.5rem;
+			letter-spacing: 1.5px;
+			font-size: 0.875rem;
+			background-color: rgba(0, 0, 0, 0.05);
+			;
+		}
+
+		>ul {
+			display: flex;
+			width: 100%;
+
+			>li {
+				display: flex;
+				flex: 1;
+				justify-content: center;
+				align-items: center;
+				gap: 0.5rem;
+				line-height: 2rem;
+				font-size: 0.875rem;
+				border-top: 1px solid rgba(0, 0, 0, 0.1);
+				list-style-type: none;
+				transition: 0.3s;
+				cursor: pointer;
+
+				@media (hover: hover) and (pointer: fine) {
+					&:hover {
+						background-color: rgba(0, 0, 0, 0.05);
+					}
+				}
+
+				&:first-child:nth-last-child(2),
+				&:first-child:nth-last-child(2)~li {
+					text-align: center;
+
+					&::before {
+						content: "";
+						position: absolute;
+						top: 0.5rem;
+						left: 0;
+						width: 1px;
+						height: 1rem;
+						background-color: rgba(0, 0, 0, 0.1);
+
+						&:nth-child(1)::before {
+							background-color: transparent;
+						}
+					}
+				}
+			}
+		}
+	}
+}
