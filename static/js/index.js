@@ -276,8 +276,9 @@ function onclickFull(e) {
 };
 
 document.addEventListener("DOMContentLoaded", function () {
-    console.log(location.href.$queryAll)
-    if (document.body.clientWidth < 1024) document.body.class_('preview');
+    if (document.body.clientWidth < 1024) {
+        document.body.class_('preview');
+    };
 
     const keyword = (new URL(location.href)).searchParams.get("keyword");
 
@@ -310,79 +311,79 @@ document.addEventListener("DOMContentLoaded", function () {
             "i"._({ class: ["fas", document.body.$$class("preview") ? "fa-eye-slash" : "fa-eye"].join("."), onclick: onclickPreview }),
             "ul"._([
                 "li"._([
-                    "i.fa-solid.fa-reply"._()._click((e) => editor.goBack()),
+                    "i.fa-solid.fa-reply"._()._click((e) => elm_editor.goBack()),
                     "p"._("上一步")
                 ]),
                 "li"._([
-                    "i.fa-solid.fa-share"._()._click((e) => editor.goForward()),
+                    "i.fa-solid.fa-share"._()._click((e) => elm_editor.goForward()),
                     "p"._("下一步")
                 ]),
                 "li"._([
-                    "b"._(["H", "i"._(1)])._click((e) => editor.addHeading(e, 1)),
+                    "b"._(["H", "i"._(1)])._click((e) => elm_editor.addHeading(e, 1)),
                     "p"._("標題1")
                 ]),
                 "li"._([
-                    "b"._(["H", "i"._(2)])._click((e) => editor.addHeading(e, 2)),
+                    "b"._(["H", "i"._(2)])._click((e) => elm_editor.addHeading(e, 2)),
                     "p"._("標題2")
                 ]),
                 "li"._([
-                    "b"._(["H", "i"._(3)])._click((e) => editor.addHeading(e, 3)),
+                    "b"._(["H", "i"._(3)])._click((e) => elm_editor.addHeading(e, 3)),
                     "p"._("標題3")
                 ]),
                 "li"._([
-                    "b"._(["H", "i"._(4)])._click((e) => editor.addHeading(e, 4)),
+                    "b"._(["H", "i"._(4)])._click((e) => elm_editor.addHeading(e, 4)),
                     "p"._("標題4")
                 ]),
                 "li"._([
-                    "b"._(["H", "i"._(5)])._click((e) => editor.addHeading(e, 5)),
+                    "b"._(["H", "i"._(5)])._click((e) => elm_editor.addHeading(e, 5)),
                     "p"._("標題5")
                 ]),
                 "li"._([
-                    "b"._(["H", "i"._(6)])._click((e) => editor.addHeading(e, 6)),
+                    "b"._(["H", "i"._(6)])._click((e) => elm_editor.addHeading(e, 6)),
                     "p"._("標題6")
                 ]),
                 "li"._([
-                    "i.fa-solid.fa-bold"._()._click((e) => editor.addBold(e)),
+                    "i.fa-solid.fa-bold"._()._click((e) => elm_editor.addBold(e)),
                     "p"._("粗體")
                 ]),
                 "li"._([
-                    "i.fa-solid.fa-italic"._()._click((e) => editor.addItalic(e)),
+                    "i.fa-solid.fa-italic"._()._click((e) => elm_editor.addItalic(e)),
                     "p"._("斜體")
                 ]),
                 "li"._([
-                    "i.fa-solid.fa-strikethrough"._()._click((e) => editor.addStrikethrough(e)),
+                    "i.fa-solid.fa-strikethrough"._()._click((e) => elm_editor.addStrikethrough(e)),
                     "p"._("刪除線")
                 ]),
                 "li"._([
-                    "i.fa-solid.fa-underline"._()._click((e) => editor.addUnderline(e)),
+                    "i.fa-solid.fa-underline"._()._click((e) => elm_editor.addUnderline(e)),
                     "p"._("底線")
                 ]),
                 "li"._([
-                    "i.fa-solid.fa-marker"._()._click((e) => editor.addMarker(e)),
+                    "i.fa-solid.fa-marker"._()._click((e) => elm_editor.addMarker(e)),
                     "p"._("標記")
                 ]),
                 "li"._([
-                    "i.fa-solid.fa-superscript"._()._click((e) => editor.addSup(e)),
+                    "i.fa-solid.fa-superscript"._()._click((e) => elm_editor.addSup(e)),
                     "p"._("上標")
                 ]),
                 "li"._([
-                    "i.fa-solid.fa-subscript"._()._click((e) => editor.addSub(e)),
+                    "i.fa-solid.fa-subscript"._()._click((e) => elm_editor.addSub(e)),
                     "p"._("下標")
                 ]),
                 "li"._([
-                    "i.fa-solid.fa-quote-left"._()._click((e) => editor.addBlockquote(e)),
+                    "i.fa-solid.fa-quote-left"._()._click((e) => elm_editor.addBlockquote(e)),
                     "p"._("引用")
                 ]),
                 "li"._([
-                    "i.fa-solid.fa-list-ul"._()._click((e) => editor.addUl(e)),
+                    "i.fa-solid.fa-list-ul"._()._click((e) => elm_editor.addUl(e)),
                     "p"._("無序列表")
                 ]),
                 "li"._([
-                    "i.fa-solid.fa-list-ol"._()._click((e) => editor.addOl(e)),
+                    "i.fa-solid.fa-list-ol"._()._click((e) => elm_editor.addOl(e)),
                     "p"._("有序列表")
                 ]),
                 "li"._([
-                    "i.fa-solid.fa-code"._()._click((e) => editor.addCode(e)),
+                    "i.fa-solid.fa-code"._()._click((e) => elm_editor.addCode(e)),
                     "p"._("代碼")
                 ]),
                 "li"._([
@@ -405,7 +406,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                         const title = inputs.$(0).value.trim();
                                         const src = inputs.$(1).value.trim();
                                         dom.$rm();
-                                        editor.addLink(title, src);
+                                        elm_editor.addLink(title, src);
                                     }),
                                     "li"._({ sel: 0 }, [
                                         "fa-solid fa-ban"._fa,
@@ -440,7 +441,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                         const src = inputs.$(1).value.trim();
                                         const title = inputs.$(2).value.trim();
                                         dom.$rm();
-                                        editor.addImage(src, alt, title);
+                                        elm_editor.addImage(src, alt, title);
                                     }),
                                     "li"._({ sel: 0 }, [
                                         "fa-solid fa-ban"._fa,
@@ -468,7 +469,7 @@ document.addEventListener("DOMContentLoaded", function () {
                                         "清空內容"
                                     ])._click((e) => {
                                         dom.$rm();
-                                        editor.clear();
+                                        elm_editor.clear();
                                     }),
                                     "li"._({ sel: 0 }, [
                                         "fa-solid fa-ban"._fa,
@@ -504,14 +505,14 @@ document.addEventListener("DOMContentLoaded", function () {
                                         "md"
                                     ])._click((e) => {
                                         dom.$rm();
-                                        editor.downloadMd();
+                                        elm_editor.downloadMd();
                                     }),
                                     "li"._([
                                         "i.fa-solid.fa-code"._(),
                                         "html"
                                     ])._click((e) => {
                                         dom.$rm();
-                                        editor.downloadHtml();
+                                        elm_editor.downloadHtml();
                                     })
                                 ])
                             ])
@@ -522,7 +523,7 @@ document.addEventListener("DOMContentLoaded", function () {
                 ]),
                 "li"._([
                     "label"._([
-                        "input"._({ type: "file", accept: ".md" })._change(function () { editor.openfile(this.files[0]); }),
+                        "input"._({ type: "file", accept: ".md" })._change(function () { elm_editor.openfile(this.files[0]); }),
                         "i.fa-solid.fa-folder-open"._(),
                     ]),
                     "p"._("開啟檔案")

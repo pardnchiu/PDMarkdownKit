@@ -1,6 +1,6 @@
 {
     "name": "pdmarkdownkit",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "PDMarkdownKit is a lightweight Markdown editor and viewer library based on JavaScript. It offers rich features to edit and preview Markdown content in real-time.",
     "main": "dist/PDMarkdownKit.js",
     "scripts": {
@@ -26,9 +26,12 @@
         "markdown-parser",
         "javascript-library"
     ],
-    "author": "Pardn Chiu",
+    "author": "邱敬幃 Pardn Chiu",
     "license": "GPL-3.0",
-    "bugs": {},
+    "bugs": {
+        "url": "https://github.com/pardnchiu/PDMarkdownKit/issues",
+        "email": "git@pardn.io"
+    },
     "homepage": "https://github.com/pardnchiu/PDMarkdownKit#readme",
     "devDependencies": {}
 }
