@@ -1,96 +1,80 @@
 # PDMarkdownKit (JavaScript Library)
 
-> PDMarkdownKit 是一個基於 JavaScript 的輕量級 Markdown 編輯器和檢視器庫。提供了豐富的功能來編輯和即時預覽 Markdown 內容。<br>
 > PDMarkdownKit is a lightweight Markdown editor and viewer library based on JavaScript. It offers rich features to edit and preview Markdown content in real-time.
 
-![](https://img.shields.io/github/v/release/pardnchiu/PDMarkdownKit?color=red) ![](https://img.shields.io/github/size/pardnchiu/PDMarkdownKit/dist%2FPDMarkdownKit.js?color=green) ![](https://img.shields.io/github/license/pardnchiu/PDMarkdownKit?color=blue) ![](https://img.shields.io/badge/creator-Pardn%20Chiu%20邱敬幃-A374BF)
+![](https://img.shields.io/github/v/release/pardnchiu/PDMarkdownKit?color=bb4444) ![](https://img.shields.io/npm/v/pdmarkdownkit?color=44bb44) ![](https://img.shields.io/github/size/pardnchiu/PDMarkdownKit/dist%2FPDMarkdownKit.js?color=4444bb) ![](https://img.shields.io/github/license/pardnchiu/PDMarkdownKit?color=bbbb44)<br>
+![](https://img.shields.io/badge/tag-JavaScript%20Library-44bbbb) ![](https://img.shields.io/badge/creator-邱敬幃%20Pardn%20Chiu-bb44bb)
 
-## 特點 / Feature
+## Feature
 
-- 提供獨立使用的編輯器和檢視器模組，並支持實時預覽和滾動同步。<br>
-    Provide standalone editor and viewer modules, supporting real-time preview and scroll synchronization.
-  
-- 支持多種 Markdown 標記語法，包括標題、加粗、斜體、鏈接、圖片、代碼塊等。<br>
-    Support various Markdown syntax, including headings, bold, italic, links, images, code blocks, etc.
-  
-- 提供撤銷和重做功能，並支持文件的導入和導出（.md 和 .html 格式）。<br>
-    Offer undo and redo functionality, and support file import and export (.md and .html formats).
-  
-- 使用 [PDExtension-js](https://github.com/pardnchiu/PDExtension-js) 進行渲染。<br>
-    Rendered using [PDExtension-js](https://github.com/pardnchiu/PDExtension-js).
-  
-- 使用 [Font Awesome 6](https://fontawesome.com/v6/search) 圖標。<br>
-    Use [Font Awesome 6](https://fontawesome.com/v6/search) icons.
-  
-- 使用 [code-prettify](https://github.com/googlearchive/code-prettify) 進行代碼高亮顯示。<br>
-    Use [code-prettify](https://github.com/googlearchive/code-prettify) for code highlighting.
-  
-- 可在 [此處](https://pardnchiu.github.io/PDMarkdownKit) 預覽。<br>
-    Preview available [Here](https://pardnchiu.github.io/PDMarkdownKit).
+- Provide standalone editor and viewer modules, supporting real-time preview and scroll synchronization.
+- Support various Markdown syntax, including headings, bold, italic, links, images, code blocks, etc.
+- Offer undo and redo functionality, and support file import and export (.md and .html formats).
+- Rendered using [PDRenderKit](https://github.com/pardnchiu/PDRenderKit).
+- Use [Font Awesome 6](https://fontawesome.com/v6/search) icons.
+- Use [code-prettify](https://github.com/googlearchive/code-prettify) for code highlighting.
+- Preview available [Here](https://pardnchiu.github.io/PDMarkdownKit).
 
-## 開發者 / Creator
+## Creator
 
 <a href="https://pardn.io">
 <img src=https://pardn.io/image/head-s.jpg align=left width=100 height=100>
 </a>
 
-### Pardn Chiu 邱敬幃
+### 邱敬幃 Pardn Chiu
 
 [![](https://pardn.io/image/mail.svg)](mailto:mail@pardn.ltd) [![](https://skillicons.dev/icons?i=linkedin)](https://linkedin.com/in/pardnchiu) 
 
-## 授權 / License
+## License
 
-此源代碼項目採用 [GPL-3.0](https://github.com/pardnchiu/PDMarkdownKit/blob/main/LICENSE) 許可證授權。<br>
 This source code project is licensed under the [GPL-3.0](https://github.com/pardnchiu/PDMarkdownKit/blob/main/LICENSE) license.
 
-## 下載 / Download
+## How to use
 
-```Shell
-npm i pdmarkdownkit
-```
+- ### Add dependency `PDRenderKit`
+    ```Html
+    <script src="https://cdn.jsdelivr.net/gh/pardnchiu/PDRenderKit@[VERSION]/dist/PDRenderKit.js" copyright="Pardn Ltd"></script>
+    ```
+- ### Directly download the package
+    ```Shell
+    npm i pdmarkdownkit
+    ```
+- ### Or include via `cdn.jsdelivr.net`
+    ```Javascript
+    import { editor,  iewer } from "https://cdn.jsdelivr.net/gh/pardnchiu/PDMarkdownKit@[VERSION]/dist/PDMarkdownKit.js";
 
-## 如何使用 / How to use
+    const elm_editor = new editor({
+        id: "",                             // Default PDMDEditor
+        placeholder: "Content",             // Default Type here ..
+        placeholderColor: "#ff000080",      // Default #0000ff1a
+        focusBackgroundColor: "#ff00001a",  // Default #0000ffff
+        focusTextColor: "#ff0000",          // Default bfbfbf
+        showRow: 1,                         // Show number of rows, default 1
+        fillMode: 1,                        // Fill mode, resizes with parent element, default 1
+        preventRefresh: 0                   // Prevent refresh, default 0
+    });
 
-- 添加依賴 `PDExtension-js`
-```Html
-<script src="https://cdn.jsdelivr.net/gh/pardnchiu/PDExtension-js@[VERSION]/js/PDExtension.min.js" copyright="Pardn Ltd"></script>
-```
+    const elm_viewer = new viewer({
+        id: "",                 // Default PDMDViewer
+        pre: "",                // Default content. Displayed when PDEditor is empty
+        delay: 50,              // Update delay, default 300ms, minimum 1
+        editor: elm_editor,     // Link to editor
+        scrollSync: 1,          // Synchronize scrolling with editor
+        tagPath: "?keyword=",   // Hashtag path, required to detect hashtags
+        tagTarget: "_blank",    // Open hashtags in, default _blank
+        fillMode: 1             // Fill mode, resizes with parent element, default 1
+    });
 
-- 導入 `editor`、`viewer`
-```Javascript
-import { editor,  iewer } from "https://cdn.jsdelivr.net/gh/pardnchiu/PDMarkdownKit@[VERSION]/dist/PDMarkdownKit.js";
+    // Add elements to the view
+    {DOM}.appendChild(elm_editor.body);
+    {DOM}.appendChild(elm_viewer.body);
 
-const elm_editor = new editor({
-    id: "",                             // 預設 PDMDEditor
-    placeholder: "Content",             // 預設 Type here ..
-    placeholderColor: "#ff000080",      // 預設 #0000ff1a
-    focusBackgroundColor: "#ff00001a",  // 預設 #0000ffff
-    focusTextColor: "#ff0000",          // 預設 bfbfbf
-    showRow: 1,                         // 顯示行數，預設 1
-    fillMode: 1                         // 填滿模式，隨著父元素的大小變化，預設 1
-});
+    // Initialize editor and viewer.
+    elm_editor.init(pre: string);
+    elm_viewer.init(pre: string);
+    ```
 
-const elm_viewer = new viewer({
-    id: "",                 // 預設 PDMDViewer
-    pre: "",                // 預設內容。當 PDEditor 為空時顯示
-    delay: 50,              // 更新延遲，預設 300ms，最低只能 1
-    editor: elm_editor,     // 連結 PDEditor
-    scrollSync: 1,          // 是否跟著 PDEditor 一起滑動
-    tagPath: "?keyword=",   // Hashtag 指向，需設定才會偵測 Hashtag
-    tagTarget: "_blank",    // 開啟 Hashtag 方式，預設 _blank
-    fillMode: 1             // 填滿模式，隨著父元素的大小變化，預設 1
-});
-
-/* 將元素添加到視圖中。 */
-{DOM}.appendChild(elm_editor.body);
-{DOM}.appendChild(elm_viewer.body);
-
-/* 初始化編輯器和檢視器。 */
-elm_editor.init(pre: string);
-elm_viewer.init(pre: string);
-```
-
-## 標題 / Heading
+## Heading
 H1
 ===
 ```
@@ -103,63 +87,62 @@ H2
 H2
 ---
 ```
-- # H1 ← `# H1`
-- ## H2 ← `## H2`
-- ### H3 ← `### H3`
-- #### H4 ← `#### H4`
-- ##### H5 ← `##### H5`
-- ###### H6 ← `##### H6`
+- # H1 → `# H1`
+- ## H2 → `## H2`
+- ### H3 → `### H3`
+- #### H4 → `#### H4`
+- ##### H5 → `##### H5`
+- ###### H6 → `##### H6`
 
-## 文字 / Text
+## Font Style
 
-- 粗體 / Bold
-    1. `**Bold 1**` → **Bold 1**
-    2. `<b>Bold 2</b>` → <b>Bold 2</b>
-    3. `<strong>Bold 3</strong>` → <strong>Bold 3</strong> 
-- 斜體 / Italic
-    1. `*Italic 1*` → *Italic 1* 
-    2. `_Italic 2_` → _Italic 2_ 
-    3. `<i>Italic 3</i>` → <i>Italic 3</i> 
-    4. `<em>Italic 4</em>` → <em>Italic 4</em> 
-- 刪除線 / Strile Through
-    1. `~~Strile Through 1~~` ~~Strile Through 1~~
-    2. `<s>Strile Through 2</s>` → <s>Strile Through 2</s>
-- 底線 / Under Line
-    1. `__Under Line 1__` →【GitHub未支援，請前往 [此處](https://pardnchiu.github.io/PDMarkdownKit) 預覽】
-    2. `<u>Under Line 2</u>` →【GitHub未支援，請前往 [此處](https://pardnchiu.github.io/PDMarkdownKit) 預覽】
-- 標示 / Mark
-    1. `==Mark 1==` →【GitHub未支援，請前往 [此處](https://pardnchiu.github.io/PDMarkdownKit) 預覽】
-    2. `<mark>Mark 2</mark>` → <mark>Mark 2</mark>
-- 上標 / Superscripts<br>
-    `x^2^` →【GitHub未支援，請前往 [此處](https://pardnchiu.github.io/PDMarkdownKit) 預覽】
-- 下標 / Subscripts<br>
-    `H~2~O` →【GitHub未支援，請前往 [此處](https://pardnchiu.github.io/PDMarkdownKit) 預覽】
+- ### Bold
+    1. **Bold 1** → `**Bold 1**`
+    2. <b>Bold 2</b> → `<b>Bold 2</b>`
+    3. <strong>Bold 3</strong> → `<strong>Bold 3</strong>`
+- ### Italic
+    1. *Italic 1* → `*Italic 1*`
+    2. _Italic 2_ → `_Italic 2_`
+    3. <i>Italic 3</i> → `<i>Italic 3</i>`
+    4. <em>Italic 4</em> → `<em>Italic 4</em>`
+- ### Strile Through
+    1. ~~Strile Through 1~~ → `~~Strile Through 1~~`
+    2. <s>Strile Through 2</s> → `<s>Strile Through 2</s>`
+- ### Under Line
+    1. [Not supported on GitHub, please preview [Here](https://pardnchiu.github.io/PDMarkdownKit)] → `__Under Line 1__`
+    2. [Not supported on GitHub, please preview [Here](https://pardnchiu.github.io/PDMarkdownKit)] → `<u>Under Line 2</u>`
+- ### Mark
+    1. [Not supported on GitHub, please preview [Here](https://pardnchiu.github.io/PDMarkdownKit)] → `==Mark 1==`
+    2. <mark>Mark 2</mark> → `<mark>Mark 2</mark>`
+- ### Superscripts / Subscripts
+    1. [Not supported on GitHub, please preview [Here](https://pardnchiu.github.io/PDMarkdownKit)] → `x^2^`
+    2. [Not supported on GitHub, please preview [Here](https://pardnchiu.github.io/PDMarkdownKit)] → `H~2~O`
 
-## 水平線 / Horizontal Rule
+## Horizontal Rule
 
 - `---` ↓
 ---
 - `***` ↓
 ***
 
-## 引用 / Blockquote
+## Blockquote
 > Blockquote-1
 > 
 >> Blockquote-2
 >>> Blockquote-3
 
-## 表格 / Table
+## Table
 
-| 標題 | 標題 |
+| Title | Title |
 | - | - |
-| 內容 | 內容 |
-| 內容 | 內容 |
-| 內容 | 內容 |
-| 內容 | 內容 |
+| Value | Value |
+| Value | Value |
+| Value | Value |
+| Value | Value |
 
-## 列表 / List
+## List
 
-- 有序列表
+- ### Ordered List
     1. ol List 0
     2. ol List 0
     3. ol List 0
@@ -167,7 +150,7 @@ H2
             1. ol List 2
                 1. ol List 3
                     1. ol List 4
-- 無序列表
+- ### Unordered List
     - ul List 0
     - ul List 0
     - ul List 0
@@ -175,7 +158,7 @@ H2
             - ul List 2
                 - ul List 3
                     - ul List 4
-- 混合列表
+- ### Mixed List
     - ul List 0
     - ul List 0
     - ul List 0
@@ -188,67 +171,67 @@ H2
                 1. ol List 3
                     - ul List 4
 
-## 代碼 / Code
+## Code Block
 
-- inline: `#Code-1`
-- Block: 
+- ### inline: 
+    `#Code-1`
+- ### Block: 
     ```
     #Code-2
     #Code-2
     #Code-2
     ```
-- Block by Space*4:【GitHub未支援，請前往 [此處](https://pardnchiu.github.io/PDMarkdownKit) 預覽】
+- ### Block by Space*4: 
+    [Not supported on GitHub, please preview [Here](https://pardnchiu.github.io/PDMarkdownKit)]
 
-## 連結 / Link
+## Link
 
-1. Link-1 https://github.com/pardnchiu/PDMarkdownKit/
-2. [Link-2](https://github.com/pardnchiu/PDMarkdownKit/)
-3. [Link-3](https://github.com/pardnchiu/PDMarkdownKit/ "Github")
-4. Image-1 
+- ### Link-1 https://github.com/pardnchiu/PDMarkdownKit/
+- ### [Link-2](https://github.com/pardnchiu/PDMarkdownKit/)
+- ### [Link-3](https://github.com/pardnchiu/PDMarkdownKit/ "Github")
+
+## Image
+
+- ### Image-1 
     ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)
-5. Image-2 
+- ### Image-2 
     ![名稱](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)
-6. Image-3 
+- ### Image-3 
     ![名稱](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit "標題")
-7. Image-4 (width: 50%, height: 360)
-    【GitHub未支援，請前往 [此處](https://pardnchiu.github.io/PDMarkdownKit) 預覽】
-8. Image + Link 
+- ### Image-4 (width: 50%, height: 360)
+    [Not supported on GitHub, please preview [Here](https://pardnchiu.github.io/PDMarkdownKit)]
+- ### Image + Link 
     [![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)](https://github.com/pardnchiu/PDMarkdownKit)
-9. Video
-    【GitHub未支援，請前往 [此處](https://pardnchiu.github.io/PDMarkdownKit) 預覽】
-
-## 範例 / Example
-
-- [https://pardn.io/blog/bing-dall-e-3](https://pardn.io/blog/bing-dall-e-3)
+- ### Video
+    [Not supported on GitHub, please preview [Here](https://pardnchiu.github.io/PDMarkdownKit)]
 
 ## Hashtag
 
-【GitHub未支援，請前往 [此處](https://pardnchiu.github.io/PDMarkdownKit) 預覽】
+[Not supported on GitHub, please preview [Here](https://pardnchiu.github.io/PDMarkdownKit)]
 
+## Shortcut Keys
 
-## 快捷按鈕
-
-- 支持
-    - 複製: `cmd/ctrl` + `c`
-    - 剪下: `cmd/ctrl` + `x`
-    - 貼上: `cmd/ctrl` + `v`
-    - 上一步: `cmd/ctrl` + `z`
-    - 下一步: `cmd/ctrl` + `shift` + `z`
-    - 粗體: `cmd/ctrl` + `b`
-    - 斜體: `cmd/ctrl` + `i`
-    - 刪除線: `cmd/ctrl` + `s`
-    - 下劃線: `cmd/ctrl` + `u`
-    - 標記: `cmd/ctrl` + `m`
-    - 上標: `cmd/ctrl` + `ArrowUp`
-    - 下標: `cmd/ctrl` + `ArrowDown`
-    - 代碼塊: `cmd/ctrl` + `k`
-- 禁止
-    - 重新整理: `cmd/ctrl` + `r` 與 `F5`
-
-***
-
-*翻譯皆靠 ChatGPT*
+- Supported
+    - Copy: `cmd/ctrl` + `c`
+    - Cut: `cmd/ctrl` + `x`
+    - Paste: `cmd/ctrl` + `v`
+    - Undo: `cmd/ctrl` + `z`
+    - Redo: `cmd/ctrl` + `shift` + `z`
+    - Bold: `cmd/ctrl` + `b`
+    - Italic: `cmd/ctrl` + `i`
+    - Strikethrough: `cmd/ctrl` + `s`
+    - Underline: `cmd/ctrl` + `u`
+    - Mark: `cmd/ctrl` + `m`
+    - Superscript: `cmd/ctrl` + `ArrowUp`
+    - Subscript: `cmd/ctrl` + `ArrowDown`
+    - Code block: `cmd/ctrl` + `k`
+- Disabled
+    - Refresh: `cmd/ctrl` + `r` or `F5`
 
 ***
 
-©️ 2023 [Pardn Chiu 邱敬幃](https://www.linkedin.com/in/pardnchiu)
+*All translations powered by ChatGPT*
+
+***
+
+©️ 2023 [邱敬幃 Pardn Chiu](https://www.linkedin.com/in/pardnchiu)
