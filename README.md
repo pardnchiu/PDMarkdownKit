@@ -1,137 +1,182 @@
-# PDMarkdownKit (JavaScript Library)
+# PDMarkdownKit (JavaScript)
 
-> PDMarkdownKit is a lightweight Markdown editor and viewer library based on JavaScript. It offers rich features to edit and preview Markdown content in real-time.
+> A lightweight Markdown editor based on JavaScript, providing a convenient module for website integration, supporting real-time editing and preview of Markdown content.
 
-![](https://img.shields.io/github/v/release/pardnchiu/PDMarkdownKit?color=bb4444) ![](https://img.shields.io/npm/v/pdmarkdownkit?color=44bb44) ![](https://img.shields.io/github/size/pardnchiu/PDMarkdownKit/dist%2FPDMarkdownKit.js?color=4444bb) ![](https://img.shields.io/github/license/pardnchiu/PDMarkdownKit?color=bbbb44)<br>
-![](https://img.shields.io/badge/tag-JavaScript%20Library-44bbbb) ![](https://img.shields.io/badge/creator-邱敬幃%20Pardn%20Chiu-bb44bb)
+![](https://img.shields.io/badge/tag-JavaScript%20Library-bb4444) ![](https://img.shields.io/github/license/pardnchiu/PDMarkdownKit?color=44bb44) ![](https://img.shields.io/badge/creator-邱敬幃-4444bb)<br>
+![](https://img.shields.io/github/v/release/pardnchiu/PDMarkdownKit?color=bbbb44) ![](https://img.shields.io/npm/v/pdmarkdownkit?color=44bbbb) ![](https://img.shields.io/github/size/pardnchiu/PDMarkdownKit/dist/PDMarkdownKit.js?color=bb44bb)<br>
+[![](https://img.shields.io/badge/點擊查看-中文版本-ffffff)](https://github.com/pardnchiu/PDMarkdownKit/blob/main/README.zh.md)
 
-## Feature
+## Features
 
-- Provide standalone editor and viewer modules, supporting real-time preview and scroll synchronization.
-- Support various Markdown syntax, including headings, bold, italic, links, images, code blocks, etc.
-- Offer undo and redo functionality, and support file import and export (.md and .html formats).
-- Rendered using [PDRenderKit](https://github.com/pardnchiu/PDRenderKit).
-- Use [Font Awesome 6](https://fontawesome.com/v6/search) icons.
-- Use [code-prettify](https://github.com/googlearchive/code-prettify) for code highlighting.
-- Preview available [Here](https://pardnchiu.github.io/PDMarkdownKit).
+- Provides independent editor and viewer modules, supporting real-time preview and scroll synchronization
+- Supports complete Markdown syntax, including headings, bold, italic, links, images, code blocks, etc.
+- Provides undo and redo functionality, supports import and export of Markdown and HTML format files
+- Uses [PDRenderKit](https://github.com/pardnchiu/PDRenderKit) for rendering, ensuring rendering effect and efficiency
+- Integrates [Font Awesome 6](https://fontawesome.com/v6/search) icons, enriching UI presentation
+- Relies on [code-prettify](https://github.com/googlearchive/code-prettify) for code syntax highlighting
+- Click here for [preview](https://pardnchiu.github.io/PDMarkdownKit).
 
-## Creator
+## Installation
 
-<a href="https://pardn.io">
-<img src=https://pardn.io/image/head-s.jpg align=left width=100 height=100>
-</a>
-
-### 邱敬幃 Pardn Chiu
-
-[![](https://pardn.io/image/mail.svg)](mailto:mail@pardn.ltd) [![](https://skillicons.dev/icons?i=linkedin)](https://linkedin.com/in/pardnchiu) 
-
-## License
-
-This source code project is licensed under the [GPL-3.0](https://github.com/pardnchiu/PDMarkdownKit/blob/main/LICENSE) license.
-
-## How to use
-
-- ### Add dependency `PDRenderKit`
-    ```Html
-    <script src="https://cdn.jsdelivr.net/gh/pardnchiu/PDRenderKit@[VERSION]/dist/PDRenderKit.js" copyright="Pardn Ltd"></script>
-    ```
-- ### Directly download the package
+- **Install from npm**
     ```Shell
     npm i pdmarkdownkit
     ```
-- ### Or include via `cdn.jsdelivr.net`
+- **Import from CDN**
+    ```Javascript
+    import { editor,  iewer } from "https://cdn.jsdelivr.net/gh/pardnchiu/PDMarkdownKit@[VERSION]/dist/PDMarkdownKit.js";
+    ```
+
+## How to use
+
+- **Import `PDRenderKit` dependency**
+    ```Html
+    <script src="https://cdn.jsdelivr.net/gh/pardnchiu/PDRenderKit@[VERSION]/dist/PDRenderKit.js" copyright="Pardn Ltd"></script>
+    ```
+- **Initialize `editor` and `viewer`**
     ```Javascript
     import { editor,  iewer } from "https://cdn.jsdelivr.net/gh/pardnchiu/PDMarkdownKit@[VERSION]/dist/PDMarkdownKit.js";
 
-    const elm_editor = new editor({
-        id: "",                             // Default PDMDEditor
-        placeholder: "Content",             // Default Type here ..
-        placeholderColor: "#ff000080",      // Default #0000ff1a
-        focusBackgroundColor: "#ff00001a",  // Default #0000ffff
-        focusTextColor: "#ff0000",          // Default bfbfbf
-        showRow: 1,                         // Show number of rows, default 1
-        fillMode: 1,                        // Fill mode, resizes with parent element, default 1
-        preventRefresh: 0                   // Prevent refresh, default 0
+     const elm_editor = new editor({
+        id: "",                             // Default: PDMDEditor
+        placeholder: "Content",             // Default: Type here ...
+        placeholderColor: "#ff000080",      // Default: #0000ff1a
+        focusBackgroundColor: "#ff00001a",  // Default: #0000ffff
+        focusTextColor: "#ff0000",          // Default: #bfbfbf
+        showRow: 1,                         // Show line numbers, Default: 1
+        fillMode: 1,                        // Adjust with parent element size, Default: 1
+        preventRefresh: 0                   // Prevent page refresh, Default: 0
     });
 
-    const elm_viewer = new viewer({
-        id: "",                 // Default PDMDViewer
-        pre: "",                // Default content. Displayed when PDEditor is empty
-        delay: 50,              // Update delay, default 300ms, minimum 1
-        editor: elm_editor,     // Link to editor
-        scrollSync: 1,          // Synchronize scrolling with editor
-        tagPath: "?keyword=",   // Hashtag path, required to detect hashtags
-        tagTarget: "_blank",    // Open hashtags in, default _blank
-        fillMode: 1             // Fill mode, resizes with parent element, default 1
+     const elm_viewer = new viewer({
+        id: "",                 // Default: PDMDViewer
+        pre: "",                // Default content, shown when editor is empty
+        delay: 50,              // Update delay, Default 300ms, Minimum 1ms
+        editor: elm_editor,     // Associated editor
+        scrollSync: 1,          // Sync scroll with editor
+        tagPath: "?keyword=",   // Tag path, used for tag detection
+        tagTarget: "_blank",    // Tag opening method, Default _blank
+        fillMode: 1             // Adjust with parent element size, Default: 1
     });
 
-    // Add elements to the view
+    // Add elements to DOM
     {DOM}.appendChild(elm_editor.body);
     {DOM}.appendChild(elm_viewer.body);
 
-    // Initialize editor and viewer.
+    // Initialize editor and viewer
     elm_editor.init(pre: string);
     elm_viewer.init(pre: string);
     ```
 
-## Heading
-H1
-===
-```
-H1
-===
-```
-H2
----
-```
-H2
----
-```
-- # H1 → `# H1`
-- ## H2 → `## H2`
-- ### H3 → `### H3`
-- #### H4 → `#### H4`
-- ##### H5 → `##### H5`
-- ###### H6 → `##### H6`
+## Markdown Syntax
 
-## Font Style
+Supports standard Markdown syntax, including fonts, links, images, lists, tables, code blocks, and quotes. Additionally, it includes extended syntax features to enhance functionality.
 
-- ### Bold
-    1. **Bold 1** → `**Bold 1**`
-    2. <b>Bold 2</b> → `<b>Bold 2</b>`
-    3. <strong>Bold 3</strong> → `<strong>Bold 3</strong>`
-- ### Italic
-    1. *Italic 1* → `*Italic 1*`
-    2. _Italic 2_ → `_Italic 2_`
-    3. <i>Italic 3</i> → `<i>Italic 3</i>`
-    4. <em>Italic 4</em> → `<em>Italic 4</em>`
-- ### Strile Through
-    1. ~~Strile Through 1~~ → `~~Strile Through 1~~`
-    2. <s>Strile Through 2</s> → `<s>Strile Through 2</s>`
-- ### Under Line
-    1. [Not supported on GitHub, please preview [Here](https://pardnchiu.github.io/PDMarkdownKit)] → `__Under Line 1__`
-    2. [Not supported on GitHub, please preview [Here](https://pardnchiu.github.io/PDMarkdownKit)] → `<u>Under Line 2</u>`
-- ### Mark
-    1. [Not supported on GitHub, please preview [Here](https://pardnchiu.github.io/PDMarkdownKit)] → `==Mark 1==`
-    2. <mark>Mark 2</mark> → `<mark>Mark 2</mark>`
-- ### Superscripts / Subscripts
-    1. [Not supported on GitHub, please preview [Here](https://pardnchiu.github.io/PDMarkdownKit)] → `x^2^`
-    2. [Not supported on GitHub, please preview [Here](https://pardnchiu.github.io/PDMarkdownKit)] → `H~2~O`
+### Font style
 
-## Horizontal Rule
+- **Standard**
+    | Syntax | Output |
+    | - | - |
+    | `# H1`<br>`<h1>H1</h1>`<br>`H1\n===`  | <h1>H1</h1> |
+    | `## H2`<br>`<h2>H2</h2>`<br>`H2\n---` | <h2>H2</h2> |
+    | `### H3`<br>`<h3>H3</h3>` | <h3>H3</h3> |
+    | `#### H4`<br>`<h4>H4</h4>` | <h4>H4</h4> |
+    | `##### H5`<br>`<h5>H5</h5>` | <h5>H5</h5> |
+    | `###### H6`<br>`<h6>H6</h6>` | <h6>H6</h6> |
+    | `**Bold**`<br>`__Bold__`<br>`<b>Bold</b>`<br>`<strong>Bold</strong>` | <b>Bold</b> |
+    | `*Italic*`<br>`_Italic_`<br>`<i>Italic</i>`<br>`<em>Italic</em>` | <i>Italic</i> |
+    | `~~Strikethrough~~`<br>`<s>Strikethrough</s>` | <s>Strikethrough</s> |
+    | `<u>Underline</u>` | <u>Underline</u> |
+    | `<mark>Mark</mark>` | <mark>Mark</mark> |
+    | `x<sup>2</sup>` | x<sup>2</sup> |
+    | `H<sub>2</sub>O` | H<sub>2</sub>O |
+- **Extension**
+    | Syntax | Output |
+    | - | - |
+    | `==Mark==` | ==Mark== |
+    | `x^2^` | x^2^ |
+    | `H~2~O` | H~2~O |
 
-- `---` ↓
----
-- `***` ↓
-***
+### Link
 
-## Blockquote
-> Blockquote-1
-> 
->> Blockquote-2
->>> Blockquote-3
+- **Standard**
+    - Link<br>
+        `https://github.com/pardnchiu/PDMarkdownKit/`
+        https://github.com/pardnchiu/PDMarkdownKit/
+    - Link with custom text`[Display text](https://github.com/pardnchiu/PDMarkdownKit/)`
+        [Display text](https://github.com/pardnchiu/PDMarkdownKit/)
+    - Link with title`[Display text](https://github.com/pardnchiu/PDMarkdownKit/ "Link title")`
+        [Display text](https://github.com/pardnchiu/PDMarkdownKit/ "Link title")
+- **Extension**
+    - Auto-detect YouTube videos<br>
+        `https://www.youtube.com/watch?v=zJ_w7Dix_f0`
+        https://www.youtube.com/watch?v=zJ_w7Dix_f0
+    - Auto-detect YouTube videos<br>
+        `[Display text](https://www.youtube.com/watch?v=zJ_w7Dix_f0)`
+        [Display text](https://www.youtube.com/watch?v=zJ_w7Dix_f0)
 
-## Table
+### Image
+
+- **Standard**
+    - Image<br>
+        `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)`
+        ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)
+    - Image with description<br>
+        `![Image description](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)`
+        ![Image description](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)
+    - Image with title<br>
+        `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit "Image title")`
+        ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit "Image title")
+    - Image with link<br>
+        `[![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)](https://github.com/pardnchiu/PDMarkdownKit)`
+        [![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)](https://github.com/pardnchiu/PDMarkdownKit)
+- **Extension**
+    - Video<br>
+        ![](static/image/youtube.mov)
+    - Image with size<br>
+        `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*360)`
+        ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*360)
+    - Image with alignment<br>
+        `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*240 left)`
+        `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*240 right)`
+        ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*240 left)
+        ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*240 right)
+
+### List
+
+- **Ordered**
+    1. ol List 0
+    2. ol List 0
+    3. ol List 0
+        1. ol List 1
+            1. ol List 2
+                1. ol List 3
+                    1. ol List 4
+- **Unordered**
+    - ul List 0
+    - ul List 0
+    - ul List 0
+        - ul List 1
+            - ul List 2
+                - ul List 3
+                    - ul List 4
+- **Mixed**
+    - ul List 0
+    - ul List 0
+    - ul List 0
+        1. ol List 1
+        1. ol List 1
+        1. ol List 1
+            - ul List 2
+            - ul List 2
+            - ul List 2
+                1. ol List 3
+                    - ul List 4
+- **Task**
+    - [ ] Item 1
+    - [x] Item 2
+
+### Table
 
 | Title | Title |
 | - | - |
@@ -140,74 +185,43 @@ H2
 | Value | Value |
 | Value | Value |
 
-## List
+### Code Block
 
-- ### Ordered List
-    1. ol List 0
-    2. ol List 0
-    3. ol List 0
-        1. ol List 1
-            1. ol List 2
-                1. ol List 3
-                    1. ol List 4
-- ### Unordered List
-    - ul List 0
-    - ul List 0
-    - ul List 0
-        - ul List 1
-            - ul List 2
-                - ul List 3
-                    - ul List 4
-- ### Mixed List
-    - ul List 0
-    - ul List 0
-    - ul List 0
-        1. ol List 1
-        1. ol List 1
-        1. ol List 1
-            - ul List 2
-            - ul List 2
-            - ul List 2
-                1. ol List 3
-                    - ul List 4
-
-## Code Block
-
-- ### inline: 
+- **Code inline** 
     `#Code-1`
-- ### Block: 
+- **Code block** 
     ```
     #Code-2
     #Code-2
     #Code-2
     ```
-- ### Block by Space*4: 
-    [Not supported on GitHub, please preview [Here](https://pardnchiu.github.io/PDMarkdownKit)]
+- <b>Code block by Space*4</b><br>
+    
+    #Code-3
+    #Code-3
+    #Code-3
 
-## Link
 
-- ### Link-1 https://github.com/pardnchiu/PDMarkdownKit/
-- ### [Link-2](https://github.com/pardnchiu/PDMarkdownKit/)
-- ### [Link-3](https://github.com/pardnchiu/PDMarkdownKit/ "Github")
+### Blockquote
 
-## Image
+> Blockquote 1
+>
+>> Blockquote 2
+>>> Blockquote 3
 
-- ### Image-1 
-    ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)
-- ### Image-2 
-    ![名稱](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)
-- ### Image-3 
-    ![名稱](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit "標題")
-- ### Image-4 (width: 50%, height: 360)
-    [Not supported on GitHub, please preview [Here](https://pardnchiu.github.io/PDMarkdownKit)]
-- ### Image + Link 
-    [![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)](https://github.com/pardnchiu/PDMarkdownKit)
-- ### Video
-    [Not supported on GitHub, please preview [Here](https://pardnchiu.github.io/PDMarkdownKit)]
+### Horizontal Lines
 
-## Hashtag
+`---`
 
-[Not supported on GitHub, please preview [Here](https://pardnchiu.github.io/PDMarkdownKit)]
+---
+
+`***`
+
+***
+
+### Hashtag
+
+#test1 #test2 #test3
 
 ## Shortcut Keys
 
@@ -228,9 +242,18 @@ H2
 - Disabled
     - Refresh: `cmd/ctrl` + `r` or `F5`
 
-***
 
-*All translations powered by ChatGPT*
+## Creator
+
+<img src="https://avatars.githubusercontent.com/u/25631760" align="left" width="96" height="96" style="margin-right: 0.5rem;" />
+
+<h4 style="padding-top: 0">邱敬幃 Pardn Chiu</h4>
+
+[![](https://pardn.io/image/mail.svg)](mailto:dev@pardn.io) [![](https://skillicons.dev/icons?i=linkedin)](https://linkedin.com/in/pardnchiu) 
+
+## License
+
+This source code project is licensed under the [GPL-3.0](https://github.com/pardnchiu/PDMarkdownKit/blob/main/LICENSE) license.
 
 ***
 
