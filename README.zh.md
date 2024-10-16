@@ -3,7 +3,7 @@
 > 一款輕量化 Markdown 編輯器，提供方便導入網站的編輯與顯示模組，與支持即時編輯和預覽內容。
 
 ![](https://img.shields.io/badge/tag-JavaScript%20Library-bb4444) ![](https://img.shields.io/github/license/pardnchiu/PDMarkdownKit?color=44bb44) ![](https://img.shields.io/badge/creator-邱敬幃-4444bb)<br>
-![](https://img.shields.io/github/v/release/pardnchiu/PDMarkdownKit?color=bbbb44) ![](https://img.shields.io/npm/v/pdmarkdownkit?color=44bbbb) ![](https://img.shields.io/github/size/pardnchiu/PDMarkdownKit/dist/PDMarkdownKit.js?color=bb44bb)<br>
+[![](https://img.shields.io/github/v/release/pardnchiu/PDMarkdownKit?color=bbbb44)](https://github.com/pardnchiu/PDMarkdownKit) [![](https://img.shields.io/npm/v/pdmarkdownkit?color=44bbbb)](https://www.npmjs.com/package/pdmarkdownkit) ![](https://img.shields.io/github/size/pardnchiu/PDMarkdownKit/dist/PDMarkdownKit.js?color=bb44bb)<br>
 [![](https://img.shields.io/badge/read-English%20Version-ffffff)](https://github.com/pardnchiu/PDMarkdownKit/blob/main/README.md)
 
 ## 特點
