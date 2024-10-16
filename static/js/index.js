@@ -299,22 +299,18 @@ document.addEventListener("DOMContentLoaded", async _ => {
     };
 
     const elm_editor = new editor({
-        id: "",                             // 預設 PDMDEditor
-        placeholder: "Content",             // 預設 Type here ..
-        placeholderColor: "#ff000080",      // 預設 #0000ff1a
-        focusBackgroundColor: "#ff00001a",  // 預設 #0000ffff
-        focusTextColor: "#ff0000",          // 預設 bfbfbf
-        fillMode: 1                         // 填滿模式，隨著父元素的大小變化，預設 1
+        placeholder: "Content",
+        placeholderColor: "#ff000080",
+        focusBackgroundColor: "#ff00001a",
+        focusTextColor: "#ff0000",
+        showRow: 0,
     });
     const elm_viewer = new viewer({
-        id: "",                 // 預設 PDMDViewer
-        pre: "",                // 預設內容。當 PDEditor 為空時顯示
-        delay: 50,              // 預設 300ms，最低只能 1
-        editor: elm_editor,     // 連結 PDEditor
-        scrollSync: 1,          // 是否跟著 PDEditor 一起滑動
-        tagPath: "?keyword=",   // Hashtag 指向，需設定才會偵測 Hashtag
-        tagTarget: "_blank",    // 開啟 Hashtag 方式，預設為 _blank
-        fillMode: 1             // 填滿模式，隨著父元素的大小變化，預設 1
+        delay: 50,
+        editor: elm_editor,
+        scrollSync: 1,
+        tagPath: "?keyword=",
+        tagTarget: "_blank"
     });
 
     _child([

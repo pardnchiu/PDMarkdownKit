@@ -1,6 +1,6 @@
 # PDMarkdownKit (JavaScript)
 
-> 一款基於 JavaScript 的輕量級 Markdown 編輯器，提供方便導入網站的模組，與支持即時編輯和預覽 Markdown 內容
+> 一款輕量化 Markdown 編輯器，提供方便導入網站的編輯與顯示模組，與支持即時編輯和預覽內容。
 
 ![](https://img.shields.io/badge/tag-JavaScript%20Library-bb4444) ![](https://img.shields.io/github/license/pardnchiu/PDMarkdownKit?color=44bb44) ![](https://img.shields.io/badge/creator-邱敬幃-4444bb)<br>
 ![](https://img.shields.io/github/v/release/pardnchiu/PDMarkdownKit?color=bbbb44) ![](https://img.shields.io/npm/v/pdmarkdownkit?color=44bbbb) ![](https://img.shields.io/github/size/pardnchiu/PDMarkdownKit/dist/PDMarkdownKit.js?color=bb44bb)<br>
@@ -8,13 +8,14 @@
 
 ## 特點
 
-- 提供獨立的編輯器與預覽器模組，支持即時預覽和滾動同步
-- 支持完整的 Markdown 語法，包括標題、粗體、斜體、連結、圖片、代碼區塊等
-- 提供撤銷與重做功能，支持 Markdown 和 HTML 格式的檔案匯入與匯出
-- 使用 [PDRenderKit](https://github.com/pardnchiu/PDRenderKit) 進行渲染，保證渲染效果與效率
-- 集成 [Font Awesome 6](https://fontawesome.com/v6/search) 圖示，豐富 UI 表現
-- 依賴 [code-prettify](https://github.com/googlearchive/code-prettify) 進行代碼語法高亮
-- 點擊這裡進行 [預覽](https://pardnchiu.github.io/PDMarkdownKit)。
+- 提供獨立的編輯與顯示模組，支持即時預覽和滾動同步。
+- 支持標準的 Markdown 語法，包括標題、粗體、斜體、連結、圖片、代碼區塊等。
+- 擴展功能如增加上下標語法，調整圖片大小、對齊，以偵測 Youtube 連結與影片插入。
+- 提供撤銷與重做功能，以及多項快捷鍵，並支持 Markdown 和 HTML 格式的檔案匯入與匯出。
+- 使用 [PDRenderKit](https://github.com/pardnchiu/PDRenderKit) 輕量化前端框架進行渲染。
+- 集成 [Font Awesome 6](https://fontawesome.com/v6/search) 圖示。
+- 依賴 [code-prettify](https://github.com/googlearchive/code-prettify) 進行代碼語法高亮。
+- 點擊這裡 [預覽](https://pardnchiu.github.io/PDMarkdownKit)。
 
 ## 安裝方式
 
@@ -38,6 +39,7 @@
     import { editor,  iewer } from "https://cdn.jsdelivr.net/gh/pardnchiu/PDMarkdownKit@[VERSION]/dist/PDMarkdownKit.js";
 
     const elm_editor = new editor({
+        mode: "",                           // auto | light | dark, 預設： auto
         id: "",                             // 預設：PDMDEditor
         placeholder: "Content",             // 預設：Type here ...
         placeholderColor: "#ff000080",      // 預設：#0000ff1a
@@ -45,10 +47,12 @@
         focusTextColor: "#ff0000",          // 預設：#bfbfbf
         showRow: 1,                         // 顯示行數，預設：1
         fillMode: 1,                        // 隨父元素大小調整，預設值：1
-        preventRefresh: 0                   // 防止頁面重整，預設值：0
+        preventRefresh: 0,                  // 防止頁面重整，預設值：0
+        fontFamily: ""                      // 預設：'Noto Sans TC', sans-serif
     });
 
     const elm_viewer = new viewer({
+        mode: "",               // auto | light | dark, 預設： auto
         id: "",                 // 預設：PDMDViewer
         pre: "",                // 預設內容，當編輯器為空時顯示
         delay: 50,              // 更新延遲，預設 300ms，最小 1ms
@@ -56,7 +60,8 @@
         scrollSync: 1,          // 與編輯器同步滾動
         tagPath: "?keyword=",   // 標籤路徑，用於檢測標籤
         tagTarget: "_blank",    // 標籤打開方式，預設 _blank
-        fillMode: 1             // 隨父元素大小調整，預設值：1
+        fillMode: 1,            // 隨父元素大小調整，預設值：1
+        fontFamily: ""          // 預設：'Noto Sans TC', sans-serif
     });
 
     // 將元素添加到 DOM 中
@@ -103,14 +108,18 @@
     - 純連結<br>
         `https://github.com/pardnchiu/PDMarkdownKit/`
         https://github.com/pardnchiu/PDMarkdownKit/
-    - 連結搭配自訂文字`[顯示文字](https://github.com/pardnchiu/PDMarkdownKit/)`
+    - 連結搭配自訂文字<br>
+        `[顯示文字](https://github.com/pardnchiu/PDMarkdownKit/)`
         [顯示文字](https://github.com/pardnchiu/PDMarkdownKit/)
-    - 連結搭配自訂標題`[顯示文字](https://github.com/pardnchiu/PDMarkdownKit/ "連結標題")`
+    - 連結搭配自訂標題<br>
+        `[顯示文字](https://github.com/pardnchiu/PDMarkdownKit/ "連結標題")`
         [顯示文字](https://github.com/pardnchiu/PDMarkdownKit/ "連結標題")
 - **連結擴展**
     - 自動偵測 Youtube 影片<br>
         `https://www.youtube.com/watch?v=zJ_w7Dix_f0`
         https://www.youtube.com/watch?v=zJ_w7Dix_f0
+        `[Display text](https://www.youtube.com/watch?v=zJ_w7Dix_f0)`
+        [Display text](https://www.youtube.com/watch?v=zJ_w7Dix_f0)
 
 ### 圖片
 
@@ -250,7 +259,7 @@
 
 ## 授權條款
 
-本專案依據 [GPL-3.0](https://github.com/pardnchiu/PDMarkdownKit/blob/main/LICENSE) 授權使用。
+本專案依據 [MIT](https://github.com/pardnchiu/PDMarkdownKit/blob/main/LICENSE) 授權使用。
 
 ***
 

@@ -3,13 +3,13 @@
 > A lightweight Markdown editor based on JavaScript, providing a convenient module for website integration, supporting real-time editing and preview of Markdown content.
 
 ![](https://img.shields.io/badge/tag-JavaScript%20Library-bb4444) ![](https://img.shields.io/github/license/pardnchiu/PDMarkdownKit?color=44bb44) ![](https://img.shields.io/badge/creator-邱敬幃-4444bb)<br>
-![](https://img.shields.io/github/v/release/pardnchiu/PDMarkdownKit?color=bbbb44) ![](https://img.shields.io/npm/v/pdmarkdownkit?color=44bbbb) ![](https://img.shields.io/github/size/pardnchiu/PDMarkdownKit/dist/PDMarkdownKit.js?color=bb44bb)<br>
+[![](https://img.shields.io/github/v/release/pardnchiu/PDMarkdownKit?color=bbbb44)](https://github.com/pardnchiu/PDMarkdownKit) [![](https://img.shields.io/npm/v/pdmarkdownkit?color=44bbbb)](https://www.npmjs.com/package/pdmarkdownkit) ![](https://img.shields.io/github/size/pardnchiu/PDMarkdownKit/dist/PDMarkdownKit.js?color=bb44bb)<br>
 [![](https://img.shields.io/badge/點擊查看-中文版本-ffffff)](https://github.com/pardnchiu/PDMarkdownKit/blob/main/README.zh.md)
 
 ## Features
 
 - Provides independent editor and viewer modules, supporting real-time preview and scroll synchronization
-- Supports complete Markdown syntax, including headings, bold, italic, links, images, code blocks, etc.
+- Supports standard Markdown syntax, including headings, bold, italic, links, images, code blocks, etc.
 - Provides undo and redo functionality, supports import and export of Markdown and HTML format files
 - Uses [PDRenderKit](https://github.com/pardnchiu/PDRenderKit) for rendering, ensuring rendering effect and efficiency
 - Integrates [Font Awesome 6](https://fontawesome.com/v6/search) icons, enriching UI presentation
@@ -38,6 +38,7 @@
     import { editor,  iewer } from "https://cdn.jsdelivr.net/gh/pardnchiu/PDMarkdownKit@[VERSION]/dist/PDMarkdownKit.js";
 
      const elm_editor = new editor({
+        mode: "",                           // auto | light | dark, Default: auto
         id: "",                             // Default: PDMDEditor
         placeholder: "Content",             // Default: Type here ...
         placeholderColor: "#ff000080",      // Default: #0000ff1a
@@ -45,10 +46,12 @@
         focusTextColor: "#ff0000",          // Default: #bfbfbf
         showRow: 1,                         // Show line numbers, Default: 1
         fillMode: 1,                        // Adjust with parent element size, Default: 1
-        preventRefresh: 0                   // Prevent page refresh, Default: 0
+        preventRefresh: 0,                  // Prevent page refresh, Default: 0
+        fontFamily: ""                      // Default: 'Noto Sans TC', sans-serif
     });
 
      const elm_viewer = new viewer({
+        mode: "",               // auto | light | dark, Default: auto
         id: "",                 // Default: PDMDViewer
         pre: "",                // Default content, shown when editor is empty
         delay: 50,              // Update delay, Default 300ms, Minimum 1ms
@@ -56,7 +59,8 @@
         scrollSync: 1,          // Sync scroll with editor
         tagPath: "?keyword=",   // Tag path, used for tag detection
         tagTarget: "_blank",    // Tag opening method, Default _blank
-        fillMode: 1             // Adjust with parent element size, Default: 1
+        fillMode: 1,            // Adjust with parent element size, Default: 1
+        fontFamily: ""          // Default: 'Noto Sans TC', sans-serif
     });
 
     // Add elements to DOM
@@ -103,15 +107,16 @@ Supports standard Markdown syntax, including fonts, links, images, lists, tables
     - Link<br>
         `https://github.com/pardnchiu/PDMarkdownKit/`
         https://github.com/pardnchiu/PDMarkdownKit/
-    - Link with custom text`[Display text](https://github.com/pardnchiu/PDMarkdownKit/)`
+    - Link with custom text<br>
+        `[Display text](https://github.com/pardnchiu/PDMarkdownKit/)`
         [Display text](https://github.com/pardnchiu/PDMarkdownKit/)
-    - Link with title`[Display text](https://github.com/pardnchiu/PDMarkdownKit/ "Link title")`
+    - Link with title<br>
+        `[Display text](https://github.com/pardnchiu/PDMarkdownKit/ "Link title")`
         [Display text](https://github.com/pardnchiu/PDMarkdownKit/ "Link title")
 - **Extension**
     - Auto-detect YouTube videos<br>
         `https://www.youtube.com/watch?v=zJ_w7Dix_f0`
         https://www.youtube.com/watch?v=zJ_w7Dix_f0
-    - Auto-detect YouTube videos<br>
         `[Display text](https://www.youtube.com/watch?v=zJ_w7Dix_f0)`
         [Display text](https://www.youtube.com/watch?v=zJ_w7Dix_f0)
 
@@ -253,7 +258,7 @@ Supports standard Markdown syntax, including fonts, links, images, lists, tables
 
 ## License
 
-This source code project is licensed under the [GPL-3.0](https://github.com/pardnchiu/PDMarkdownKit/blob/main/LICENSE) license.
+This source code project is licensed under the [MIT](https://github.com/pardnchiu/PDMarkdownKit/blob/main/LICENSE) license.
 
 ***
 
