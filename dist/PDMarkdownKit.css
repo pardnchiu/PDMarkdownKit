@@ -300,6 +300,7 @@
 }
 
 .pd-md-viewer section.more {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -322,6 +323,7 @@
 }
 
 .pd-md-viewer section.more img.icon {
+    z-index: 1;
     width: 60px;
     height: 60px;
     cursor: pointer;

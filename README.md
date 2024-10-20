@@ -81,8 +81,8 @@ Supports standard Markdown syntax, including fonts, links, images, lists, tables
 - **Standard**
     | Syntax | Output |
     | - | - |
-    | `# H1`<br>`<h1>H1</h1>`<br>`H1\n===`  | <h1>H1</h1> |
-    | `## H2`<br>`<h2>H2</h2>`<br>`H2\n---` | <h2>H2</h2> |
+    | `# H1`<br>`H1\n===`<br>`<h1>H1</h1>`  | <h1>H1</h1> |
+    | `## H2`<br>`H2\n---`<br>`<h2>H2</h2>` | <h2>H2</h2> |
     | `### H3`<br>`<h3>H3</h3>` | <h3>H3</h3> |
     | `#### H4`<br>`<h4>H4</h4>` | <h4>H4</h4> |
     | `##### H5`<br>`<h5>H5</h5>` | <h5>H5</h5> |
