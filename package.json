@@ -1,6 +1,6 @@
 {
     "name": "pdmarkdownkit",
-    "version": "1.3.2",
+    "version": "1.3.3",
     "description": "PDMarkdownKit is a lightweight Markdown editor and viewer library based on JavaScript. It offers rich features to edit and preview Markdown content in real-time.",
     "main": "dist/PDMarkdownKit.js",
     "scripts": {
