@@ -239,19 +239,19 @@
 
 - 引用擴展語法
 
-> (!NOTE)
+> [!NOTE]
 > 這是NOTE
 
-> (!TIP)
+> [!TIP]
 > 這是TIP
 
-> (!IMPORTANT)
+> [!IMPORTANT]
 > 這是NOTE
 
-> (!WARNING)
+> [!WARNING]
 > 這是NOTE
 
-> (!CAUTION)
+> [!CAUTION]
 > 這是CAUTION
 
 ### 水平線
