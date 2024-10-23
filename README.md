@@ -1,85 +1,86 @@
 # PDMarkdownKit (JavaScript)
 
-> A lightweight Markdown editor based on JavaScript, providing a convenient module for website integration, supporting real-time editing and preview of Markdown content.
+> 一款輕量化 Markdown 編輯器，提供方便導入網站的編輯與顯示模組，與支持即時編輯和預覽內容。
 
 ![](https://img.shields.io/badge/tag-JavaScript%20Library-bb4444) ![](https://img.shields.io/github/license/pardnchiu/PDMarkdownKit?color=44bb44) ![](https://img.shields.io/badge/creator-邱敬幃-4444bb)<br>
 [![](https://img.shields.io/github/v/release/pardnchiu/PDMarkdownKit?color=bbbb44)](https://github.com/pardnchiu/PDMarkdownKit) [![](https://img.shields.io/npm/v/pdmarkdownkit?color=44bbbb)](https://www.npmjs.com/package/pdmarkdownkit) ![](https://img.shields.io/github/size/pardnchiu/PDMarkdownKit/dist/PDMarkdownKit.js?color=bb44bb)<br>
-[![](https://img.shields.io/badge/點擊查看-中文版本-ffffff)](https://github.com/pardnchiu/PDMarkdownKit/blob/main/README.zh.md)
+[![](https://img.shields.io/badge/read-English%20Version-ffffff)](https://github.com/pardnchiu/PDMarkdownKit/blob/main/README.en.md)
 
-## Features
+## 特點
 
-- Provides independent editor and viewer modules, supporting real-time preview and scroll synchronization
-- Supports standard Markdown syntax, including headings, bold, italic, links, images, code blocks, etc.
-- Provides undo and redo functionality, supports import and export of Markdown and HTML format files
-- Uses [PDRenderKit](https://github.com/pardnchiu/PDRenderKit) for rendering, ensuring rendering effect and efficiency
-- Integrates [Font Awesome 6](https://fontawesome.com/v6/search) icons, enriching UI presentation
-- Relies on [code-prettify](https://github.com/googlearchive/code-prettify) for code syntax highlighting
-- Click here for [preview](https://pardnchiu.github.io/PDMarkdownKit).
+- 提供獨立的編輯與顯示模組，支持即時預覽和滾動同步。
+- 支持標準的 Markdown 語法，包括標題、粗體、斜體、連結、圖片、代碼區塊等。
+- 擴展功能如增加上下標語法，調整圖片大小、對齊，以偵測 Youtube 連結與影片插入。
+- 提供撤銷與重做功能，以及多項快捷鍵，並支持 Markdown 和 HTML 格式的檔案匯入與匯出。
+- 使用 [PDRenderKit](https://github.com/pardnchiu/PDRenderKit) 輕量化前端框架進行渲染。
+- 集成 [Font Awesome 6](https://fontawesome.com/v6/search) 圖示。
+- 依賴 [code-prettify](https://github.com/googlearchive/code-prettify) 進行代碼語法高亮。
+- 點擊這裡 [預覽](https://pardnchiu.github.io/PDMarkdownKit)。
 
-## Installation
+## 安裝方式
 
-- **Install from npm**
+- **從 npm 安裝**
     ```Shell
     npm i pdmarkdownkit
     ```
-- **Import from CDN**
+- **從 CDN 引入**
     ```Javascript
     import { editor,  iewer } from "https://cdn.jsdelivr.net/gh/pardnchiu/PDMarkdownKit@[VERSION]/dist/PDMarkdownKit.js";
     ```
 
-## How to use
+## 使用方法
 
-- **Import `PDRenderKit` dependency**
+- **引入 `PDRenderKit` 依賴**
     ```Html
     <script src="https://cdn.jsdelivr.net/gh/pardnchiu/PDRenderKit@[VERSION]/dist/PDRenderKit.js" copyright="Pardn Ltd"></script>
     ```
-- **Initialize `editor` and `viewer`**
+- **初始化 `editor` 和 `viewer`**
     ```Javascript
     import { editor,  iewer } from "https://cdn.jsdelivr.net/gh/pardnchiu/PDMarkdownKit@[VERSION]/dist/PDMarkdownKit.js";
 
-     const elm_editor = new editor({
-        mode: "",                           // auto | light | dark, Default: auto
-        id: "",                             // Default: PDMDEditor
-        placeholder: "Content",             // Default: Type here ...
-        placeholderColor: "#ff000080",      // Default: #0000ff1a
-        focusBackgroundColor: "#ff00001a",  // Default: #0000ffff
-        focusTextColor: "#ff0000",          // Default: #bfbfbf
-        showRow: 1,                         // Show line numbers, Default: 1
-        fillMode: 1,                        // Adjust with parent element size, Default: 1
-        preventRefresh: 0,                  // Prevent page refresh, Default: 0
-        fontFamily: ""                      // Default: 'Noto Sans TC', sans-serif
+    const elm_editor = new editor({
+        mode: "",                           // auto | light | dark, 預設： auto
+        id: "",                             // 預設：PDMDEditor
+        placeholder: "Content",             // 預設：Type here ...
+        placeholderColor: "#ff000080",      // 預設：#0000ff1a
+        focusBackgroundColor: "#ff00001a",  // 預設：#0000ffff
+        focusTextColor: "#ff0000",          // 預設：#bfbfbf
+        showRow: 1,                         // 顯示行數，預設：1
+        fillMode: 1,                        // 隨父元素大小調整，預設值：1
+        preventRefresh: 0,                  // 防止頁面重整，預設值：0
+        fontFamily: ""                      // 預設：'Noto Sans TC', sans-serif
     });
 
-     const elm_viewer = new viewer({
-        mode: "",               // auto | light | dark, Default: auto
-        id: "",                 // Default: PDMDViewer
-        pre: "",                // Default content, shown when editor is empty
-        delay: 50,              // Update delay, Default 300ms, Minimum 1ms
-        editor: elm_editor,     // Associated editor
-        scrollSync: 1,          // Sync scroll with editor
-        tagPath: "?keyword=",   // Tag path, used for tag detection
-        tagTarget: "_blank",    // Tag opening method, Default _blank
-        fillMode: 1,            // Adjust with parent element size, Default: 1
-        fontFamily: ""          // Default: 'Noto Sans TC', sans-serif
+    const elm_viewer = new viewer({
+        mode: "",               // auto | light | dark, 預設： auto
+        id: "",                 // 預設：PDMDViewer
+        pre: "",                // 預設內容，當編輯器為空時顯示
+        delay: 50,              // 更新延遲，預設 300ms，最小 1ms
+        editor: elm_editor,     // 關聯的編輯器
+        scrollSync: 1,          // 與編輯器同步滾動
+        tagPath: "?keyword=",   // 標籤路徑，用於檢測標籤
+        tagTarget: "_blank",    // 標籤打開方式，預設 _blank
+        fillMode: 1,            // 隨父元素大小調整，預設值：1
+        fontFamily: ""          // 預設：'Noto Sans TC', sans-serif
     });
 
-    // Add elements to DOM
+    // 將元素添加到 DOM 中
     {DOM}.appendChild(elm_editor.body);
     {DOM}.appendChild(elm_viewer.body);
 
-    // Initialize editor and viewer
+    // 初始化編輯器和預覽器
     elm_editor.init(pre: string);
     elm_viewer.init(pre: string);
     ```
 
-## Markdown Syntax
+## Markdown 語法支持
 
-Supports standard Markdown syntax, including fonts, links, images, lists, tables, code blocks, and quotes. Additionally, it includes extended syntax features to enhance functionality.
+支持標準 Markdown 語法，包括字體、連結、圖片、列表、表格、代碼塊和引用等。此外，還包含擴展語法功能以增強功能性。
 
-### Font style
+### 字體
 
-- **Standard**
-    | Syntax | Output |
+- **字體標準語法**
+    | 語法 | 輸出 |
     | - | - |
     | `# H1`<br>`H1\n===`<br>`<h1>H1</h1>`  | <h1>H1</h1> |
     | `## H2`<br>`H2\n---`<br>`<h2>H2</h2>` | <h2>H2</h2> |
@@ -87,134 +88,154 @@ Supports standard Markdown syntax, including fonts, links, images, lists, tables
     | `#### H4`<br>`<h4>H4</h4>` | <h4>H4</h4> |
     | `##### H5`<br>`<h5>H5</h5>` | <h5>H5</h5> |
     | `###### H6`<br>`<h6>H6</h6>` | <h6>H6</h6> |
-    | `**Bold**`<br>`__Bold__`<br>`<b>Bold</b>`<br>`<strong>Bold</strong>` | <b>Bold</b> |
-    | `*Italic*`<br>`_Italic_`<br>`<i>Italic</i>`<br>`<em>Italic</em>` | <i>Italic</i> |
-    | `~~Strikethrough~~`<br>`<s>Strikethrough</s>` | <s>Strikethrough</s> |
-    | `<u>Underline</u>` | <u>Underline</u> |
-    | `<mark>Mark</mark>` | <mark>Mark</mark> |
+    | `**粗體**`<br>`__粗體__`<br>`<b>粗體</b>`<br>`<strong>粗體</strong>` | <b>粗體</b> |
+    | `*斜體*`<br>`_斜體_`<br>`<i>斜體</i>`<br>`<em>斜體</em>` | <i>斜體</i> |
+    | `~~刪除線~~`<br>`<s>刪除線</s>` | <s>刪除線</s> |
+    | `<u>下劃線</u>` | <u>下劃線</u> |
+    | `<mark>標記</mark>` | <mark>標記</mark> |
     | `x<sup>2</sup>` | x<sup>2</sup> |
     | `H<sub>2</sub>O` | H<sub>2</sub>O |
-- **Extension**
-    | Syntax | Output |
+- **字體擴展**
+    | 語法 | 輸出 |
     | - | - |
-    | `==Mark==` | ==Mark== |
+    | `==標記==` | ==標記== |
     | `x^2^` | x^2^ |
     | `H~2~O` | H~2~O |
 
-### Link
+### 連結
 
-- **Standard**
-    - Link<br>
+- **連結標準語法**
+    - 純連結<br>
         `https://github.com/pardnchiu/PDMarkdownKit/`
         https://github.com/pardnchiu/PDMarkdownKit/
-    - Link with custom text<br>
-        `[Display text](https://github.com/pardnchiu/PDMarkdownKit/)`
-        [Display text](https://github.com/pardnchiu/PDMarkdownKit/)
-    - Link with title<br>
-        `[Display text](https://github.com/pardnchiu/PDMarkdownKit/ "Link title")`
-        [Display text](https://github.com/pardnchiu/PDMarkdownKit/ "Link title")
-- **Extension**
-    - Auto-detect YouTube videos<br>
+    - 連結搭配自訂文字<br>
+        `[顯示文字](https://github.com/pardnchiu/PDMarkdownKit/)`
+        [顯示文字](https://github.com/pardnchiu/PDMarkdownKit/)
+    - 連結搭配自訂標題<br>
+        `[顯示文字](https://github.com/pardnchiu/PDMarkdownKit/ "連結標題")`
+        [顯示文字](https://github.com/pardnchiu/PDMarkdownKit/ "連結標題")
+- **連結擴展**
+    - 自動偵測 Youtube 影片<br>
         `https://www.youtube.com/watch?v=zJ_w7Dix_f0`
         https://www.youtube.com/watch?v=zJ_w7Dix_f0
         `[Display text](https://www.youtube.com/watch?v=zJ_w7Dix_f0)`
         [Display text](https://www.youtube.com/watch?v=zJ_w7Dix_f0)
 
-### Image
+### 圖片
 
-- **Standard**
-    - Image<br>
+- **圖片標準語法**
+    - 圖片<br>
         `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)`
         ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)
-    - Image with description<br>
-        `![Image description](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)`
-        ![Image description](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)
-    - Image with title<br>
-        `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit "Image title")`
-        ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit "Image title")
-    - Image with link<br>
+    - 圖片搭配描述<br>
+        `![圖片描述](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)`
+        ![圖片描述](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)
+    - 圖片搭配標題<br>
+        `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit "圖片標題")`
+        ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit "圖片標題")
+    - 圖片搭配連結<br>
         `[![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)](https://github.com/pardnchiu/PDMarkdownKit)`
         [![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)](https://github.com/pardnchiu/PDMarkdownKit)
-- **Extension**
-    - Video<br>
+- **圖片擴展**
+    - 影片<br>
         ![](static/image/youtube.mov)
-    - Image with size<br>
+    - 圖片搭配尺寸<br>
         `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*360)`
         ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*360)
-    - Image with alignment<br>
+    - 圖片搭配<br>
         `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*240 left)`
         `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*240 right)`
         ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*240 left)
         ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*240 right)
 
-### List
+### 列表
 
-- **Ordered**
-    1. ol List 0
-    2. ol List 0
-    3. ol List 0
-        1. ol List 1
-            1. ol List 2
-                1. ol List 3
-                    1. ol List 4
-- **Unordered**
-    - ul List 0
-    - ul List 0
-    - ul List 0
-        - ul List 1
-            - ul List 2
-                - ul List 3
-                    - ul List 4
-- **Mixed**
-    - ul List 0
-    - ul List 0
-    - ul List 0
-        1. ol List 1
-        1. ol List 1
-        1. ol List 1
-            - ul List 2
-            - ul List 2
-            - ul List 2
-                1. ol List 3
-                    - ul List 4
-- **Task**
-    - [ ] Item 1
-    - [x] Item 2
 
-### Table
+<details>
+<summary><strong>有序列表</strong></summary>
 
-| Title | Title |
+1. ol List 0
+2. ol List 0
+3. ol List 0
+    1. ol List 1
+        1. ol List 2
+            1. ol List 3
+                1. ol List 4
+
+</details> 
+
+<details>
+<summary><strong>無序列表</strong></summary>
+
+- ul List 0
+- ul List 0
+- ul List 0
+    - ul List 1
+        - ul List 2
+            - ul List 3
+                - ul List 4
+
+</details> 
+
+<details>
+<summary><strong>混合列表</strong></summary>
+
+- ul List 0
+- ul List 0
+- ul List 0
+    1. ol List 1
+    1. ol List 1
+    1. ol List 1
+        - ul List 2
+        - ul List 2
+        - ul List 2
+            1. ol List 3
+                - ul List 4
+
+</details> 
+
+<details>
+<summary><strong>待辦事項</strong></summary>
+
+- [ ] 項目1
+- [x] 項目2
+
+</details> 
+
+### 表格
+
+| 標題 | 標題 |
 | - | - |
-| Value | Value |
-| Value | Value |
-| Value | Value |
-| Value | Value |
+| 值 | 值 |
+| 值 | 值 |
+| 值 | 值 |
+| 值 | 值 |
 
-### Code Block
+### 代碼塊
 
-- **Code inline** 
+- **單行** 
     `#Code-1`
-- **Code block** 
+- **多行** 
     ```
     #Code-2
     #Code-2
     #Code-2
     ```
-- <b>Code block by Space*4</b><br>
+- <b>空白鍵*4</b><br>
     
     #Code-3
     #Code-3
     #Code-3
 
 
-### Blockquote
+### 引用
 
-> Blockquote 1
+> 引用層 1
 >
->> Blockquote 2
->>> Blockquote 3
+>> 引用層 2
+>>> 引用層 3
 
-### Horizontal Lines
+### 水平線
 
 `---`
 
@@ -228,27 +249,27 @@ Supports standard Markdown syntax, including fonts, links, images, lists, tables
 
 #test1 #test2 #test3
 
-## Shortcut Keys
+## 快捷鍵
 
-- Supported
-    - Copy: `cmd/ctrl` + `c`
-    - Cut: `cmd/ctrl` + `x`
-    - Paste: `cmd/ctrl` + `v`
-    - Undo: `cmd/ctrl` + `z`
-    - Redo: `cmd/ctrl` + `shift` + `z`
-    - Bold: `cmd/ctrl` + `b`
-    - Italic: `cmd/ctrl` + `i`
-    - Strikethrough: `cmd/ctrl` + `s`
-    - Underline: `cmd/ctrl` + `u`
-    - Mark: `cmd/ctrl` + `m`
-    - Superscript: `cmd/ctrl` + `ArrowUp`
-    - Subscript: `cmd/ctrl` + `ArrowDown`
-    - Code block: `cmd/ctrl` + `k`
-- Disabled
-    - Refresh: `cmd/ctrl` + `r` or `F5`
+- 支持
+    - 複製: `cmd/ctrl` + `c`
+    - 剪下: `cmd/ctrl` + `x`
+    - 貼上: `cmd/ctrl` + `v`
+    - 撤銷: `cmd/ctrl` + `z`
+    - 重做: `cmd/ctrl` + `shift` + `z`
+    - 粗體: `cmd/ctrl` + `b`
+    - 斜體: `cmd/ctrl` + `i`
+    - 刪除線: `cmd/ctrl` + `s`
+    - 下劃線: `cmd/ctrl` + `u`
+    - 標記: `cmd/ctrl` + `m`
+    - 上標: `cmd/ctrl` + `ArrowUp`
+    - 下標: `cmd/ctrl` + `ArrowDown`
+    - 代碼塊k: `cmd/ctrl` + `k`
+- 禁用
+    - 重新整理: `cmd/ctrl` + `r` or `F5`
 
 
-## Creator
+## 開發者
 
 <img src="https://avatars.githubusercontent.com/u/25631760" align="left" width="96" height="96" style="margin-right: 0.5rem;" />
 
@@ -256,10 +277,12 @@ Supports standard Markdown syntax, including fonts, links, images, lists, tables
 
 [![](https://pardn.io/image/mail.svg)](mailto:dev@pardn.io) [![](https://skillicons.dev/icons?i=linkedin)](https://linkedin.com/in/pardnchiu) 
 
-## License
+## 授權條款
 
-This source code project is licensed under the [MIT](https://github.com/pardnchiu/PDMarkdownKit/blob/main/LICENSE) license.
+本專案依據 [MIT](https://github.com/pardnchiu/PDMarkdownKit/blob/main/LICENSE) 授權使用。
 
 ***
 
 ©️ 2023 [邱敬幃 Pardn Chiu](https://www.linkedin.com/in/pardnchiu)
+
+***

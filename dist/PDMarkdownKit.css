@@ -250,7 +250,9 @@
     font-weight: 700
 }
 
-.pd-md-viewer p {
+.pd-md-viewer p,
+.pd-md-viewer details,
+.pd-md-viewer details summary {
     line-height: 1.75rem;
     min-height: 1.75rem
 }
@@ -474,7 +476,7 @@
 
 .pd-md-viewer label {
     display: block;
-    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
 }
 
 .pd-md-viewer li label {
