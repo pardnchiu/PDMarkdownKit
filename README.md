@@ -230,10 +230,29 @@
 
 ### 引用
 
+- 引用標準語法
+
 > 引用層 1
 >
 >> 引用層 2
 >>> 引用層 3
+
+- 引用擴展語法
+
+> (!NOTE)
+> 這是NOTE
+
+> (!TIP)
+> 這是TIP
+
+> (!IMPORTANT)
+> 這是NOTE
+
+> (!WARNING)
+> 這是NOTE
+
+> (!CAUTION)
+> 這是CAUTION
 
 ### 水平線
 
