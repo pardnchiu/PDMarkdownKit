@@ -56,6 +56,8 @@
     min-height: 1.5rem;
     line-height: 1.5rem;
     letter-spacing: 1px;
+    word-break: break-word;
+    word-wrap: break-word;
     font-size: .875rem;
     margin: 0;
     transition: .3s
@@ -91,7 +93,6 @@
     padding: 0;
     flex-shrink: 0;
     line-height: 1.75rem;
-    min-height: 1.75rem;
     max-width: 100% !important;
     font-family: inherit;
     font-style: inherit;
@@ -244,7 +245,8 @@
 }
 
 .pd-md-viewer hr {
-    margin: .75rem 0 !important
+    margin: .75rem 0 !important;
+    height: 1px;
 }
 
 .pd-md-viewer b,
@@ -252,7 +254,13 @@
     font-weight: 700
 }
 
-.pd-md-viewer p,
+
+.pd-md-viewer p {
+    margin: 0.5rem 0;
+    line-height: 1.75rem;
+    min-height: 1.75rem
+}
+
 .pd-md-viewer details,
 .pd-md-viewer details summary {
     line-height: 1.75rem;
@@ -602,6 +610,10 @@
     background-color: #f7f7fa;
     border: 0.5px solid #0000000d;
     transition: .3s
+}
+
+.pd-md-viewer pre code li {
+    line-height: 1.75rem;
 }
 
 .pd-md-viewer pre code[name]:not([name=""]) {
