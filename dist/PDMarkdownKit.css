@@ -256,9 +256,18 @@
 
 
 .pd-md-viewer p {
-    margin: 0.5rem 0;
+    margin: 0.75rem 0;
     line-height: 1.75rem;
     min-height: 1.75rem
+}
+
+
+.pd-md-viewer details {
+    padding-left: 1rem;
+}
+
+.pd-md-viewer details summary {
+    margin-left: -1rem;
 }
 
 .pd-md-viewer details,
@@ -384,6 +393,7 @@
 }
 
 .pd-md-viewer table {
+    margin-top: 0.5rem;
     table-layout: fixed;
     border-collapse: collapse
 }

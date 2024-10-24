@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", async _ => {
         showRow: 0,
     });
     const elm_viewer = new viewer({
-        delay: 50,
+        delay: 1000,
         editor: elm_editor,
         scrollSync: 1,
         tagPath: "?keyword=",
