@@ -25,18 +25,18 @@
     ```
 - **從 CDN 引入**
     ```Javascript
-    import { editor,  iewer } from "https://cdn.jsdelivr.net/gh/pardnchiu/PDMarkdownKit@[VERSION]/dist/PDMarkdownKit.js";
+    import { editor,  iewer } from "https://cdn.jsdelivr.net/npm/pdmarkdownkit@[VERSION]/dist/PDMarkdownKit.min.js";
     ```
 
 ## 使用方法
 
 - **引入 `PDRenderKit` 依賴**
     ```Html
-    <script src="https://cdn.jsdelivr.net/gh/pardnchiu/PDRenderKit@[VERSION]/dist/PDRenderKit.js" copyright="Pardn Ltd"></script>
+    <script src="https://cdn.jsdelivr.net/npm/pdrenderkit@[VERSION]/dist/PDRenderKit.js" copyright="Pardn Ltd"></script>
     ```
 - **初始化 `editor` 和 `viewer`**
     ```Javascript
-    import { editor,  iewer } from "https://cdn.jsdelivr.net/gh/pardnchiu/PDMarkdownKit@[VERSION]/dist/PDMarkdownKit.js";
+    import { editor,  iewer } from "https://cdn.jsdelivr.net/npm/pdmarkdownkit@[VERSION]/dist/PDMarkdownKit.min.js";
 
     const elm_editor = new editor({
         mode: "",                           // auto | light | dark, 預設： auto

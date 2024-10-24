@@ -4,10 +4,47 @@
     flex-flow: column;
     justify-content: flex-start;
     align-items: flex-start;
-    gap: .5rem;
     margin: 0;
     padding: 1.5rem 0;
     overflow: hidden scroll
+}
+
+.pd-md-editor section.input-button {
+    z-index: 100;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    margin-left: 1rem;
+    margin-bottom: -1.75rem;
+    padding: 0 0.25rem;
+    max-width: calc(100% - 2rem);
+    font-family: serif;
+    background-color: #fff;
+    border-radius: 0.25rem;
+    box-shadow: 0 2px 6px #00000034;
+    opacity: 1;
+    transition: 0.2s;
+}
+
+.pd-md-editor section.input-button i {
+    flex-shrink: 0;
+    width: 1.5rem;
+    line-height: 1.75rem;
+    font-size: 0.75rem;
+    text-align: center;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+@media (hover: hover) {
+
+    .pd-md-editor section.input-button i:hover {
+        color: blue;
+    }
+}
+
+.pd-md-editor section.input-button[data-hide="1"] {
+    opacity: 0;
 }
 
 .pd-md-editor[data-fillMode="1"] {
@@ -83,7 +120,7 @@
     height: 100%
 }
 
-.pd-md-editor *:not(code) {
+.pd-md-editor *:not(code):not(i) {
     font-family: inherit;
 }
 
@@ -92,7 +129,6 @@
     margin: 0;
     padding: 0;
     flex-shrink: 0;
-    line-height: 1.75rem;
     max-width: 100% !important;
     font-family: inherit;
     font-style: inherit;
@@ -764,6 +800,11 @@
 .pd-md-editor[data-mode="dark"] *,
 .pd-md-viewer[data-mode="dark"] * {
     color: #fff;
+}
+
+.pd-md-editor[data-mode="dark"] section.input-button {
+    background-color: #000;
+    box-shadow: 0 2px 6px #ffffff34;
 }
 
 .pd-md-viewer[data-mode="dark"] mark {

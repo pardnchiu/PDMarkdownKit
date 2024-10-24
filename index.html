@@ -51,10 +51,12 @@
 
         <!-- Preload and Preconnect -->
         <link rel="preconnect" href="https://cdn.jsdelivr.net">
+        
         <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" as="style">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
-        <link rel="preload" href="https://cdn.jsdelivr.net/gh/pardnchiu/PDRenderKit@1.4.0/dist/PDRenderKit.js" as="script">
-        <script src="https://cdn.jsdelivr.net/gh/pardnchiu/PDRenderKit@1.4.0/dist/PDRenderKit.js" copyright="Pardn Ltd" defer></script>
+
+        <link rel="preload" href="https://cdn.jsdelivr.net/npm/pdrenderkit@1.5.2/dist/PDRenderKit.js" as="script">
+        <script src="https://cdn.jsdelivr.net/npm/pdrenderkit@1.5.2/dist/PDRenderKit.js" copyright="Pardn Ltd" ></script>
         <!-- <script src="./js/test.js" copyright="Pardn Ltd"></script> -->
 
         <!-- Local Resources -->
@@ -62,6 +64,16 @@
         <script src="./static/js/index.js" type="module"></script>
     </head>
 
-    <body class="preview"></body>
+    <body id="app" class="preview">
+        <section class="left"></section>
+        <section class="right"></section>
+        <section class="button">
+            <i class="fa-solid fa-circle-info" @click="click_info" title="關於項目"></i>
+            <i class="fa-brands fa-markdown" @click="click_markdown" title="下載 Markdown"></i>
+            <i class="fa-brands fa-html5" @click="click_html" title="下載 HTML"></i>
+            <i class="fa-regular fa-lightbulb" @click="click_mode" title="明暗模式"></i>
+            <i class="fa-solid fa-eye" @click="click_show" title="預覽頁面"></i>
+        </section>
+    </body>
 
 </html>
