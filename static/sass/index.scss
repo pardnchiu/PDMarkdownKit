@@ -55,7 +55,7 @@ body {
                 width: $_800;
             }
 
-            #PDMDEditor {
+            .pd-md-editor {
                 padding: $_12 0 50vh;
             }
         }
@@ -84,7 +84,7 @@ body {
                 width: calc(100% - $_800) !important;
             }
 
-            #PDMDViewer {
+            .pd-md-viewer {
                 padding: 0 1rem 50vh;
 
                 @media screen and (min-width: $_1024) {
@@ -157,7 +157,7 @@ body {
 
 
 // #md-preview b {
-// 	color: #000;
+//  color: #000;
 // }
 
 // #md-preview p,
@@ -173,30 +173,30 @@ body {
 // @import "./md-preview";
 @import "./pop";
 
-table,
-td {
-    position: relative;
-    padding: 0.5rem;
-    text-align: center;
-    border-collapse: collapse;
-    // border-radius: 0.25rem;
-    border: 1px solid rgba(0, 0, 0, 0.15);
-    overflow: hidden;
-    text-align: left;
+// table,
+// td {
+//     position: relative;
+//     padding: 0.5rem;
+//     text-align: center;
+//     border-collapse: collapse;
+//     // border-radius: 0.25rem;
+//     border: 1px solid rgba(0, 0, 0, 0.15);
+//     overflow: hidden;
+//     text-align: left;
 
-    img {
-        position: relative;
-        object-fit: cover;
-        max-width: 100%;
-    }
+//     img {
+//         position: relative;
+//         object-fit: cover;
+//         max-width: 100%;
+//     }
 
-    // &.left {
-    //   text-align: left;
-    // }
-    // &.right {
-    //   text-align: right;
-    // }
-}
+//     // &.left {
+//     //   text-align: left;
+//     // }
+//     // &.right {
+//     //   text-align: right;
+//     // }
+// }
 
 thead,
 tfoot {

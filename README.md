@@ -52,16 +52,20 @@
     });
 
     const elm_viewer = new viewer({
-        mode: "",               // auto | light | dark, 預設： auto
         id: "",                 // 預設：PDMDViewer
         pre: "",                // 預設內容，當編輯器為空時顯示
-        delay: 50,              // 更新延遲，預設 300ms，最小 1ms
         editor: elm_editor,     // 關聯的編輯器
-        scrollSync: 1,          // 與編輯器同步滾動
-        tagPath: "?keyword=",   // 標籤路徑，用於檢測標籤
-        tagTarget: "_blank",    // 標籤打開方式，預設 _blank
-        fillMode: 1,            // 隨父元素大小調整，預設值：1
-        fontFamily: ""          // 預設：'Noto Sans TC', sans-serif
+        config: {
+            mode: "",           // auto | light | dark, 預設： auto
+            fill: "",           // 隨父元素大小調整，預設值：1 | true
+            delay: 50,          // 更新延遲，單位ms，預設 300，最小 1
+            scrollSync: 1,      // 與編輯器同步滾動，預設值：0 | false
+            fontFamily: "",     // 預設：'Noto Sans TC', sans-serif
+        },
+        hashtag: {
+            path: "?keyword=",  // 標籤路徑，用於檢測 # 並轉換為Link
+            target: "_blank"    // 標籤打開方式，預設 _blank
+        }
     });
 
     // 將元素添加到 DOM 中
@@ -75,83 +79,113 @@
 
 ## Markdown 語法支持
 
-支持標準 Markdown 語法，包括字體、連結、圖片、列表、表格、代碼塊和引用等。此外，還包含擴展語法功能以增強功能性。
+支持標準 Markdown 語法，包括字體、連結、圖片、列表、表格、代碼塊和引用等。此外，還包含擴展功能以增強功能性。
 
 ### 字體
 
-- **字體標準語法**
-    | 語法 | 輸出 |
-    | - | - |
-    | `# H1`<br>`H1\n===`<br>`<h1>H1</h1>`  | <h1>H1</h1> |
-    | `## H2`<br>`H2\n---`<br>`<h2>H2</h2>` | <h2>H2</h2> |
-    | `### H3`<br>`<h3>H3</h3>` | <h3>H3</h3> |
-    | `#### H4`<br>`<h4>H4</h4>` | <h4>H4</h4> |
-    | `##### H5`<br>`<h5>H5</h5>` | <h5>H5</h5> |
-    | `###### H6`<br>`<h6>H6</h6>` | <h6>H6</h6> |
-    | `**粗體**`<br>`__粗體__`<br>`<b>粗體</b>`<br>`<strong>粗體</strong>` | <b>粗體</b> |
-    | `*斜體*`<br>`_斜體_`<br>`<i>斜體</i>`<br>`<em>斜體</em>` | <i>斜體</i> |
-    | `~~刪除線~~`<br>`<s>刪除線</s>` | <s>刪除線</s> |
-    | `<u>下劃線</u>` | <u>下劃線</u> |
-    | `<mark>標記</mark>` | <mark>標記</mark> |
-    | `x<sup>2</sup>` | x<sup>2</sup> |
-    | `H<sub>2</sub>O` | H<sub>2</sub>O |
-- **字體擴展**
-    | 語法 | 輸出 |
-    | - | - |
-    | `==標記==` | ==標記== |
-    | `x^2^` | x^2^ |
-    | `H~2~O` | H~2~O |
+<details open>
+<summary><strong>標準語法</strong></summary>
+
+| 語法 | 輸出 |
+| - | - |
+| `# H1`<br>`H1\n===`<br>`<h1>H1</h1>`  | <h1>H1</h1> |
+| `## H2`<br>`H2\n---`<br>`<h2>H2</h2>` | <h2>H2</h2> |
+| `### H3`<br>`<h3>H3</h3>` | <h3>H3</h3> |
+| `#### H4`<br>`<h4>H4</h4>` | <h4>H4</h4> |
+| `##### H5`<br>`<h5>H5</h5>` | <h5>H5</h5> |
+| `###### H6`<br>`<h6>H6</h6>` | <h6>H6</h6> |
+| `**粗體**`<br>`__粗體__`<br>`<b>粗體</b>`<br>`<strong>粗體</strong>` | <b>粗體</b> |
+| `*斜體*`<br>`_斜體_`<br>`<i>斜體</i>`<br>`<em>斜體</em>` | <i>斜體</i> |
+| `~~刪除線~~`<br>`<s>刪除線</s>` | <s>刪除線</s> |
+| `<u>下劃線</u>` | <u>下劃線</u> |
+| `<mark>標記</mark>` | <mark>標記</mark> |
+| `x<sup>2</sup>` | x<sup>2</sup> |
+| `H<sub>2</sub>O` | H<sub>2</sub>O |
+
+</details>
+
+<details open>
+<summary><strong>擴展</strong></summary>
+
+| 語法 | 輸出 |
+| - | - |
+| `==標記==` | ==標記== |
+| `x^2^` | x^2^ |
+| `H~2~O` | H~2~O |
+
+</details>
 
 ### 連結
 
-- **連結標準語法**
-    - 純連結<br>
-        `https://github.com/pardnchiu/PDMarkdownKit/`
-        https://github.com/pardnchiu/PDMarkdownKit/
-    - 連結搭配自訂文字<br>
-        `[顯示文字](https://github.com/pardnchiu/PDMarkdownKit/)`
-        [顯示文字](https://github.com/pardnchiu/PDMarkdownKit/)
-    - 連結搭配自訂標題<br>
-        `[顯示文字](https://github.com/pardnchiu/PDMarkdownKit/ "連結標題")`
-        [顯示文字](https://github.com/pardnchiu/PDMarkdownKit/ "連結標題")
-- **連結擴展**
-    - 自動偵測 Youtube 影片<br>
-        `https://www.youtube.com/watch?v=zJ_w7Dix_f0`
-        https://www.youtube.com/watch?v=zJ_w7Dix_f0
-        `[Display text](https://www.youtube.com/watch?v=zJ_w7Dix_f0)`
-        [Display text](https://www.youtube.com/watch?v=zJ_w7Dix_f0)
+<details open>
+<summary><strong>標準語法</strong></summary>
+
+- 純連結<br>
+    `https://github.com/pardnchiu/PDMarkdownKit/`
+    https://github.com/pardnchiu/PDMarkdownKit/
+- 連結搭配自訂文字<br>
+    `[顯示文字](https://github.com/pardnchiu/PDMarkdownKit/)`
+    [顯示文字](https://github.com/pardnchiu/PDMarkdownKit/)
+- 連結搭配自訂標題<br>
+    `[顯示文字](https://github.com/pardnchiu/PDMarkdownKit/ "連結標題")`
+    [顯示文字](https://github.com/pardnchiu/PDMarkdownKit/ "連結標題")
+
+</details>
+
+<details open>
+<summary><strong>擴展</strong></summary>
+
+- 自動偵測 Email<br>
+    dev@pardn.io
+- 自動偵測 Youtube 影片<br>
+    `https://www.youtube.com/watch?v=zJ_w7Dix_f0`
+    https://www.youtube.com/watch?v=zJ_w7Dix_f0
+    `[Display text](https://www.youtube.com/watch?v=zJ_w7Dix_f0)`
+    [Display text](https://www.youtube.com/watch?v=zJ_w7Dix_f0)
+
+</details>
 
 ### 圖片
 
-- **圖片標準語法**
-    - 圖片<br>
-        `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)`
-        ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)
-    - 圖片搭配描述<br>
-        `![圖片描述](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)`
-        ![圖片描述](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)
-    - 圖片搭配標題<br>
-        `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit "圖片標題")`
-        ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit "圖片標題")
-    - 圖片搭配連結<br>
-        `[![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)](https://github.com/pardnchiu/PDMarkdownKit)`
-        [![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)](https://github.com/pardnchiu/PDMarkdownKit)
-- **圖片擴展**
-    - 影片<br>
-        ![](static/image/youtube.mov)
-    - 圖片搭配尺寸<br>
-        `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*360)`
-        ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*360)
-    - 圖片搭配<br>
-        `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*240 left)`
-        `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*240 right)`
-        ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*240 left)
-        ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*240 right)
+<details open>
+<summary><strong>標準語法</strong></summary>
+
+- 圖片<br>
+    `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)`<br>
+    ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)
+- 圖片搭配描述<br>
+    `![圖片描述](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)`<br>
+    ![圖片描述](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)
+- 圖片搭配標題<br>
+    `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit "圖片標題")`<br>
+    ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit "圖片標題")
+- 圖片搭配連結<br>
+    `[![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)](https://github.com/pardnchiu/PDMarkdownKit)`<br>
+    [![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)](https://github.com/pardnchiu/PDMarkdownKit)
+
+</details>
+
+<details open>
+<summary><strong>擴展</strong></summary>
+
+- 影片<br>
+    `![](static/image/youtube.mov)`<br>
+    ![](static/image/youtube.mov)
+- 圖片搭配尺寸<br>
+    `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*360)`<br>
+    ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*360)
+- 圖片搭配<br>
+    `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*240 left)`<br>
+    `![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*240 right)`<br>
+    ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*240 left)
+    ![](https://opengraph.githubassets.com/1/pardnchiu/PDMarkdownKit)(50%*240 right)
+
+</details>
 
 ### 列表
 
 
-<details>
+<details open>
 <summary><strong>有序列表</strong></summary>
 
 1. ol List 0
@@ -164,7 +198,7 @@
 
 </details> 
 
-<details>
+<details open>
 <summary><strong>無序列表</strong></summary>
 
 - ul List 0
@@ -177,7 +211,7 @@
 
 </details> 
 
-<details>
+<details open>
 <summary><strong>混合列表</strong></summary>
 
 - ul List 0
@@ -194,50 +228,58 @@
 
 </details> 
 
-<details>
+<details open>
 <summary><strong>待辦事項</strong></summary>
 
 - [ ] 項目1
 - [x] 項目2
+    - [ ] 項目1
+    - [x] 項目2
 
 </details> 
 
-### 表格
-
-| 標題 | 標題 |
-| - | - |
-| 值 | 值 |
-| 值 | 值 |
-| 值 | 值 |
-| 值 | 值 |
-
 ### 代碼塊
 
-- **單行** 
+<details open>
+<summary><strong>標準語法</strong></summary>
+
+- 單行 
     `#Code-1`
-- **多行** 
-    ```
+- 多行 
+    ```Language
     #Code-2
     #Code-2
     #Code-2
     ```
-- <b>空白鍵*4</b><br>
-    
+
+</details>
+
+<details open>
+<summary><strong>擴展</strong></summary>
+
+- 空白鍵*4
+
     #Code-3
     #Code-3
     #Code-3
+
+</details> 
 
 
 ### 引用
 
-- 引用標準語法
+<details open>
+<summary><strong>標準語法</strong></summary>
 
 > 引用層 1<br>
 > <br>
 >> 引用層 2
 >>> 引用層 3
 
-- 引用擴展語法
+</details> 
+
+<details open>
+<summary><strong>擴展</strong></summary>
 
 > [!NOTE]
 > 這是NOTE
@@ -254,15 +296,35 @@
 > [!CAUTION]
 > 這是CAUTION
 
+</details> 
+
+### 表格
+
+<details open>
+<summary><strong>標準語法</strong></summary>
+
+- 表格1
+    | 向左對齊 | 置中對齊 | 向右對齊 |
+    | :- | :-: | -: |
+    | 值 | 值 | 值 |
+    | 值 | 值 | 值 |
+    | 值 | 值 | 值 |
+    | 值 | 值 | 值 |
+- 表格2 (不包含兩側 `|`)
+    向左對齊 | 置中對齊 | 向右對齊 
+    :- | :-: | -:
+    值 | 值 | 值
+    值 | 值 | 值
+    值 | 值 | 值
+    值 | 值 | 值
+    
+</details> 
+
 ### 水平線
 
-`---`
+`---` 或 `***`
 
----
-
-`***`
-
-***
+<hr>
 
 ### Hashtag
 
@@ -305,3 +367,4 @@
 ©️ 2023 [邱敬幃 Pardn Chiu](https://www.linkedin.com/in/pardnchiu)
 
 ***
+

@@ -47,7 +47,7 @@
     opacity: 0;
 }
 
-.pd-md-editor[data-fillMode="1"] {
+.pd-md-editor[data-fill="1"] {
     position: absolute;
     top: 0;
     left: 0;
@@ -110,7 +110,7 @@
     word-wrap: break-word
 }
 
-.pd-md-viewer[data-fillMode="1"] {
+.pd-md-viewer[data-fill="1"] {
     position: absolute;
     top: 0;
     left: 0;
@@ -304,6 +304,7 @@
 
 .pd-md-viewer details summary {
     margin-left: -1rem;
+    cursor: pointer;
 }
 
 .pd-md-viewer details,
@@ -334,6 +335,10 @@
 }
 
 .pd-md-viewer a.tag {
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: 0.5rem;
+    margin-right: 0.5rem;
     padding: 0 0.5rem;
     text-decoration: none;
     font-size: 0.75rem;
@@ -442,9 +447,15 @@
     background-color: #f7f7fa
 }
 
+
+.pd-md-viewer table th {
+    font-weight: 600;
+}
+
 .pd-md-viewer table th,
 .pd-md-viewer table td {
     padding: .375rem .75rem;
+    min-width: 4rem;
     border: 1px solid #0000000d;
     border-collapse: collapse;
     border-radius: .125rem
@@ -530,19 +541,19 @@
     list-style-type: "> "
 }
 
-.pd-md-viewer label {
-    display: block;
-    margin-top: 0.5rem;
-}
-
 .pd-md-viewer li label {
     display: inline-block;
     vertical-align: middle;
     margin-bottom: 0;
 }
 
+.pd-md-viewer li:has(label) {
+    list-style-type: none !important;
+}
+
 .pd-md-viewer input[type="checkbox"] {
     vertical-align: middle;
+    margin-left: -1.5rem;
     margin-right: 0.5rem;
     width: 1.25rem;
     height: 1.25rem;
