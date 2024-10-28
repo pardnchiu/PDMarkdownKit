@@ -9,6 +9,19 @@
     overflow: hidden scroll
 }
 
+.pd-md-editor div:nth-last-child(1):empty::after {
+    animation: fadeInOut 2s ease-in-out infinite;
+}
+
+@keyframes fadeInOut {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
 .pd-md-editor section.input-button {
     z-index: 100;
     display: flex;
@@ -73,7 +86,7 @@
 }
 
 .pd-md-editor[data-row="1"]>div::before {
-    content: attr(index);
+    content: attr(data-index);
     margin-right: 1rem;
     flex-shrink: 0;
     width: 3rem;

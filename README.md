@@ -1,6 +1,6 @@
 # PDMarkdownKit (JavaScript)
 
-> 一款輕量化 Markdown 編輯器，提供方便導入網站的編輯與顯示模組，與支持即時編輯和預覽內容。
+> 一款輕量化的 Markdown 編輯器，提供方便導導入網站的編輯與顯示模組，支持編輯和即時預覽內容。
 
 ![](https://img.shields.io/badge/tag-JavaScript%20Library-bb4444) ![](https://img.shields.io/github/license/pardnchiu/PDMarkdownKit?color=44bb44) ![](https://img.shields.io/badge/creator-邱敬幃-4444bb)<br>
 [![](https://img.shields.io/github/v/release/pardnchiu/PDMarkdownKit?color=bbbb44)](https://github.com/pardnchiu/PDMarkdownKit) [![](https://img.shields.io/npm/v/pdmarkdownkit?color=44bbbb)](https://www.npmjs.com/package/pdmarkdownkit) ![](https://img.shields.io/github/size/pardnchiu/PDMarkdownKit/dist/PDMarkdownKit.js?color=bb44bb)<br>
@@ -12,7 +12,6 @@
 - 支持標準的 Markdown 語法，包括標題、粗體、斜體、連結、圖片、代碼區塊等。
 - 擴展功能如增加上下標語法，調整圖片大小、對齊，以偵測 Youtube 連結與影片插入。
 - 提供撤銷與重做功能，以及多項快捷鍵，並支持 Markdown 和 HTML 格式的檔案匯入與匯出。
-- 使用 [PDRenderKit](https://github.com/pardnchiu/PDRenderKit) 輕量化前端框架進行渲染。
 - 集成 [Font Awesome 6](https://fontawesome.com/v6/search) 圖示。
 - 依賴 [code-prettify](https://github.com/googlearchive/code-prettify) 進行代碼語法高亮。
 - 點擊這裡 [預覽](https://pardnchiu.github.io/PDMarkdownKit)。
@@ -20,47 +19,64 @@
 ## 安裝方式
 
 - **從 npm 安裝**
-    ```Shell
+    ```bash
     npm i pdmarkdownkit
     ```
+
 - **從 CDN 引入**
-    ```Javascript
-    import { editor,  iewer } from "https://cdn.jsdelivr.net/npm/pdmarkdownkit@[VERSION]/dist/PDMarkdownKit.min.js";
-    ```
+    - **引入 `PDMarkdownKit` 套件**
+        ```html
+        <!-- 版本 1.6.0 以上 -->
+        <script src="https://cdn.jsdelivr.net/npm/pdmarkdownkit@[VERSION]/dist/PDMarkdownKit.js"></script>
+        ```
+    - **Module 版本**
+        ```javascript
+        // 版本 1.6.0 以上
+        import { editor as PDMarkdownEditor, viewer as PDMarkdownViewer } from "https://cdn.jsdelivr.net/npm/pdmarkdownkit@[VERSION]/dist/PDMarkdownKit.module.js";
+        
+        // 版本 1.5.2 以下
+        import { editor as PDMarkdownEditor, viewer as PDMarkdownViewer } from "https://cdn.jsdelivr.net/npm/pdmarkdownkit@[VERSION]/dist/PDMarkdownKit.js";
+        ```
 
 ## 使用方法
 
-- **引入 `PDRenderKit` 依賴**
-    ```Html
-    <script src="https://cdn.jsdelivr.net/npm/pdrenderkit@[VERSION]/dist/PDRenderKit.js" copyright="Pardn Ltd"></script>
-    ```
+- **一般**
+
 - **初始化 `editor` 和 `viewer`**
     ```Javascript
-    import { editor,  iewer } from "https://cdn.jsdelivr.net/npm/pdmarkdownkit@[VERSION]/dist/PDMarkdownKit.min.js";
-
-    const elm_editor = new editor({
-        mode: "",                           // auto | light | dark, 預設： auto
+    const elm_editor = new PDMarkdownEditor({
         id: "",                             // 預設：PDMDEditor
-        placeholder: "Content",             // 預設：Type here ...
-        placeholderColor: "#ff000080",      // 預設：#0000ff1a
-        focusBackgroundColor: "#ff00001a",  // 預設：#0000ffff
-        focusTextColor: "#ff0000",          // 預設：#bfbfbf
-        showRow: 1,                         // 顯示行數，預設：1
-        fillMode: 1,                        // 隨父元素大小調整，預設值：1
+        defaultContent: "",                 // 預設內容，初始顯示
+        hotKey: 1,                          // 啟用快捷鍵，預設為 1
         preventRefresh: 0,                  // 防止頁面重整，預設值：0
-        fontFamily: ""                      // 預設：'Noto Sans TC', sans-serif
+        style: {
+            mode: "",                       // auto | light | dark, 預設： auto
+            fill: 1,                        // 隨父元素大小調整，預設值：1
+            fontFamily: "",                 // 預設：'Noto Sans TC', sans-serif
+            showRow: 0,                     // 顯示行數，預設：1
+            placeholder: {
+                text: "Content",            // 預設：Type here ...
+                color: "#ff000080"          // 預設：#0000ff1a
+            },
+            focus: {
+                backgroundColor: "ff00001a",// 預設：#0000ffff
+                color: "#ff0000"            // 預設：#bfbfbf
+            }
+        }
     });
 
-    const elm_viewer = new viewer({
+    const elm_viewer = new PDMarkdownViewer({
         id: "",                 // 預設：PDMDViewer
-        pre: "",                // 預設內容，當編輯器為空時顯示
-        editor: elm_editor,     // 關聯的編輯器
-        config: {
+        emptyContent: "",       // 預設內容，當編輯器為空時顯示
+        style: {
             mode: "",           // auto | light | dark, 預設： auto
             fill: "",           // 隨父元素大小調整，預設值：1 | true
-            delay: 50,          // 更新延遲，單位ms，預設 300，最小 1
-            scrollSync: 1,      // 與編輯器同步滾動，預設值：0 | false
             fontFamily: "",     // 預設：'Noto Sans TC', sans-serif
+        },
+        sync: {
+            editor: elm_editor, // 關聯的編輯器
+            delay: 50,          // 更新延遲，單位ms，預設 300
+            scrollSync: 1,      // 與編輯器同步滾動，預設值：0 | false
         },
         hashtag: {
             path: "?keyword=",  // 標籤路徑，用於檢測 # 並轉換為Link

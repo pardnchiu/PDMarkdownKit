@@ -9,6 +9,7 @@
     "toplevel": true,
     "mangle": {
         "properties": {
+            "keep_quoted": false,
             "regex": ".*"
         }
     },
@@ -34,7 +35,7 @@
         "pure_funcs": null,
         "negate_iife": true,
         "drop_console": false,
-        "passes": 2
+        "passes": 3
     },
     "module": false,
     "wrap": "window"
