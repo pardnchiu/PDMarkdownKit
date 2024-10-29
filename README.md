@@ -40,8 +40,6 @@
 
 ## 使用方法
 
-- **一般**
-
 - **初始化 `editor` 和 `viewer`**
     ```Javascript
     const elm_editor = new PDMarkdownEditor({
