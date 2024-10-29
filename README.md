@@ -45,22 +45,22 @@
 - **初始化 `editor` 和 `viewer`**
     ```Javascript
     const elm_editor = new PDMarkdownEditor({
-        id: "",                             // 預設：PDMDEditor
-        defaultContent: "",                 // 預設內容，初始顯示
-        hotKey: 1,                          // 啟用快捷鍵，預設為 1
-        preventRefresh: 0,                  // 防止頁面重整，預設值：0
+        id: "",                                 // 預設：PDMDEditor
+        defaultContent: "",                     // 預設內容，初始顯示
+        hotKey: 1,                              // 啟用快捷鍵，預設為 1
+        preventRefresh: 0,                      // 防止頁面重整，預設值：0
         style: {
-            mode: "",                       // auto | light | dark, 預設： auto
-            fill: 1,                        // 隨父元素大小調整，預設值：1
-            fontFamily: "",                 // 預設：'Noto Sans TC', sans-serif
-            showRow: 0,                     // 顯示行數，預設：1
+            mode: "",                           // auto | light | dark, 預設： auto
+            fill: 1,                            // 隨父元素大小調整，預設值：1
+            fontFamily: "",                     // 預設：'Noto Sans TC', sans-serif
+            showRow: 0,                         // 顯示行數，預設：1
             placeholder: {
-                text: "Content",            // 預設：Type here ...
-                color: "#ff000080"          // 預設：#0000ff1a
+                text: "Content",                // 預設：Type here ...
+                color: "#ff000080"              // 預設：#0000ff1a
             },
             focus: {
-                backgroundColor: "ff00001a",// 預設：#0000ffff
-                color: "#ff0000"            // 預設：#bfbfbf
+                backgroundColor: "#ff00001a",   // 預設：#0000ffff
+                color: "#ff0000"                // 預設：#bfbfbf
             }
         }
     });
