@@ -9,14 +9,18 @@
     overflow: hidden scroll
 }
 
-.pd-md-editor div:nth-last-child(1):empty::after {
+.pd-md-editor div:nth-last-child(1):empty::after,
+.pd-md-editor div[data-focus="1"]:nth-last-child(2):empty::after {
     animation: fadeInOut 2s ease-in-out infinite;
 }
 
 @keyframes fadeInOut {
-    0%, 100% {
+
+    0%,
+    100% {
         opacity: 1;
     }
+
     50% {
         opacity: 0.5;
     }
@@ -28,7 +32,7 @@
     flex-flow: row wrap;
     align-items: center;
     margin-left: 1rem;
-    margin-bottom: -1.75rem;
+    margin-bottom: 0.25rem;
     padding: 0 0.25rem;
     max-width: calc(100% - 2rem);
     font-family: serif;
@@ -49,9 +53,21 @@
     transition: 0.2s;
 }
 
+.pd-md-editor section.input-button span.material-symbols-outlined {
+    width: 1.5rem;
+    line-height: 1.75rem;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
 @media (hover: hover) {
 
     .pd-md-editor section.input-button i:hover {
+        color: blue;
+    }
+
+    .pd-md-editor section.input-button span.material-symbols-outlined:hover {
         color: blue;
     }
 }
@@ -113,6 +129,10 @@
     transition: .3s
 }
 
+.pd-md-editor>div * {
+    pointer-events: none;
+}
+
 .pd-md-viewer {
     position: relative;
     margin: 0;
@@ -133,7 +153,7 @@
     height: 100%
 }
 
-.pd-md-editor *:not(code):not(i) {
+.pd-md-editor *:not(code):not(i):not(span.material-symbols-outlined) {
     font-family: inherit;
 }
 
@@ -801,6 +821,14 @@
     font-style: normal;
     font-size: 0.75rem;
 }
+
+.pd-md-viewer blockquote span.hint span.material-symbols-outlined {
+    top: -1px;
+    margin-right: 0.25rem;
+    vertical-align: middle;
+    font-size: 1rem;
+}
+
 
 .pd-md-viewer blockquote * {
     margin-bottom: 0;

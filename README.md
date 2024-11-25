@@ -2,9 +2,12 @@
 
 > 一款輕量化的 Markdown 編輯器，提供方便導導入網站的編輯與顯示模組，支持編輯和即時預覽內容。
 
-![](https://img.shields.io/badge/tag-JavaScript%20Library-bb4444) ![](https://img.shields.io/github/license/pardnchiu/PDMarkdownKit?color=44bb44) ![](https://img.shields.io/badge/creator-邱敬幃-4444bb)<br>
-[![](https://img.shields.io/github/v/release/pardnchiu/PDMarkdownKit?color=bbbb44)](https://github.com/pardnchiu/PDMarkdownKit) [![](https://img.shields.io/npm/v/pdmarkdownkit?color=44bbbb)](https://www.npmjs.com/package/pdmarkdownkit) ![](https://img.shields.io/github/size/pardnchiu/PDMarkdownKit/dist/PDMarkdownKit.js?color=bb44bb)<br>
-[![](https://img.shields.io/badge/read-English%20Version-ffffff)](https://github.com/pardnchiu/PDMarkdownKit/blob/main/README.en.md)
+![](https://img.shields.io/badge/tag-JavaScript%20Library-bb4444) 
+![](https://img.shields.io/github/size/pardnchiu/PDMarkdownKit/dist%2FPDMarkdownKit.js) 
+![](https://img.shields.io/github/license/pardnchiu/PDMarkdownKit)<br>
+[![](https://img.shields.io/github/v/release/pardnchiu/PDMarkdownKit)](https://github.com/pardnchiu/PDMarkdownKit) 
+[![](https://img.shields.io/npm/v/pdmarkdownkit)](https://www.npmjs.com/package/pdmarkdownkit) 
+[![](https://img.shields.io/jsdelivr/npm/hw/pdmarkdownkit)](https://www.jsdelivr.com/package/npm/pdmarkdownkit)
 
 ## 特點
 
@@ -12,7 +15,8 @@
 - 支持標準的 Markdown 語法，包括標題、粗體、斜體、連結、圖片、代碼區塊等。
 - 擴展功能如增加上下標語法，調整圖片大小、對齊，以偵測 Youtube 連結與影片插入。
 - 提供撤銷與重做功能，以及多項快捷鍵，並支持 Markdown 和 HTML 格式的檔案匯入與匯出。
-- 集成 [Font Awesome 6](https://fontawesome.com/v6/search) 圖示。
+- 引入虛擬 DOM 概念，按需更新頁面，減少渲染所需資源。
+- 集成 [Google Icon](https://fonts.google.com/icons) 圖示。
 - 依賴 [code-prettify](https://github.com/googlearchive/code-prettify) 進行代碼語法高亮。
 - 點擊這裡 [預覽](https://pardnchiu.github.io/PDMarkdownKit)。
 
@@ -375,6 +379,13 @@
 ## 授權條款
 
 本專案依據 [MIT](https://github.com/pardnchiu/PDMarkdownKit/blob/main/LICENSE) 授權使用。
+
+## 獲取完整原始碼
+
+[聯絡我](mailto:dev@pardn.io) 獲取完整未混淆源碼<br>
+可隨意修改、商業使用，根據需求選擇授權版本：
+- 需保留 `Powered by PDMarkdownKit` 的版權聲明：$7,500
+- 完全自主，無需添加版權聲明：$10,000
 
 ***
 

@@ -374,6 +374,13 @@ Supports standard Markdown syntax, including text, links, images, lists, tables,
 
 This source code project is licensed under the [MIT](https://github.com/pardnchiu/PDMarkdownKit/blob/main/LICENSE) license.
 
+## Obtain the Complete Source Code
+
+[Contact Me](mailto:dev@pardn.io) to obtain the full, unobfuscated source code.<br>
+Freely modify and use for commercial purposes. Choose a licensing option based on your needs:
+- Requires a `Powered by PDMarkdownKit` copyright attribution: $7,500
+- Fully autonomous, no copyright attribution required: $10,000
+
 ***
 
 ©️ 2023 [邱敬幃 Pardn Chiu](https://www.linkedin.com/in/pardnchiu)

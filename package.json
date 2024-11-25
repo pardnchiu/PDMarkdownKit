@@ -1,13 +1,16 @@
 {
     "name": "pdmarkdownkit",
-    "version": "1.6.0",
+    "version": "1.7.0",
     "description": "PDMarkdownKit is a lightweight Markdown editor and viewer library based on JavaScript. It offers rich features to edit and preview Markdown content in real-time.",
     "main": "dist/PDMarkdownKit.js",
     "scripts": {
-        "minify": "npx terser src/*.js -c -m -o dist/PDMarkdownKit.js --config-file terser.config.json --name-cache terser.cache.json && npx terser src/*.js -c -m -o dist/PDMarkdownKit.module.js --config-file terser.config.json --name-cache terser.cache.json && echo 'export const editor = window.PDMarkdownEditor;export const viewer = window.PDMarkdownViewer;' >> dist/PDMarkdownKit.module.js",
-        "minify-w": "chokidar 'src/*.js' -c 'npm run minify'",
+        "minify": "npx terser src/*.js src/function/*.js src/model/*.js -c -m -o dist/PDMarkdownKit.js --config-file terser.config.json --name-cache terser.cache.json && npx terser src/*.js src/function/*.js src/model/*.js -c -m -o dist/PDMarkdownKit.module.js --config-file terser.config.json --name-cache terser.cache.json && echo 'export const editor = window.PDMarkdownEditor;export const viewer = window.PDMarkdownViewer;' >> dist/PDMarkdownKit.module.js",
+        "minify-w": "chokidar src/*.js src/function/*.js src/model/*.js -c 'npm run minify'",
         "sass": "sass src/PDMarkdownKit.sass:dist/PDMarkdownKit.css -w --style compressed --no-source-map",
         "sass-index": "sass static/sass/:static/css/ -w --style compressed --no-source-map"
+    },
+    "publishConfig": {
+        "access": "public"
     },
     "files": [
         "dist",
