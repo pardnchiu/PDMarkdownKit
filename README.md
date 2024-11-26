@@ -173,30 +173,30 @@ Supports standard Markdown syntax, including text styling, links, images, lists,
 <details open>
 <summary><strong>Standard Syntax</strong></summary>
 
-- Image<br>
-    `![](https://pixabay.com/get/g6a01f8b66ccebca0f06b6db305d86c3d71cc94d0322b180402afccd64b4968eb71164988b34c09c1b3f15690deb476dca7e57629d43e934817f0a40e1cf20d627668e8acbdc01490877212db381191ab_640.jpg)`<br>
-    ![](https://pixabay.com/get/g6a01f8b66ccebca0f06b6db305d86c3d71cc94d0322b180402afccd64b4968eb71164988b34c09c1b3f15690deb476dca7e57629d43e934817f0a40e1cf20d627668e8acbdc01490877212db381191ab_640.jpg)
-- Image with description<br>
-    `![Example image from Pixabay](https://pixabay.com/get/gf19f72965b54bc996fe3bad62c6d24ffc5421ac2175c56c5fff8d859ea2d110e472469fa42e2cd2d54579511f1e61c3a0d0a655022003ad0bb1e78f2c33587201c1f0d810d3b338895ec7892e4acc3b8_640.jpg)`<br>
-    ![Example image from Pixabay](https://pixabay.com/get/gf19f72965b54bc996fe3bad62c6d24ffc5421ac2175c56c5fff8d859ea2d110e472469fa42e2cd2d54579511f1e61c3a0d0a655022003ad0bb1e78f2c33587201c1f0d810d3b338895ec7892e4acc3b8_640.jpg)
-- Image with title<br>
-    `![](https://pixabay.com/get/gc8d8b870797da71b4e7e2449c1ba12f78a41440286f887a156eaf425e560e0f35e06658dc3a82aba1e670356775e1bca4487348ca5c85282193596410774e85d1d769330c7e38d62965a3deb53e913f3_640.jpg "Example image from Pixabay")`<br>
-    ![](https://pixabay.com/get/gc8d8b870797da71b4e7e2449c1ba12f78a41440286f887a156eaf425e560e0f35e06658dc3a82aba1e670356775e1bca4487348ca5c85282193596410774e85d1d769330c7e38d62965a3deb53e913f3_640.jpg "Example image from Pixabay")
-- Linked image<br>
-    `[![](https://pixabay.com/get/gf4d926f409fea96da1789ffec783afaa9a4aff4838117abb1c112aab51b04115bbe697c4332a39307025418b9b354118a2310ba92d8ef836d9d819db9e75ec681d5936cc15d5ac49411521e2361af897_640.jpg)](https://pixabay.com/photos/hippopotamus-hippo-baby-hippo-9147023/)`<br>
-    [![](https://pixabay.com/get/gf4d926f409fea96da1789ffec783afaa9a4aff4838117abb1c112aab51b04115bbe697c4332a39307025418b9b354118a2310ba92d8ef836d9d819db9e75ec681d5936cc15d5ac49411521e2361af897_640.jpg)](https://pixabay.com/photos/hippopotamus-hippo-baby-hippo-9147023/)
+- Image: [Image Source](https://pixabay.com/photos/corn-harvest-fall-thanksgiving-9135131/)<br>
+    `![](./static/image/corn-9135131_640.jpg)`<br>
+    ![](./static/image/corn-9135131_640.jpg)
+- Image with description: [Image Source](https://pixabay.com/photos/dog-irish-setter-mischievous-7128749/)<br>
+    `![Example image from Pixabay](./static/image/dog-7128749_640.jpg)`<br>
+    ![Example image from Pixabay](./static/image/dog-7128749_640.jpg)
+- Image with title: [Image Source](https://pixabay.com/photos/stilt-bird-animal-feathers-plumage-8593487/)<br>
+    `![](./static/image/stilt-8593487_640.jpg "Example image from Pixabay")`<br>
+    ![](./static/image/stilt-8593487_640.jpg "Example image from Pixabay")
+- Linked image: [Image Source](https://pixabay.com/photos/hippopotamus-hippo-baby-hippo-9147023/)<br>
+    `[![](./static/image/hippopotamus-9147023_640.jpg)](https://pixabay.com/photos/hippopotamus-hippo-baby-hippo-9147023/)`<br>
+    [![](./static/image/hippopotamus-9147023_640.jpg)](https://pixabay.com/photos/hippopotamus-hippo-baby-hippo-9147023/)
 
 </details>
 
 <details open>
 <summary><strong>Extensions</strong></summary>
 
-- Video<br>
-    `![](https://cdn.pixabay.com/video/2024/09/29/233867_tiny.mp4)`<br>
-    ![](https://cdn.pixabay.com/video/2024/09/29/233867_tiny.mp4)
-- Image with size (width: 50%)<br>
-    `![](https://pixabay.com/get/gf07129a40eddcd11a281de8de76f3e18346371418a44cddae4830989c9264bb867dc3e2a6cb9f0e4ec2ecf01330d9bd04527b111caa2f52d2194c508bfc39464a844517738520f1fbc07a8bd2dda3bf9_640.jpg)(50%*)`<br>
-    ![](https://pixabay.com/get/gf07129a40eddcd11a281de8de76f3e18346371418a44cddae4830989c9264bb867dc3e2a6cb9f0e4ec2ecf01330d9bd04527b111caa2f52d2194c508bfc39464a844517738520f1fbc07a8bd2dda3bf9_640.jpg)(50%*)
+- Video: [Video Source](https://pixabay.com/videos/ocean-sea-wave-water-sunset-233867/)<br>
+    `![](./static/image/233867_tiny.mp4)`<br>
+    ![](./static/image/233867_tiny.mp4)
+- Image with size (width: 50%): [Image Source](https://pixabay.com/photos/flamingo-nature-bird-wildlife-9190160/)<br>
+    `![](./static/image/flamingo-9190160_640.jpg)(50%*)`<br>
+    ![](./static/image/flamingo-9190160_640.jpg)(50%*)
 
 </details>
 
