@@ -17,7 +17,7 @@
 
 - Separate editor and viewer modules with real-time preview and scroll synchronization support.
 - Supports standard Markdown syntax, including headings, bold, italic, links, images, code blocks, etc.
-- Extended features such as subscript/superscript syntax, image resizing, alignment, and automatic YouTube link detection with video embedding.
+- Extended features such as subscript/superscript syntax, image resizing, alignment, and automatic YouTube / Vimeo link detection with video embedding.
 - Includes undo/redo functions, multiple hotkeys, and supports importing/exporting files in Markdown and HTML formats.
 - Implements virtual DOM concepts for efficient rendering by updating the page on-demand.
 - Integrated [Google Icon](https://fonts.google.com/icons) and [code-prettify](https://github.com/googlearchive/code-prettify) for syntax highlighting.

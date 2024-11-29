@@ -17,7 +17,7 @@
 
 - 提供獨立的編輯與顯示模組，支持即時預覽和滾動同步。
 - 支持標準的 Markdown 語法，包括標題、粗體、斜體、連結、圖片、代碼區塊等。
-- 擴展功能如增加上下標語法，調整圖片大小、對齊，以偵測 Youtube 連結與影片插入。
+- 擴展功能如增加上下標語法，調整圖片大小、對齊，與偵測 Youtube / Vimeo 連結與影片插入。
 - 提供撤銷與重做功能，以及多項快捷鍵，並支持 Markdown 和 HTML 格式的檔案匯入與匯出。
 - 引入虛擬 DOM 概念，按需更新頁面，減少渲染所需資源。
 - 集成 [Google Icon](https://fonts.google.com/icons) 圖示與 [code-prettify](https://github.com/googlearchive/code-prettify) 語法高亮。

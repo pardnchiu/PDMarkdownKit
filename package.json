@@ -1,6 +1,6 @@
 {
     "name": "@pardnchiu/nanomd",
-    "version": "1.8.1",
+    "version": "1.8.2",
     "description": "NanoMD is a lightweight Markdown editor and viewer library based on JavaScript. It offers rich features to edit and preview Markdown content in real-time.",
     "main": "dist/NanoMD.js",
     "scripts": {
