@@ -1,0 +1,319 @@
+<!-- 
+
+    Copyright 2024 Pardn Ltd 帕登國際有限公司.
+    Created by Pardn Chiu 邱敬幃.
+    Email: dev@pardn.io
+
+-->
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="robots" content="index, follow">
+
+        <title>Markdown Editor | 邱敬幃 Pardn Chiu | GitHub.io</title>
+        <meta name="title" content="Markdown Editor | 邱敬幃 Pardn Chiu | GitHub.io">
+        <meta name="description" content="(JavaScript Library) A pure JavaScript-based Markdown editor with real-time preview, designed to be easy to embed in websites. Developed by 邱敬幃 Pardn Chiu.">
+        <meta name="author" content="邱敬幃 Pardn Chiu">
+        <link rel="author" href="https://pardnchiu.github.io">
+        <link rel="canonical" href="https://pardnchiu.github.io/markdown-editor/">
+
+        <!-- Open Graph / Facebook -->
+        <meta property="og:title" content="Markdown Editor | 邱敬幃 Pardn Chiu | GitHub.io">
+        <meta property="og:description" content="(JavaScript Library) A pure JavaScript-based Markdown editor with real-time preview, designed to be easy to embed in websites. Developed by 邱敬幃 Pardn Chiu.">
+        <meta property="og:image" content="https://opengraph.githubassets.com/1/pardnchiu/markdown-editor">
+        <meta property="og:url" content="https://pardnchiu.github.io/markdown-editor/">
+        <meta property="og:site_name" content="邱敬幃 Pardn Chiu 的 Github Page">
+        <meta property="og:type" content="website">
+
+        <!-- Twitter -->
+        <meta name="twitter:card" content="summary_large_image">
+        <meta property="twitter:title" content="Markdown Editor | 邱敬幃 Pardn Chiu | GitHub.io">
+        <meta property="twitter:description" content="(JavaScript Library) A pure JavaScript-based Markdown editor with real-time preview, designed to be easy to embed in websites. Developed by 邱敬幃 Pardn Chiu.">
+        <meta property="twitter:image" content="https://opengraph.githubassets.com/1/pardnchiu/markdown-editor">
+        <meta property="twitter:url" content="https://pardnchiu.github.io/markdown-editor/">
+
+        <!-- Google Verification -->
+        <meta name="google-site-verification" content="YQQ2f6AchR8dcb55Az2BYd_mw4TrP0J1RApD-v2v65Y">
+
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-L5VYEZPVXX"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-L5VYEZPVXX');
+        </script>
+
+        <!-- Preload and Preconnect -->
+        <link rel="preconnect" href="https://cdn.jsdelivr.net">
+
+        <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" as="style">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
+
+        <link rel="preload" href="https://cdn.jsdelivr.net/npm/pdquickui@0.5.4/dist/PDQuickUI.js" as="script">
+        <script src="https://cdn.jsdelivr.net/npm/pdquickui@0.5.4/dist/PDQuickUI.js" copyright="Pardn Ltd"></script>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+        <!-- <script src="./js/test.js" copyright="Pardn Ltd"></script> -->
+
+        <!-- Local Resources -->
+        <link rel="stylesheet" href="./dist/NanoMD.css">
+        <link rel="stylesheet" href="./static/css/index.css">
+        <script src="./dist/NanoMD.js"></script>
+
+        <script type="application/ld+json">
+        {
+            "@context": "https://schema.org",
+            "@type": "WebPage",
+            "name": "文檔 - NanoMD",
+            "description": "一款純 JS 搭配原生 API 撰寫的 Markdown 編輯器，支持即時渲染、分屏預覽、代碼高亮與導出功能，簡單易用，提升撰寫效率。",
+            "url": "https://pardnchiu.github.io/NanoMD/doc.html",
+            "creator": {
+                "@type": "Person",
+                "name": "邱敬幃 Pardn Chiu",
+                "url": "https://pardnchiu.github.io"
+            },
+            "datePublished": "2023-11-29",
+            "dateModified": "2023-11-29"
+            "mainEntity": [
+                {
+                    "@type": "WebPageElement",
+                    "name": "安裝與使用 - NanoMD",
+                    "url": "https://pardnchiu.github.io/NanoMD/doc.html"
+                },
+                {
+                    "@type": "WebPageElement",
+                    "name": "文字語法 - NanoMD",
+                    "url": "https://pardnchiu.github.io/NanoMD/doc.html?tag=font"
+                },
+                {
+                    "@type": "WebPageElement",
+                    "name": "連結語法 - NanoMD",
+                    "url": "https://pardnchiu.github.io/NanoMD/doc.html?tag=link"
+                },
+                {
+                    "@type": "WebPageElement",
+                    "name": "圖片語法 - NanoMD",
+                    "url": "https://pardnchiu.github.io/NanoMD/doc.html?tag=image"
+                },
+                {
+                    "@type": "WebPageElement",
+                    "name": "列表語法 - NanoMD",
+                    "url": "https://pardnchiu.github.io/NanoMD/doc.html?tag=list"
+                },
+                {
+                    "@type": "WebPageElement",
+                    "name": "代碼塊語法 - NanoMD",
+                    "url": "https://pardnchiu.github.io/NanoMD/doc.html?tag=code"
+                },
+                {
+                    "@type": "WebPageElement",
+                    "name": "引用語法 - NanoMD",
+                    "url": "https://pardnchiu.github.io/NanoMD/doc.html?tag=blockquote"
+                },
+                {
+                    "@type": "WebPageElement",
+                    "name": "表格語法 - NanoMD",
+                    "url": "https://pardnchiu.github.io/NanoMD/doc.html?tag=table"
+                },
+                {
+                    "@type": "WebPageElement",
+                    "name": "其他語法 - NanoMD",
+                    "url": "https://pardnchiu.github.io/NanoMD/doc.html?tag=more"
+                },
+                {
+                    "@type": "WebPageElement",
+                    "name": "快捷鍵 - NanoMD",
+                    "url": "https://pardnchiu.github.io/NanoMD/doc.html?tag=shortcut"
+                }
+            ]
+        }
+        </script>
+    </head>
+
+    <body id="app" class="home">
+        <nav>
+            <section>
+                <section>
+                    <img src="./static/image/logo.svg" alt="">
+                </section>
+                <section class="center" data-index="1">
+                    <a href="./index.html">
+                        <i class="fa-solid fa-house"></i>
+                        HOME
+                    </a>
+                    <a>
+                        <i class="fa-brands fa-readme"></i>
+                        DOC
+                    </a>
+                    <a href="https://github.com/pardnchiu/NanoMD/releases">
+                        <i class="fa-solid fa-code-branch"></i>
+                        VERSION
+                    </a>
+                </section>
+                <section>
+                    <a href="./live.html">
+                        <i class="fa-brands fa-markdown"></i>
+                        <span>Online</span>
+                    </a>
+                </section>
+            </section>
+        </nav>
+        <section class="doc-body">
+            <section>
+                <section id="doc-body-tab" class="tab" data-index="0" data-show="0">
+                    <button @click="changeContent" data-title="installation">
+                        <i class="fa-solid fa-screwdriver-wrench"></i>
+                        安裝與使用
+                    </button>
+                    <button @click="changeContent" data-title="font">
+                        <i class="fa-solid fa-font"></i>
+                        文字語法
+                    </button>
+                    <button @click="changeContent" data-title="link">
+                        <i class="fa-solid fa-link"></i>
+                        連結語法
+                    </button>
+                    <button @click="changeContent" data-title="image">
+                        <i class="fa-regular fa-image"></i>
+                        圖片語法
+                    </button>
+                    <button @click="changeContent" data-title="list">
+                        <i class="fa-solid fa-list-ol"></i>
+                        列表語法
+                    </button>
+                    <button @click="changeContent" data-title="code">
+                        <i class="fa-solid fa-code"></i>
+                        代碼塊語法
+                    </button>
+                    <button @click="changeContent" data-title="blockquote">
+                        <i class="fa-solid fa-quote-right"></i>
+                        引用語法
+                    </button>
+                    <button @click="changeContent" data-title="table">
+                        <i class="fa-solid fa-table"></i>
+                        表格語法
+                    </button>
+                    <button @click="changeContent" data-title="more">
+                        <i class="fa-solid fa-ellipsis"></i>
+                        其他語法
+                    </button>
+                    <button @click="changeContent" data-title="shortcut">
+                        <i class="fa-solid fa-keyboard"></i>
+                        快捷鍵
+                    </button>
+                    <button @click="changeContent" data-title="DEPRECATION">
+                        <i class="fa-solid fa-circle-exclamation"></i>
+                        即將棄用
+                    </button>
+                </section>
+                <section id="doc-body-content" class="content">
+                    <button @click="showTab">
+                        <i class="fa-solid fa-bars-staggered"></i>
+                    </button>
+                </section>
+            </section>
+        </section>
+        <!--  -->
+        <script>
+            document.addEventListener("DOMContentLoaded", _ => {
+
+                let editor;
+
+                const app = new QUI({
+                    id: "app",
+                    event: {
+                        changeContent: async e => {
+                            const _this = e.target;
+                            const parent = _this.parentElement;
+                            const index = Array.prototype.indexOf.call(parent.children, _this);
+                            const title = _this.dataset.title;
+
+                            parent.dataset.index = index;
+                            parent.dataset.show = 0;
+
+                            editor.body.scrollTop = 0;
+                            editor.clear();
+
+                            let pre = "";
+
+                            if (title === "DEPRECATION") {
+                                await fetch("./" + title + ".md")
+                                    .then(response => response.text())
+                                    .then(data => {
+                                        pre = data;
+                                    })
+                                    .catch(error => {
+                                        console.error(error);
+                                    });
+                            }
+                            else {
+                                await fetch("./static/md/" + title + ".md")
+                                    .then(response => response.text())
+                                    .then(data => {
+                                        pre = data;
+                                    })
+                                    .catch(error => {
+                                        console.error(error);
+                                    });
+                            }
+
+                            editor.init(pre);
+                        },
+                        showTab: e => {
+                            const dom = document.getElementById("doc-body-tab");
+                            dom.dataset.show = Math.abs(dom.dataset.show - 1);
+                        }
+                    },
+                    when: {
+                        rendered: _ => {
+                            const url = new URL(location.href);
+                            let tag = url.searchParams.get("tag");
+
+                            if ({
+                                installation: 0,
+                                font: 0,
+                                link: 0,
+                                image: 0,
+                                list: 0,
+                                code: 0,
+                                blockquote: 0,
+                                table: 0,
+                                more: 0,
+                                shortcut: 0
+                            }[tag] == null) {
+                                tag = "installation";
+                            }
+
+                            editor = new PDMarkdownViewer({
+                                fill: 1,
+                                hashtag: {
+                                    path: "?keyword=",
+                                    target: "_blank"
+                                }
+                            });
+
+                            document.getElementById("doc-body-content").appendChild(editor.body);
+
+                            const target = document.querySelector("button[data-title='" + tag + "']");
+                            target.click();
+                            // const tab = document.getElementById("doc-body-tab");
+                            // const index = tab.dataset.index = parseInt(0);
+                            // tab.children[index].click();
+                        }
+                    }
+                });
+            });
+        </script>
+    </body>
+
+</html>

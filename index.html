@@ -1,10 +1,10 @@
 <!-- 
 
-  Copyright 2023 Pardn Ltd 帕登國際有限公司.
-  Created by Pardn Chiu 邱敬幃.
-  Email: mail@pardn.ltd
-  
- -->
+    Copyright 2024 Pardn Ltd 帕登國際有限公司.
+    Created by Pardn Chiu 邱敬幃.
+    Email: dev@pardn.io
+
+-->
 <!DOCTYPE html>
 <html lang="zh-Hant-TW">
 
@@ -55,27 +55,177 @@
         <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" as="style">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 
-        <link rel="preload" href="https://cdn.jsdelivr.net/npm/pdrenderkit@1.5.2/dist/PDRenderKit.js" as="script">
-        <script src="https://cdn.jsdelivr.net/npm/pdrenderkit@1.5.2/dist/PDRenderKit.js" copyright="Pardn Ltd"></script>
-        <!-- <script src="./js/test.js" copyright="Pardn Ltd"></script> -->
+        <link rel="preload" href="https://cdn.jsdelivr.net/npm/pdquickui@0.5.4/dist/PDQuickUI.js" as="script">
+        <script src="https://cdn.jsdelivr.net/npm/pdquickui@0.5.4/dist/PDQuickUI.js" copyright="Pardn Ltd"></script>
 
-        <!-- <script src="./dist/PDMarkdownKit.js"></script> -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
+        <!-- <script src="./js/test.js" copyright="Pardn Ltd"></script> -->
 
         <!-- Local Resources -->
         <link rel="stylesheet" href="./static/css/index.css">
-        <script type="module" src="./static/js/index.js"></script>
     </head>
 
-    <body id="app" class="preview">
-        <section class="left"></section>
-        <section class="right"></section>
-        <section class="button">
-            <i class="fa-solid fa-circle-info" @click="click_info" title="關於項目"></i>
-            <i class="fa-brands fa-markdown" @click="click_markdown" title="下載 Markdown"></i>
-            <i class="fa-brands fa-html5" @click="click_html" title="下載 HTML"></i>
-            <i class="fa-regular fa-lightbulb" @click="click_mode" title="明暗模式"></i>
-            <i class="fa-solid fa-eye" @click="click_show" title="預覽頁面"></i>
+    <body id="app" class="home">
+        <nav>
+            <section>
+                <section>
+                    <img src="./static/image/logo.svg" alt="">
+                </section>
+                <section class="center" data-index="0">
+                    <a>
+                        <i class="fa-solid fa-house"></i>
+                        HOME
+                    </a>
+                    <a href="./doc.html">
+                        <i class="fa-brands fa-readme"></i>
+                        DOC
+                    </a>
+                    <a href="https://github.com/pardnchiu/NanoMD/releases">
+                        <i class="fa-solid fa-code-branch"></i>
+                        VERSION
+                    </a>
+                </section>
+                <section>
+                    <a href="./live.html">
+                        <i class="fa-brands fa-markdown"></i>
+                        <span>Online</span>
+                    </a>
+                    <!-- <div data-show="0" data-index="0" onclick="this.dataset.show=Math.abs(parseInt(this.dataset.show || 0) - 1)">
+                        <p onclick="this.parentElement.dataset.index=0">中文</p>
+                        <p onclick="this.parentElement.dataset.index=1">英文</p>
+                    </div> -->
+                </section>
+            </section>
+        </nav>
+        <!--  -->
+        <header>
+            <section>
+                <section class="logo">
+                    <img src="./static//image/logo.svg" alt="">
+                    <strong>NanoMD<span>輕量且強大的編輯器</span></strong>
+                </section>
+                <section class="button">
+                    <a href="https://github.com/pardnchiu/NanoMD" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                        GitHub
+                    </a>
+                    <a href="https://www.npmjs.com/package/@pardnchiu/nanomd" target="_blank">
+                        <i class="fa-brands fa-npm"></i>
+                        npm
+                    </a>
+                </section>
+                <img src="./static/image/header.jpg" alt="">
+                <a href="./live.html">
+                    <i class="fa-brands fa-markdown"></i>
+                    Online Editor
+                    <i class="fa-solid fa-angles-right"></i>
+                </a>
+            </section>
+        </header>
+        <!--  -->
+        <section class="home-quote">
+            <section>
+                <i class="fa-solid fa-quote-left"></i>
+                <p>A Markdown editor built with pure JavaScript and native APIs.<br>
+                    Supports real-time preview and automatic detection of YouTube/Vimeo videos.<br>
+                    Perfect for web integration, such as blog projects.</p>
+                <!-- <p>這是一款基於純 JavaScript 和原生 API 的 Markdown 編輯器，<br>
+                    支持標準 Markdown 語法與多項擴展功能，包括即時預覽、自動檢測 YouTube / Vimeo 影片等。<br>
+                    專為網頁整合設計，適用於部落格等需要編輯器的專案。
+                </p> -->
+                <i class="fa-solid fa-quote-right"></i>
+            </section>
         </section>
+        <!--  -->
+        <section class="home-intro">
+            <section>
+                <i class="fa-solid fa-hashtag"></i>
+                <strong>功能強大、方便嵌入，立即為你的專案加上 Markdown 編輯器。</strong>
+                <!-- 需修正 PDQuickUI 的差異算法 -->
+                <section id="intro-block">
+                    <strong>{{ intro.title }}</strong>
+                    <p :html="{{ intro.description }}"></p>
+                    <a :href="{{ intro.href }}">深入瞭解<i class="fa-solid fa-angles-right"></i></a>
+                    <figure>
+                        <img src="" alt="">
+                        <figcaption>圖片尚未製作</figcaption>
+                    </figure>
+                    <section :data-index="introIndex">
+                        <button @click="changeIntro">輕量強大</button>
+                        <button @click="changeIntro">標準語法</button>
+                        <button @click="changeIntro">即時預覽</button>
+                        <button @click="changeIntro">自動偵測</button>
+                        <button @click="changeIntro">方便嵌入</button>
+                    </section>
+                </section>
+            </section>
+        </section>
+        <!--  -->
+        <footer>
+            <p>Created by <a href="https://github.com/pardnchiu" target="_blank">邱敬幃</a></p>
+            <p><a href="https://github.com/pardnchiu/NanoMD" target="_blank">NanoMD on GitHub</a></p>
+            <p>&copy; 2024</p>
+        </footer>
+        <!--  -->
+        <script>
+            document.addEventListener("DOMContentLoaded", _ => {
+                const introRecord = {
+                    "輕量強大": {
+                        title: "輕量且功能強大的編輯器",
+                        description: "基於純 JavaScript 和原生 API 所開發。<br>實現高效、穩定且無負擔的編輯體驗。",
+                        href: ""
+                    },
+                    "標準語法": {
+                        title: "支持標準 Markdown 語法",
+                        description: "完整支持字體、連結、圖片、列表、表格、代碼塊與引用等標準功能，<br>並提供額外擴展以提升使用體驗。",
+                        href: ""
+                    },
+                    "即時預覽": {
+                        title: "所見即所得的即時預覽",
+                        description: "提供即時預覽，與滾動同步功能。<br>讓編輯和結果一目了然，輕鬆實現可視化編輯。",
+                        href: ""
+                    },
+                    "自動偵測": {
+                        title: "自動偵測並嵌入的功能",
+                        description: "自動檢測連結並嵌入相關內容，<br>目前已支持 Youtube、Vimeo 多種服務。",
+                        href: ""
+                    },
+                    "方便嵌入": {
+                        title: "輕鬆嵌入的模組化設計",
+                        description: "只需添加幾行代碼，即可快速將編輯器整合至網站，<br>配置靈活，操作簡單。",
+                        href: ""
+                    }
+                };
+
+                const app = new QUI({
+                    id: "app",
+                    event: {
+                        changeIntro: e => {
+                            const _this = e.target;
+                            const parent = _this.parentElement;
+                            const index = Array.prototype.indexOf.call(parent.children, _this);
+
+                            parent.dataset.index = index;
+
+                            const data = introRecord[Object.keys(introRecord)[index]];
+                            const dom = document.getElementById("intro-block");
+
+                            dom.children[0].innerText = data.title;
+                            dom.children[1].innerHTML = data.description;
+                            dom.children[2].href = data.href;
+                        }
+                    },
+                    data: {
+                        intro: introRecord[Object.keys(introRecord)[0]],
+                        introIndex: 0
+                    }
+                });
+            });
+        </script>
     </body>
 
 </html>

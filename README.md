@@ -1,16 +1,17 @@
-# PDMarkdownKit
+# NanoMD
 
-> PDMarkdownKit is a pure JavaScript-based Markdown editor, built with native APIs, and designed for seamless web integration.  <br>
-> It supports standard Markdown syntax with various extended features, including real-time preview, scroll synchronization, automatic detection of YouTube videos, and more, catering to diverse editing needs.<br>
+*(Formerly known as PDMarkdownKit, renamed to NanoMD starting from version `1.8.0`)*
+
+> A pure JavaScript-based Markdown editor, built with native APIs, supports standard Markdown syntax with various extended features, including real-time preview, scroll synchronization, automatic detection of YouTube videos, and more.<br>
 > Additionally, with its built-in virtual DOM technology, it updates only the modified parts, ensuring efficient rendering and smooth editing experiences, making it ideal for online editing scenarios.
 
 ![](https://img.shields.io/badge/tag-JavaScript%20Library-bb4444) 
-![](https://img.shields.io/github/size/pardnchiu/PDMarkdownKit/dist%2FPDMarkdownKit.js) 
-![](https://img.shields.io/github/license/pardnchiu/PDMarkdownKit)<br>
-[![](https://img.shields.io/github/v/release/pardnchiu/PDMarkdownKit)](https://github.com/pardnchiu/PDMarkdownKit) 
-[![](https://img.shields.io/npm/v/pdmarkdownkit)](https://www.npmjs.com/package/pdmarkdownkit) 
-[![](https://img.shields.io/jsdelivr/npm/hw/pdmarkdownkit)](https://www.jsdelivr.com/package/npm/pdmarkdownkit)<br>
-[![](https://img.shields.io/badge/查閱-中文版本-ffffff)](https://github.com/pardnchiu/PDMarkdownKit/blob/main/README.zh.md)
+![](https://img.shields.io/github/size/pardnchiu/NanoMD/dist%2FNanoMD.js) 
+![](https://img.shields.io/github/license/pardnchiu/NanoMD)<br>
+[![](https://img.shields.io/github/v/release/pardnchiu/NanoMD)](https://github.com/pardnchiu/NanoMD) 
+[![](https://img.shields.io/npm/v/@pardnchiu/ndnomd)](https://www.npmjs.com/package/@pardnchiu/ndnomd) 
+[![](https://img.shields.io/jsdelivr/npm/hw/@pardnchiu/ndnomd)](https://www.jsdelivr.com/package/npm/@pardnchiu/ndnomd)<br>
+[![](https://img.shields.io/badge/查閱-中文版本-ffffff)](https://github.com/pardnchiu/NanoMD/blob/main/README.zh.md)
 
 ## Features
 
@@ -20,39 +21,54 @@
 - Includes undo/redo functions, multiple hotkeys, and supports importing/exporting files in Markdown and HTML formats.
 - Implements virtual DOM concepts for efficient rendering by updating the page on-demand.
 - Integrated [Google Icon](https://fonts.google.com/icons) and [code-prettify](https://github.com/googlearchive/code-prettify) for syntax highlighting.
-- Click here for a [preview](https://pardnchiu.github.io/PDMarkdownKit)。
+- Click here for a [preview](https://pardnchiu.github.io/NanoMD)。
 
 ## Installation
 
 - **Install via npm**
     ```bash
-    npm i pdmarkdownkit
+    npm i @pardnchiu/ndnomd
     ```
 
 - **Include via CDN**
-    - **Include the `PDMarkdownKit` library**
+    - **Include the `NanoMD` library**
         ```html
-        <!-- Version 1.6.0 and above -->
+        <!-- Version 1.8.0 and above -->
+        <script src="https://cdn.jsdelivr.net/npm/@pardnchiu/nanomd@[VERSION]/dist/NanoMD.js"></script>
+
+        <!-- Version 1.6.0-1.7.1 -->
         <script src="https://cdn.jsdelivr.net/npm/pdmarkdownkit@[VERSION]/dist/PDMarkdownKit.js"></script>
         ```
     - **Module version**
         ```javascript
-        // Version 1.6.0 and above
-        import { editor as PDMarkdownEditor, viewer as PDMarkdownViewer } from "https://cdn.jsdelivr.net/npm/pdmarkdownkit@[VERSION]/dist/PDMarkdownKit.module.js";
+        // Version 1.8.0 and above
+        import { MDEditor, MDViewer } from "https://cdn.jsdelivr.net/npm/@pardnchiu/nanomd@[VERSION]/dist/NanoMD.esm.js";
 
+        // Version 1.6.0-1.7.1
+        import { editor, viewer } from "https://cdn.jsdelivr.net/npm/pdmarkdownkit@[VERSION]/dist/PDMarkdownKit.module.js";
+        
         // Version 1.5.2 and below
-        import { editor as PDMarkdownEditor, viewer as PDMarkdownViewer } from "https://cdn.jsdelivr.net/npm/pdmarkdownkit@[VERSION]/dist/PDMarkdownKit.js";
+        import { editor, viewer } from "https://cdn.jsdelivr.net/npm/pdmarkdownkit@[VERSION]/dist/PDMarkdownKit.js";
         ```
 
 ## Usage
 
 - **Initialize `editor` and `viewer`**
     ```Javascript
-    const elm_editor = new PDMarkdownEditor({
+    // Version 1.8.0 and above
+    // Unified: MDEditor, MDViewer
+
+    // Version 1.7.1 and below
+    // IIFE: PDMarkdownEditor, PDMarkdownViewer
+    // ESM: editor, viewer
+
+    const domEditor = new PDMarkdownEditor({
         id: "",                                 // Default: PDMDEditor
         defaultContent: "",                     // Default content to display initially
         hotKey: 1,                              // Enable hotkeys, default: 1
         preventRefresh: 0,                      // Prevent page refresh, default: 0
+        tabPin: 0,                              // 1 | 0 | true | false
+        wrap: 1,                                // 1 | 0 | true | false
         style: {
             mode: "",                           // auto | light | dark, default: auto
             fill: 1,                            // Adjust size to parent element, default: 1
@@ -69,7 +85,7 @@
         }
     });
 
-    const elm_viewer = new PDMarkdownViewer({
+    const domViewer = new PDMarkdownViewer({
         id: "",                 // Default: PDMDViewer
         emptyContent: "",       // Default content when editor is empty
         style: {
@@ -78,7 +94,7 @@
             fontFamily: "",     // Default: 'Noto Sans TC', sans-serif
         },
         sync: {
-            editor: elm_editor, // Associated editor
+            editor: domEditor,  // Associated editor
             delay: 50,          // Update delay in ms, default: 300
             scrollSync: 1,      // Synchronize scrolling with editor, default: 0 | false
         },
@@ -88,13 +104,9 @@
         }
     });
 
-    // Add elements to DOM
-    {DOM}.appendChild(elm_editor.body);
-    {DOM}.appendChild(elm_viewer.body);
-
-    // Initialize editor and viewer
-    elm_editor.init(pre: string);
-    elm_viewer.init(pre: string);
+    // If no element is specified, the player must be manually added to the DOM
+    (...).appendChild(domEditor.body);
+    (...).appendChild(domViewer.body);
 
     ```
 
@@ -104,7 +116,7 @@ Supports standard Markdown syntax, including text styling, links, images, lists,
 
 ### Text Styling
 
-<details open>
+<details>
 <summary><strong>Standard Syntax</strong></summary>
 
 | Syntax | Output |
@@ -125,7 +137,7 @@ Supports standard Markdown syntax, including text styling, links, images, lists,
 
 </details>
 
-<details open>
+<details>
 <summary><strong>Extensions</strong></summary>
 
 | Syntax | Output |
@@ -138,64 +150,73 @@ Supports standard Markdown syntax, including text styling, links, images, lists,
 
 ### Links
 
-<details open>
+<details>
 <summary><strong>Standard Syntax</strong></summary>
 
-- Plain link<br>
-    `https://github.com/pardnchiu/PDMarkdownKit/`
-    https://github.com/pardnchiu/PDMarkdownKit/
-- Link with custom text<br>
-    `[Display text](https://github.com/pardnchiu/PDMarkdownKit/)`
-    [Display text](https://github.com/pardnchiu/PDMarkdownKit/)
-- Link with custom title<br>
-    `[Display text](https://github.com/pardnchiu/PDMarkdownKit/ "Link title")`
-    [Display text](https://github.com/pardnchiu/PDMarkdownKit/ "Link title")
+- Plain link: https://github.com/pardnchiu/NanoMD/
+    ```
+    https://github.com/pardnchiu/NanoMD/
+    ```
+- Link with custom text: [Display text](https://github.com/pardnchiu/NanoMD/)
+    ```
+    [Display text](https://github.com/pardnchiu/NanoMD/)
+    ```
+- Link with custom title: [Display text](https://github.com/pardnchiu/NanoMD/ "Link title")
+    ```
+    [Display text](https://github.com/pardnchiu/NanoMD/ "Link title")
+    ```
 
 </details>
 
-<details open>
+<details>
 <summary><strong>Extensions</strong></summary>
 
-- Auto-detect Email<br>
-    dev@pardn.io
-- Auto-detect YouTube videos<br>
-    - Plain link<br>
-        `https://www.youtube.com/watch?v=zJ_w7Dix_f0`
-        https://www.youtube.com/watch?v=zJ_w7Dix_f0
-    - With Syntax<br>
-        `[Display text](https://www.youtube.com/watch?v=zJ_w7Dix_f0)`
-        [Display text](https://www.youtube.com/watch?v=zJ_w7Dix_f0)
+- Auto-detect Email: dev@pardn.io
+- Auto-detect YouTube videos: https://www.youtube.com/watch?v=O5O3yK8DJCc
+- Auto-detect Vimeo videos: https://vimeo.com/458695734
 
 </details>
 
 ### Images
 
-<details open>
+<details>
 <summary><strong>Standard Syntax</strong></summary>
 
-- Image: [Image Source](https://pixabay.com/photos/corn-harvest-fall-thanksgiving-9135131/)<br>
-    `![](./static/image/corn-9135131_640.jpg)`<br>
+- Image: [Image Source](https://pixabay.com/photos/corn-harvest-fall-thanksgiving-9135131/)
+    ```
     ![](./static/image/corn-9135131_640.jpg)
-- Image with description: [Image Source](https://pixabay.com/photos/dog-irish-setter-mischievous-7128749/)<br>
-    `![Example image from Pixabay](./static/image/dog-7128749_640.jpg)`<br>
+    ```
+    ![](./static/image/corn-9135131_640.jpg)
+- Image with description: [Image Source](https://pixabay.com/photos/dog-irish-setter-mischievous-7128749/)
+    ```
     ![Example image from Pixabay](./static/image/dog-7128749_640.jpg)
-- Image with title: [Image Source](https://pixabay.com/photos/stilt-bird-animal-feathers-plumage-8593487/)<br>
-    `![](./static/image/stilt-8593487_640.jpg "Example image from Pixabay")`<br>
+    ```
+    ![Example image from Pixabay](./static/image/dog-7128749_640.jpg)
+- Image with title: [Image Source](https://pixabay.com/photos/stilt-bird-animal-feathers-plumage-8593487/)
+    ```
     ![](./static/image/stilt-8593487_640.jpg "Example image from Pixabay")
-- Linked image: [Image Source](https://pixabay.com/photos/hippopotamus-hippo-baby-hippo-9147023/)<br>
-    `[![](./static/image/hippopotamus-9147023_640.jpg)](https://pixabay.com/photos/hippopotamus-hippo-baby-hippo-9147023/)`<br>
+    ```
+    ![](./static/image/stilt-8593487_640.jpg "Example image from Pixabay")
+- Linked image: [Image Source](https://pixabay.com/photos/hippopotamus-hippo-baby-hippo-9147023/)
+    ```
+    [![](./static/image/hippopotamus-9147023_640.jpg)](https://pixabay.com/photos/hippopotamus-hippo-baby-hippo-9147023/)
+    ```
     [![](./static/image/hippopotamus-9147023_640.jpg)](https://pixabay.com/photos/hippopotamus-hippo-baby-hippo-9147023/)
 
 </details>
 
-<details open>
+<details>
 <summary><strong>Extensions</strong></summary>
 
-- Video: [Video Source](https://pixabay.com/videos/ocean-sea-wave-water-sunset-233867/)<br>
-    `![](./static/image/233867_tiny.mp4)`<br>
+- Video: [Video Source](https://pixabay.com/videos/ocean-sea-wave-water-sunset-233867/)
+    ```
     ![](./static/image/233867_tiny.mp4)
-- Image with size (width: 50%): [Image Source](https://pixabay.com/photos/flamingo-nature-bird-wildlife-9190160/)<br>
-    `![](./static/image/flamingo-9190160_640.jpg)(50%*)`<br>
+    ```
+    ![](./static/image/233867_tiny.mp4)
+- Image with size (width: 50%): [Image Source](https://pixabay.com/photos/flamingo-nature-bird-wildlife-9190160/)
+    ```
+    ![](./static/image/flamingo-9190160_640.jpg)(50%*)
+    ```
     ![](./static/image/flamingo-9190160_640.jpg)(50%*)
 
 </details>
@@ -203,7 +224,7 @@ Supports standard Markdown syntax, including text styling, links, images, lists,
 ### Lists
 
 
-<details open>
+<details>
 <summary><strong>Ordered List</strong></summary>
 
 1. ol List 0
@@ -214,9 +235,19 @@ Supports standard Markdown syntax, including text styling, links, images, lists,
             1. ol List 3
                 1. ol List 4
 
+```
+1. ol List 0
+2. ol List 0
+3. ol List 0
+    1. ol List 1
+        1. ol List 2
+            1. ol List 3
+                1. ol List 4
+```
+
 </details> 
 
-<details open>
+<details>
 <summary><strong>Unordered List</strong></summary>
 
 - ul List 0
@@ -227,9 +258,19 @@ Supports standard Markdown syntax, including text styling, links, images, lists,
             - ul List 3
                 - ul List 4
 
+```
+- ul List 0
+- ul List 0
+- ul List 0
+    - ul List 1
+        - ul List 2
+            - ul List 3
+                - ul List 4
+```
+
 </details> 
 
-<details open>
+<details>
 <summary><strong>Mixed List</strong></summary>
 
 - ul List 0
@@ -244,9 +285,23 @@ Supports standard Markdown syntax, including text styling, links, images, lists,
             1. ol List 3
                 - ul List 4
 
+```
+- ul List 0
+- ul List 0
+- ul List 0
+    1. ol List 1
+    1. ol List 1
+    1. ol List 1
+        - ul List 2
+        - ul List 2
+        - ul List 2
+            1. ol List 3
+                - ul List 4
+```
+
 </details> 
 
-<details open>
+<details>
 <summary><strong>Todo List</strong></summary>
 
 - [ ] Item 1
@@ -254,15 +309,21 @@ Supports standard Markdown syntax, including text styling, links, images, lists,
     - [ ] Item 2-1
     - [x] Item 2-2
 
+```
+- [ ] Item 1
+- [x] Item 2
+    - [ ] Item 2-1
+    - [x] Item 2-2
+```
+
 </details> 
 
 ### Code Blocks
 
-<details open>
+<details>
 <summary><strong>Standard Syntax</strong></summary>
 
-- Single line
-    `#Code-1`
+- Single line: `#Code-1`
 - Multi-line
     ```Language
     #Code-2
@@ -272,7 +333,7 @@ Supports standard Markdown syntax, including text styling, links, images, lists,
 
 </details>
 
-<details open>
+<details>
 <summary><strong>Extensions</strong></summary>
 
 - Four spaces indentation
@@ -286,7 +347,7 @@ Supports standard Markdown syntax, including text styling, links, images, lists,
 
 ### Blockquotes
 
-<details open>
+<details>
 <summary><strong>Standard Syntax</strong></summary>
 
 > Quote level 1<br>
@@ -294,31 +355,63 @@ Supports standard Markdown syntax, including text styling, links, images, lists,
 >> Quote level 2
 >>> Quote level 3
 
+```
+> Quote level 1<br>
+> <br>
+>> Quote level 2
+>>> Quote level 3
+```
+
 </details> 
 
-<details open>
+<details>
 <summary><strong>Extensions</strong></summary>
 
 > [!NOTE]
 > This is a NOTE
 
+```
+> [!NOTE]
+> This is a NOTE
+```
+
 > [!TIP]
 > This is a TIP
+
+```
+> [!TIP]
+> This is a TIP
+```
 
 > [!IMPORTANT]
 > This is IMPORTANT
 
+```
+> [!IMPORTANT]
+> This is IMPORTANT
+```
+
 > [!WARNING]
 > This is a WARNING
 
+```
+> [!WARNING]
+> This is a WARNING
+```
+
 > [!CAUTION]
 > This is a CAUTION
+
+```
+> [!CAUTION]
+> This is a CAUTION
+```
 
 </details> 
 
 ### Tables
 
-<details open>
+<details>
 <summary><strong>Standard Syntax</strong></summary>
 
 - Table 1
@@ -328,7 +421,7 @@ Supports standard Markdown syntax, including text styling, links, images, lists,
     | Value | Value | Value |
     | Value | Value | Value |
     | Value | Value | Value |
-- 表格2 (不包含兩側 `|`)
+- Table 2
     Left Align | Center Align | Right Align
     :- | :-: | -:
     Value | Value | Value
@@ -345,6 +438,10 @@ Supports standard Markdown syntax, including text styling, links, images, lists,
 <hr>
 
 ### Hashtag
+
+```
+#test1 #test2 #test3
+```
 
 #test1 #test2 #test3
 
@@ -378,13 +475,13 @@ Supports standard Markdown syntax, including text styling, links, images, lists,
 
 ## License
 
-This project is licensed under [MIT](https://github.com/pardnchiu/PDMarkdownKit/blob/main/LICENSE).
+This project is licensed under [MIT](https://github.com/pardnchiu/NanoMD/blob/main/LICENSE).
 
 ## Obtain Complete Source Code
 
 [Contact me](mailto:dev@pardn.io) for the complete unobfuscated source code.<br>
 Feel free to modify and use for commercial purposes with the following licensing options:
-- Must retain `Powered by PDMarkdownKit` copyright notice: $7,500.
+- Must retain `Powered by NanoMD` copyright notice: $7,500.
 - Fully autonomous, no copyright notice required: $10,000.
 
 ***

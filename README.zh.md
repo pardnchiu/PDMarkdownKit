@@ -1,16 +1,17 @@
-# PDMarkdownKit
+# NanoMD
 
-> PDMarkdownKit 是一款基於純 JavaScript 和原生 API 的 Markdown 編輯器，專為網頁整合設計。<br>
-> 支持標準 Markdown 語法與多項擴展功能，包括即時預覽、滾動同步、自動檢測 YouTube 影片等，滿足多樣化編輯需求。<br>
+*(原名：PDMarkdownKit，自 `1.8.0` 版本起更名為 NanoMD)*
+
+> 一個純 JavaScript 實現的 Markdown 編輯器，使用原生 API，支援標準 Markdown 語法並擴展多種功能，包括即時預覽、滾動同步、自動檢測 YouTube 視頻等功能。<br>
 > 同時，內建虛擬 DOM 技術，僅更新變動部分，確保即時編輯中的高效渲染與流暢體驗，適合在線編輯場景。
 
 ![](https://img.shields.io/badge/tag-JavaScript%20Library-bb4444) 
-![](https://img.shields.io/github/size/pardnchiu/PDMarkdownKit/dist%2FPDMarkdownKit.js) 
-![](https://img.shields.io/github/license/pardnchiu/PDMarkdownKit)<br>
-[![](https://img.shields.io/github/v/release/pardnchiu/PDMarkdownKit)](https://github.com/pardnchiu/PDMarkdownKit) 
-[![](https://img.shields.io/npm/v/pdmarkdownkit)](https://www.npmjs.com/package/pdmarkdownkit) 
-[![](https://img.shields.io/jsdelivr/npm/hw/pdmarkdownkit)](https://www.jsdelivr.com/package/npm/pdmarkdownkit)<br>
-[![](https://img.shields.io/badge/read-English%20Version-ffffff)](https://github.com/pardnchiu/PDMarkdownKit/blob/main/README.md)
+![](https://img.shields.io/github/size/pardnchiu/NanoMD/dist%2FNanoMD.js) 
+![](https://img.shields.io/github/license/pardnchiu/NanoMD)<br>
+[![](https://img.shields.io/github/v/release/pardnchiu/NanoMD)](https://github.com/pardnchiu/NanoMD) 
+[![](https://img.shields.io/npm/v/@pardnchiu/ndnomd)](https://www.npmjs.com/package/@pardnchiu/ndnomd) 
+[![](https://img.shields.io/jsdelivr/npm/hw/@pardnchiu/ndnomd)](https://www.jsdelivr.com/package/npm/@pardnchiu/ndnomd)<br>
+[![](https://img.shields.io/badge/read-English%20Version-ffffff)](https://github.com/pardnchiu/NanoMD/blob/main/README.md)
 
 ## 特點
 
@@ -20,39 +21,54 @@
 - 提供撤銷與重做功能，以及多項快捷鍵，並支持 Markdown 和 HTML 格式的檔案匯入與匯出。
 - 引入虛擬 DOM 概念，按需更新頁面，減少渲染所需資源。
 - 集成 [Google Icon](https://fonts.google.com/icons) 圖示與 [code-prettify](https://github.com/googlearchive/code-prettify) 語法高亮。
-- 點擊這裡 [預覽](https://pardnchiu.github.io/PDMarkdownKit)。
+- 點擊這裡 [預覽](https://pardnchiu.github.io/NanoMD)。
 
 ## 安裝方式
 
 - **從 npm 安裝**
     ```bash
-    npm i pdmarkdownkit
+    npm i @pardnchiu/ndnomd
     ```
 
 - **從 CDN 引入**
-    - **引入 `PDMarkdownKit` 套件**
+    - **引入 `NanoMD` 套件**
         ```html
-        <!-- 版本 1.6.0 以上 -->
+        <!-- Version 1.8.0 and above -->
+        <script src="https://cdn.jsdelivr.net/npm/@pardnchiu/nanomd@[VERSION]/dist/NanoMD.js"></script>
+
+        <!-- Version 1.6.0-1.7.1 -->
         <script src="https://cdn.jsdelivr.net/npm/pdmarkdownkit@[VERSION]/dist/PDMarkdownKit.js"></script>
         ```
     - **Module 版本**
         ```javascript
-        // 版本 1.6.0 以上
-        import { editor as PDMarkdownEditor, viewer as PDMarkdownViewer } from "https://cdn.jsdelivr.net/npm/pdmarkdownkit@[VERSION]/dist/PDMarkdownKit.module.js";
+        // Version 1.8.0 and above
+        import { MDEditor, MDViewer } from "https://cdn.jsdelivr.net/npm/@pardnchiu/nanomd@[VERSION]/dist/NanoMD.esm.js";
+
+        // Version 1.6.0-1.7.1
+        import { editor, viewer } from "https://cdn.jsdelivr.net/npm/pdmarkdownkit@[VERSION]/dist/PDMarkdownKit.module.js";
         
-        // 版本 1.5.2 以下
-        import { editor as PDMarkdownEditor, viewer as PDMarkdownViewer } from "https://cdn.jsdelivr.net/npm/pdmarkdownkit@[VERSION]/dist/PDMarkdownKit.js";
+        // Version 1.5.2 and below
+        import { editor, viewer } from "https://cdn.jsdelivr.net/npm/pdmarkdownkit@[VERSION]/dist/PDMarkdownKit.js";
         ```
 
 ## 使用方法
 
-- **初始化 `editor` 和 `viewer`**
+- **初始化 `MDEditor` 和 `MDViewer`**
     ```Javascript
-    const elm_editor = new PDMarkdownEditor({
-        id: "",                                 // 預設：PDMDEditor
+    // Version 1.8.0 and above
+    // Unified: MDEditor, MDViewer
+
+    // Version 1.7.1 and below
+    // IIFE: PDMarkdownEditor, PDMarkdownViewer
+    // ESM: editor, viewer
+
+    const domEditor = new MDEditor({
+        id: "",                                 // 指定元素取代元件
         defaultContent: "",                     // 預設內容，初始顯示
         hotKey: 1,                              // 啟用快捷鍵，預設為 1
         preventRefresh: 0,                      // 防止頁面重整，預設值：0
+        tabPin: 0,                              // 1 | 0 | true | false
+        wrap: 1,                                // 1 | 0 | true | false
         style: {
             mode: "",                           // auto | light | dark, 預設： auto
             fill: 1,                            // 隨父元素大小調整，預設值：1
@@ -69,8 +85,8 @@
         }
     });
 
-    const elm_viewer = new PDMarkdownViewer({
-        id: "",                 // 預設：PDMDViewer
+    const domViewer = new MDViewer({
+        id: "",                 // 指定元素取代元件
         emptyContent: "",       // 預設內容，當編輯器為空時顯示
         style: {
             mode: "",           // auto | light | dark, 預設： auto
@@ -88,13 +104,9 @@
         }
     });
 
-    // 將元素添加到 DOM 中
-    {DOM}.appendChild(elm_editor.body);
-    {DOM}.appendChild(elm_viewer.body);
-
-    // 初始化編輯器和預覽器
-    elm_editor.init(pre: string);
-    elm_viewer.init(pre: string);
+    // 若無指定元件，需手動將播放器加入至 DOM 中
+    (...).appendChild(domEditor.body);
+    (...).appendChild(domViewer.body);
     ```
 
 ## Markdown 語法支持
@@ -103,7 +115,7 @@
 
 ### 字體
 
-<details open>
+<details>
 <summary><strong>標準語法</strong></summary>
 
 | 語法 | 輸出 |
@@ -124,7 +136,7 @@
 
 </details>
 
-<details open>
+<details>
 <summary><strong>擴展</strong></summary>
 
 | 語法 | 輸出 |
@@ -137,62 +149,73 @@
 
 ### 連結
 
-<details open>
+<details>
 <summary><strong>標準語法</strong></summary>
 
-- 純連結<br>
-    `https://github.com/pardnchiu/PDMarkdownKit/`
-    https://github.com/pardnchiu/PDMarkdownKit/
-- 連結搭配自訂文字<br>
-    `[顯示文字](https://github.com/pardnchiu/PDMarkdownKit/)`
-    [顯示文字](https://github.com/pardnchiu/PDMarkdownKit/)
-- 連結搭配自訂標題<br>
-    `[顯示文字](https://github.com/pardnchiu/PDMarkdownKit/ "連結標題")`
-    [顯示文字](https://github.com/pardnchiu/PDMarkdownKit/ "連結標題")
+- 純連結: https://github.com/pardnchiu/NanoMD/
+    ```
+    https://github.com/pardnchiu/NanoMD/
+    ```
+- 連結搭配自訂文字: [顯示文字](https://github.com/pardnchiu/NanoMD/)
+    ```
+    [顯示文字](https://github.com/pardnchiu/NanoMD/)
+    ```
+- 連結搭配自訂標題: [顯示文字](https://github.com/pardnchiu/NanoMD/ "連結標題")
+    ```
+    [顯示文字](https://github.com/pardnchiu/NanoMD/ "連結標題")
+    ```
 
 </details>
 
-<details open>
+<details>
 <summary><strong>擴展</strong></summary>
 
-- 自動偵測 Email<br>
-    dev@pardn.io
-- 自動偵測 Youtube 影片<br>
-    `https://www.youtube.com/watch?v=zJ_w7Dix_f0`
-    https://www.youtube.com/watch?v=zJ_w7Dix_f0
-    `[Display text](https://www.youtube.com/watch?v=zJ_w7Dix_f0)`
-    [Display text](https://www.youtube.com/watch?v=zJ_w7Dix_f0)
+- 自動偵測 Email: dev@pardn.io
+- 自動偵測 Youtube 影片: https://www.youtube.com/watch?v=O5O3yK8DJCc
+- 自動偵測 Vimeo 影片: https://vimeo.com/458695734
 
 </details>
 
 ### 圖片
 
-<details open>
+<details>
 <summary><strong>標準語法</strong></summary>
 
-- 圖片: [Image Source](https://pixabay.com/photos/corn-harvest-fall-thanksgiving-9135131/)<br>
-    `![](./static/image/corn-9135131_640.jpg)`<br>
+- 圖片: [Image Source](https://pixabay.com/photos/corn-harvest-fall-thanksgiving-9135131/)
+    ```
     ![](./static/image/corn-9135131_640.jpg)
-- 圖片搭配描述: [Image Source](https://pixabay.com/photos/dog-irish-setter-mischievous-7128749/)<br>
-    `![Example image from Pixabay](./static/image/dog-7128749_640.jpg)`<br>
+    ```
+    ![](./static/image/corn-9135131_640.jpg)
+- 圖片搭配描述: [Image Source](https://pixabay.com/photos/dog-irish-setter-mischievous-7128749/)
+    ```
     ![Example image from Pixabay](./static/image/dog-7128749_640.jpg)
-- 圖片搭配標題: [Image Source](https://pixabay.com/photos/stilt-bird-animal-feathers-plumage-8593487/)<br>
-    `![](./static/image/stilt-8593487_640.jpg "Example image from Pixabay")`<br>
+    ```
+    ![Example image from Pixabay](./static/image/dog-7128749_640.jpg)
+- 圖片搭配標題: [Image Source](https://pixabay.com/photos/stilt-bird-animal-feathers-plumage-8593487/)
+    ```
     ![](./static/image/stilt-8593487_640.jpg "Example image from Pixabay")
-- 圖片搭配連結: [Image Source](https://pixabay.com/photos/hippopotamus-hippo-baby-hippo-9147023/)<br>
-    `[![](./static/image/hippopotamus-9147023_640.jpg)](https://pixabay.com/photos/hippopotamus-hippo-baby-hippo-9147023/)`<br>
+    ```
+    ![](./static/image/stilt-8593487_640.jpg "Example image from Pixabay")
+- 圖片搭配連結: [Image Source](https://pixabay.com/photos/hippopotamus-hippo-baby-hippo-9147023/)
+    ```
+    [![](./static/image/hippopotamus-9147023_640.jpg)](https://pixabay.com/photos/hippopotamus-hippo-baby-hippo-9147023/)
+    ```
     [![](./static/image/hippopotamus-9147023_640.jpg)](https://pixabay.com/photos/hippopotamus-hippo-baby-hippo-9147023/)
 
 </details>
 
-<details open>
+<details>
 <summary><strong>擴展</strong></summary>
 
-- 影片: [Video Source](https://pixabay.com/videos/ocean-sea-wave-water-sunset-233867/)<br>
-    `![](./static/image/233867_tiny.mp4)`<br>
+- 影片: [Video Source](https://pixabay.com/videos/ocean-sea-wave-water-sunset-233867/)
+    ```
     ![](./static/image/233867_tiny.mp4)
-- 圖片搭配尺寸: [Image Source](https://pixabay.com/photos/flamingo-nature-bird-wildlife-9190160/)<br>
-    `![](./static/image/flamingo-9190160_640.jpg)(50%*)`<br>
+    ```
+    ![](./static/image/233867_tiny.mp4)
+- 圖片搭配尺寸: [Image Source](https://pixabay.com/photos/flamingo-nature-bird-wildlife-9190160/)
+    ```
+    ![](./static/image/flamingo-9190160_640.jpg)(50%*)
+    ```
     ![](./static/image/flamingo-9190160_640.jpg)(50%*)
 
 </details>
@@ -200,7 +223,7 @@
 ### 列表
 
 
-<details open>
+<details>
 <summary><strong>有序列表</strong></summary>
 
 1. ol List 0
@@ -211,9 +234,19 @@
             1. ol List 3
                 1. ol List 4
 
+```
+1. ol List 0
+2. ol List 0
+3. ol List 0
+    1. ol List 1
+        1. ol List 2
+            1. ol List 3
+                1. ol List 4
+```
+
 </details> 
 
-<details open>
+<details>
 <summary><strong>無序列表</strong></summary>
 
 - ul List 0
@@ -224,9 +257,19 @@
             - ul List 3
                 - ul List 4
 
+```
+- ul List 0
+- ul List 0
+- ul List 0
+    - ul List 1
+        - ul List 2
+            - ul List 3
+                - ul List 4
+```
+
 </details> 
 
-<details open>
+<details>
 <summary><strong>混合列表</strong></summary>
 
 - ul List 0
@@ -241,9 +284,23 @@
             1. ol List 3
                 - ul List 4
 
+```
+- ul List 0
+- ul List 0
+- ul List 0
+    1. ol List 1
+    1. ol List 1
+    1. ol List 1
+        - ul List 2
+        - ul List 2
+        - ul List 2
+            1. ol List 3
+                - ul List 4
+```
+
 </details> 
 
-<details open>
+<details>
 <summary><strong>待辦事項</strong></summary>
 
 - [ ] 項目1
@@ -251,17 +308,23 @@
     - [ ] 項目1
     - [x] 項目2
 
+```
+- [ ] 項目1
+- [x] 項目2
+    - [ ] 項目1
+    - [x] 項目2
+```
+
 </details> 
 
 ### 代碼塊
 
-<details open>
+<details>
 <summary><strong>標準語法</strong></summary>
 
-- 單行 
-    `#Code-1`
-- 多行 
-    ```Language
+- 單行: `#Code-1`
+- 多行
+    ```
     #Code-2
     #Code-2
     #Code-2
@@ -269,7 +332,7 @@
 
 </details>
 
-<details open>
+<details>
 <summary><strong>擴展</strong></summary>
 
 - 空白鍵*4
@@ -283,7 +346,7 @@
 
 ### 引用
 
-<details open>
+<details>
 <summary><strong>標準語法</strong></summary>
 
 > 引用層 1<br>
@@ -291,31 +354,63 @@
 >> 引用層 2
 >>> 引用層 3
 
+```
+> 引用層 1<br>
+> <br>
+>> 引用層 2
+>>> 引用層 3
+```
+
 </details> 
 
-<details open>
+<details>
 <summary><strong>擴展</strong></summary>
 
 > [!NOTE]
 > 這是NOTE
 
+```
+> [!NOTE]
+> 這是NOTE
+```
+
 > [!TIP]
 > 這是TIP
+
+```
+> [!TIP]
+> 這是TIP
+```
 
 > [!IMPORTANT]
 > 這是IMPORTANT
 
+```
+> [!IMPORTANT]
+> 這是IMPORTANT
+```
+
 > [!WARNING]
 > 這是WARNING
 
+```
+> [!WARNING]
+> 這是WARNING
+```
+
 > [!CAUTION]
 > 這是CAUTION
+
+```
+> [!CAUTION]
+> 這是CAUTION
+```
 
 </details> 
 
 ### 表格
 
-<details open>
+<details>
 <summary><strong>標準語法</strong></summary>
 
 - 表格1
@@ -342,6 +437,10 @@
 <hr>
 
 ### Hashtag
+
+```
+#test1 #test2 #test3
+```
 
 #test1 #test2 #test3
 
@@ -375,13 +474,13 @@
 
 ## 授權條款
 
-本專案依據 [MIT](https://github.com/pardnchiu/PDMarkdownKit/blob/main/LICENSE) 授權使用。
+本專案依據 [MIT](https://github.com/pardnchiu/NanoMD/blob/main/LICENSE) 授權使用。
 
 ## 獲取完整原始碼
 
 [聯絡我](mailto:dev@pardn.io) 獲取完整未混淆源碼<br>
 可隨意修改、商業使用，根據需求選擇授權版本：
-- 需保留 `Powered by PDMarkdownKit` 的版權聲明：$7,500
+- 需保留 `Powered by NanoMD` 的版權聲明：$7,500
 - 完全自主，無需添加版權聲明：$10,000
 
 ***

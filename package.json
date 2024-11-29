@@ -1,12 +1,12 @@
 {
-    "name": "pdmarkdownkit",
-    "version": "1.7.1",
-    "description": "PDMarkdownKit is a lightweight Markdown editor and viewer library based on JavaScript. It offers rich features to edit and preview Markdown content in real-time.",
-    "main": "dist/PDMarkdownKit.js",
+    "name": "@pardnchiu/nanomd",
+    "version": "1.8.1",
+    "description": "NanoMD is a lightweight Markdown editor and viewer library based on JavaScript. It offers rich features to edit and preview Markdown content in real-time.",
+    "main": "dist/NanoMD.js",
     "scripts": {
-        "minify": "npx terser src/*.js src/function/*.js src/model/*.js -c -m -o dist/PDMarkdownKit.js --config-file terser.config.json --name-cache terser.cache.json && npx terser src/*.js src/function/*.js src/model/*.js -c -m -o dist/PDMarkdownKit.module.js --config-file terser.config.json --name-cache terser.cache.json && echo 'export const editor = window.PDMarkdownEditor;export const viewer = window.PDMarkdownViewer;' >> dist/PDMarkdownKit.module.js",
+        "minify": "npx terser src/*.js src/function/*.js src/model/*.js -c -m -o dist/NanoMD.js --config-file terser.config.json --name-cache terser.cache.json && npx terser src/*.js src/function/*.js src/model/*.js -c -m -o dist/NanoMD.esm.js --config-file terser.config.json --name-cache terser.cache.json && echo 'export const editor = window.MDEditor; export const MDEditor = window.MDEditor; export const viewer = window.MDViewer; export const MDViewer = window.MDViewer;' >> dist/NanoMD.esm.js",
         "minify-w": "chokidar src/*.js src/function/*.js src/model/*.js -c 'npm run minify'",
-        "sass": "sass src/PDMarkdownKit.sass:dist/PDMarkdownKit.css -w --style compressed --no-source-map",
+        "sass": "sass src/sass:dist/ -w --style compressed --no-source-map",
         "sass-index": "sass static/sass/:static/css/ -w --style compressed --no-source-map"
     },
     "publishConfig": {
@@ -14,27 +14,36 @@
     },
     "files": [
         "dist",
-        "static",
-        "index.html",
-        "interface.ts",
         "LICENSE",
         "README.md"
     ],
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/pardnchiu/PDMarkdownKit.git"
+        "url": "https://github.com/pardnchiu/NanoMD.git"
     },
     "keywords": [
+        "markdown",
         "markdown-editor",
+        "markdown-viewer",
         "markdown-parser",
-        "javascript-library"
+        "javascript-library",
+        "real-time",
+        "lightweight"
     ],
-    "author": "邱敬幃 Pardn Chiu",
+    "author": {
+        "name": "邱敬幃 Pardn Chiu",
+        "email": "dev@pardn.io",
+        "url": "https://github.com/pardnchiu"
+    },
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/pardnchiu/PDMarkdownKit/issues",
-        "email": "git@pardn.io"
+        "url": "https://github.com/pardnchiu/NanoMD/issues",
+        "email": "dev@pardn.io"
     },
-    "homepage": "https://github.com/pardnchiu/PDMarkdownKit#readme",
-    "devDependencies": {}
+    "homepage": "https://github.com/pardnchiu/NanoMD#readme",
+    "devDependencies": {
+        "chokidar-cli": "3.0.0",
+        "terser": "5.31.3",
+        "sass": "1.62.0"
+    }
 }
