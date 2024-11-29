@@ -9,8 +9,8 @@
 ![](https://img.shields.io/github/size/pardnchiu/NanoMD/dist%2FNanoMD.js) 
 ![](https://img.shields.io/github/license/pardnchiu/NanoMD)<br>
 [![](https://img.shields.io/github/v/release/pardnchiu/NanoMD)](https://github.com/pardnchiu/NanoMD) 
-[![](https://img.shields.io/npm/v/@pardnchiu/ndnomd)](https://www.npmjs.com/package/@pardnchiu/ndnomd) 
-[![](https://img.shields.io/jsdelivr/npm/hw/@pardnchiu/ndnomd)](https://www.jsdelivr.com/package/npm/@pardnchiu/ndnomd)<br>
+[![](https://img.shields.io/npm/v/@pardnchiu/nanomd)](https://www.npmjs.com/package/@pardnchiu/nanomd) 
+[![](https://img.shields.io/jsdelivr/npm/hw/@pardnchiu/nanomd)](https://www.jsdelivr.com/package/npm/@pardnchiu/nanomd)<br>
 [![](https://img.shields.io/badge/查閱-中文版本-ffffff)](https://github.com/pardnchiu/NanoMD/blob/main/README.zh.md)
 
 ## Features
@@ -27,7 +27,7 @@
 
 - **Install via npm**
     ```bash
-    npm i @pardnchiu/ndnomd
+    npm i @pardnchiu/nanomd
     ```
 
 - **Include via CDN**

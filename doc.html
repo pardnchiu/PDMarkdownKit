@@ -15,27 +15,33 @@
         <meta name="theme-color" content="#ffffff">
         <meta name="robots" content="index, follow">
 
-        <title>Markdown Editor | 邱敬幃 Pardn Chiu | GitHub.io</title>
-        <meta name="title" content="Markdown Editor | 邱敬幃 Pardn Chiu | GitHub.io">
-        <meta name="description" content="(JavaScript Library) A pure JavaScript-based Markdown editor with real-time preview, designed to be easy to embed in websites. Developed by 邱敬幃 Pardn Chiu.">
+        <!-- SEO 標題與描述 -->
+        <title>NanoMD 文檔 - Markdown 線上編輯器與即時渲染工具 - 邱敬幃</title>
+        <meta name="title" content="NanoMD 文檔 - Markdown 線上編輯器與即時渲染工具 - 邱敬幃">
+        <meta name="description" content="NanoMD 是一款基於 JavaScript 的輕量級 Markdown 編輯器與解析器，提供即時渲染、分屏預覽與代碼高亮功能，是理想的 Markdown 工具。">
+        <meta name="keywords" content="markdown, markdown-editor, markdown-viewer, markdown-parser, javascript-library, real-time, lightweight, markdown 即時渲染, Markdown 工具, Markdown 免費工具, 分屏預覽 Markdown, 邱敬幃">
         <meta name="author" content="邱敬幃 Pardn Chiu">
         <link rel="author" href="https://pardnchiu.github.io">
-        <link rel="canonical" href="https://pardnchiu.github.io/markdown-editor/">
+        <link rel="canonical" href="https://pardnchiu.github.io/NanoMD/">
 
-        <!-- Open Graph / Facebook -->
-        <meta property="og:title" content="Markdown Editor | 邱敬幃 Pardn Chiu | GitHub.io">
-        <meta property="og:description" content="(JavaScript Library) A pure JavaScript-based Markdown editor with real-time preview, designed to be easy to embed in websites. Developed by 邱敬幃 Pardn Chiu.">
-        <meta property="og:image" content="https://opengraph.githubassets.com/1/pardnchiu/markdown-editor">
-        <meta property="og:url" content="https://pardnchiu.github.io/markdown-editor/">
-        <meta property="og:site_name" content="邱敬幃 Pardn Chiu 的 Github Page">
+        <!-- Favicon -->
+        <link rel="icon" href="./static/image/logo.png" type="image/x-icon">
+
+        <!-- Open Graph -->
+        <meta property="og:title" content="NanoMD 文檔 - Markdown 線上編輯器與即時渲染工具 - 邱敬幃">
+        <meta property="og:description" content="NanoMD 是一款基於 JavaScript 的輕量級 Markdown 編輯器與解析器，提供即時渲染、分屏預覽與代碼高亮功能，是理想的 Markdown 工具。">
+        <meta property="og:image" content="https://opengraph.githubassets.com/1/pardnchiu/NanoMD">
+        <meta property="og:url" content="https://pardnchiu.github.io/NanoMD/">
+        <meta property="og:site_name" content="NanoMD">
         <meta property="og:type" content="website">
+        <meta property="og:locale" content="zh_TW">
 
         <!-- Twitter -->
         <meta name="twitter:card" content="summary_large_image">
-        <meta property="twitter:title" content="Markdown Editor | 邱敬幃 Pardn Chiu | GitHub.io">
-        <meta property="twitter:description" content="(JavaScript Library) A pure JavaScript-based Markdown editor with real-time preview, designed to be easy to embed in websites. Developed by 邱敬幃 Pardn Chiu.">
-        <meta property="twitter:image" content="https://opengraph.githubassets.com/1/pardnchiu/markdown-editor">
-        <meta property="twitter:url" content="https://pardnchiu.github.io/markdown-editor/">
+        <meta property="twitter:title" content="NanoMD | Markdown Editor | 邱敬幃 Pardn Chiu">
+        <meta property="twitter:description" content="NanoMD 是一款純 JavaScript 編寫的 Markdown 編輯器，具備即時預覽、代碼高亮、導出等功能，簡單易用。">
+        <meta property="twitter:image" content="https://opengraph.githubassets.com/1/pardnchiu/NanoMD">
+        <meta property="twitter:url" content="https://pardnchiu.github.io/NanoMD/">
 
         <!-- Google Verification -->
         <meta name="google-site-verification" content="YQQ2f6AchR8dcb55Az2BYd_mw4TrP0J1RApD-v2v65Y">
@@ -51,6 +57,8 @@
 
         <!-- Preload and Preconnect -->
         <link rel="preconnect" href="https://cdn.jsdelivr.net">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
         <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" as="style">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
@@ -58,32 +66,29 @@
         <link rel="preload" href="https://cdn.jsdelivr.net/npm/pdquickui@0.5.4/dist/PDQuickUI.js" as="script">
         <script src="https://cdn.jsdelivr.net/npm/pdquickui@0.5.4/dist/PDQuickUI.js" copyright="Pardn Ltd"></script>
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swaps" as="style">
         <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
-
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0" />
-        <!-- <script src="./js/test.js" copyright="Pardn Ltd"></script> -->
 
         <!-- Local Resources -->
         <link rel="stylesheet" href="./dist/NanoMD.css">
         <link rel="stylesheet" href="./static/css/index.css">
         <script src="./dist/NanoMD.js"></script>
 
+        <!-- JSON-LD Schema -->
         <script type="application/ld+json">
         {
             "@context": "https://schema.org",
             "@type": "WebPage",
-            "name": "文檔 - NanoMD",
-            "description": "一款純 JS 搭配原生 API 撰寫的 Markdown 編輯器，支持即時渲染、分屏預覽、代碼高亮與導出功能，簡單易用，提升撰寫效率。",
-            "url": "https://pardnchiu.github.io/NanoMD/doc.html",
+            "name": "NanoMD - Markdown 編輯器",
+            "description": "NanoMD 是一款基於 JavaScript 的輕量級 Markdown 編輯器，支持即時渲染、分屏預覽、代碼高亮與導出功能，是理想的 Markdown 工具。",
+            "url": "https://pardnchiu.github.io/NanoMD/",
             "creator": {
                 "@type": "Person",
                 "name": "邱敬幃 Pardn Chiu",
                 "url": "https://pardnchiu.github.io"
             },
-            "datePublished": "2023-11-29",
-            "dateModified": "2023-11-29"
+            "datePublished": "2024-11-29",
+            "dateModified": "2024-11-29"
             "mainEntity": [
                 {
                     "@type": "WebPageElement",
@@ -134,6 +139,11 @@
                     "@type": "WebPageElement",
                     "name": "快捷鍵 - NanoMD",
                     "url": "https://pardnchiu.github.io/NanoMD/doc.html?tag=shortcut"
+                },
+                {
+                    "@type": "WebPageElement",
+                    "name": "即將棄用 - NanoMD",
+                    "url": "https://pardnchiu.github.io/NanoMD/doc.html?tag=DEPRECATION"
                 }
             ]
         }
