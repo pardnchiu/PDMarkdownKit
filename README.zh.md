@@ -94,7 +94,7 @@
             fontFamily: "",     // 預設：'Noto Sans TC', sans-serif
         },
         sync: {
-            editor: elm_editor, // 關聯的編輯器
+            editor: domEditor, // 關聯的編輯器
             delay: 50,          // 更新延遲，單位ms，預設 300
             scrollSync: 1,      // 與編輯器同步滾動，預設值：0 | false
         },
