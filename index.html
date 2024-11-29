@@ -65,12 +65,29 @@
 
         <link rel="preload" href="https://cdn.jsdelivr.net/npm/pdquickui@0.5.4/dist/PDQuickUI.js" as="script">
         <script src="https://cdn.jsdelivr.net/npm/pdquickui@0.5.4/dist/PDQuickUI.js" copyright="Pardn Ltd"></script>
-    
+
         <link rel="preload" href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swaps" as="style">
         <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
 
         <!-- Local Resources -->
         <link rel="stylesheet" href="./static/css/index.css">
+
+        <!-- JSON-LD Schema -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "WebPage",
+                "name": "NanoMD - 免費開源 Markdown 編輯器",
+                "description": "NanoMD 是一款基於 JavaScript 免費、開源、的輕量級 Markdown 編輯器，支持即時渲染、分屏預覽、代碼高亮與導出功能，是理想的 Markdown 工具。",
+                "url": "https://pardnchiu.github.io/NanoMD/",
+                "creator": {
+                    "@type": "Person",
+                    "name": "邱敬幃 Pardn Chiu",
+                    "url": "https://pardnchiu.github.io"
+                },
+                "image": "https://opengraph.githubassets.com/1/pardnchiu/NanoMD",
+            }
+            </script>
     </head>
 
     <body id="app" class="home">
@@ -113,17 +130,17 @@
                     <strong>NanoMD<span>輕量且強大的編輯器</span></strong>
                 </section>
                 <section class="button">
-                    <a href="https://github.com/pardnchiu/NanoMD" target="_blank">
+                    <a href="https://github.com/pardnchiu/NanoMD" title="GitHub" target="_blank">
                         <i class="fa-brands fa-github"></i>
                         GitHub
                     </a>
-                    <a href="https://www.npmjs.com/package/@pardnchiu/nanomd" target="_blank">
+                    <a href="https://www.npmjs.com/package/@pardnchiu/nanomd" title="npm" target="_blank">
                         <i class="fa-brands fa-npm"></i>
                         npm
                     </a>
                 </section>
                 <img src="./static/image/header.jpg" alt="">
-                <a href="./live.html">
+                <a href="./live.html" title="前往體驗 NanoMD">
                     <i class="fa-brands fa-markdown"></i>
                     Online Editor
                     <i class="fa-solid fa-angles-right"></i>

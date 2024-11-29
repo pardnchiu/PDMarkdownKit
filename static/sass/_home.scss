@@ -379,6 +379,35 @@
                 border-radius: $_16;
                 box-shadow: 0 $_12 $_16 #0000001a;
             }
+
+            >a {
+                display: flex;
+                align-items: center;
+                gap: $_8;
+                top: 0;
+                margin-top: $_48;
+                padding: 0 $_24;
+                line-height: $_44;
+                text-decoration: none;
+                background: linear-gradient(to top right, #4444cc, #4444ff);
+                color: #fff;
+                border-radius: $_8;
+                letter-spacing: 1px;
+                transition: 0.3s;
+
+                i {
+                    right: 0;
+                    font-size: $_20;
+                    transition: 0.3s;
+                }
+
+                @media (hover: hover) {
+                    
+                    &:hover i:last-child {
+                        right: -$_8;
+                    }
+                }
+            }
         }
     }
 
@@ -673,7 +702,7 @@
                 margin-left: -$_256;
                 width: $_256;
                 height: 100%;
-                transition: 0.2s;
+                transition: 0.3s;
                 overflow: scroll;
 
 
@@ -713,7 +742,7 @@
                     font-size: $_14;
                     letter-spacing: 0.5px;
                     border-radius: $_8;
-                    transition: 0.2s;
+                    transition: 0.3s;
 
                     @media (hover: hover) {
 
@@ -764,7 +793,7 @@
                     align-items: center;
                     gap: $_8;
                     font-size: $_20;
-                    transition: 0.2s;
+                    transition: 0.3s;
 
                     position: fixed;
                     top: calc(100% - $safeB - $_12 - $_44);
@@ -795,7 +824,7 @@
 
                 .pd-md-viewer {
                     font-family: sans-serif;
-                    transition: 0.2s;
+                    transition: 0.3s;
 
                     padding: $_16 $_16 $_80;
 
