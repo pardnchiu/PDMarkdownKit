@@ -1,3 +1,5 @@
+<img src="./static/image/logo.png" width=80>
+
 # NanoMD
 
 *(Formerly known as PDMarkdownKit, renamed to NanoMD starting from version `1.8.0`)*
@@ -62,7 +64,7 @@
     // IIFE: PDMarkdownEditor, PDMarkdownViewer
     // ESM: editor, viewer
 
-    const domEditor = new PDMarkdownEditor({
+    const domEditor = new MDEditor({
         id: "",                                 // Default: PDMDEditor
         defaultContent: "",                     // Default content to display initially
         hotKey: 1,                              // Enable hotkeys, default: 1
@@ -85,7 +87,7 @@
         }
     });
 
-    const domViewer = new PDMarkdownViewer({
+    const domViewer = new MDViewer({
         id: "",                 // Default: PDMDViewer
         emptyContent: "",       // Default content when editor is empty
         style: {
@@ -445,7 +447,7 @@ Supports standard Markdown syntax, including text styling, links, images, lists,
 
 #test1 #test2 #test3
 
-## Hashtag
+## Shortcut
 
 - Supported
     - Copy: `cmd/ctrl` + `c`

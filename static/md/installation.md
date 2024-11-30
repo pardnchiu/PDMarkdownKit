@@ -45,7 +45,8 @@
         defaultContent: "",                     // 預設內容，初始顯示
         hotKey: 1,                              // 啟用快捷鍵，預設為 1
         preventRefresh: 0,                      // 防止頁面重整，預設值：0
-        tabPin: "",                             // top | bottom | ""
+        tabPin: 0,                              // 1 | 0 | true | false
+        wrap: 1,                                // 1 | 0 | true | false
         style: {
             mode: "",                           // auto | light | dark, 預設： auto
             fill: 1,                            // 隨父元素大小調整，預設值：1

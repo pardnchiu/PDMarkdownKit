@@ -1,3 +1,5 @@
+<img src="./static/image/logo.png" width=80>
+
 # NanoMD：極簡高效的 Markdown 編輯器
 
 **NanoMD**（前身為 PDMarkdownKit）是一款專為提升創作效率而設計的高性能 Markdown 編輯器。以純 JavaScript 打造，提供即時渲染與擴展功能，適合技術文檔、個人筆記與部落格創作。
