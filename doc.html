@@ -282,6 +282,10 @@
                                     console.error(error);
                                 });
 
+                            url.searchParams.set("tag", title);
+
+                            window.history.replaceState({}, document.title, url.href);
+
                             editor.init(pre);
                         },
                         showTab: e => {

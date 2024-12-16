@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.5"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+    <url>
+        <loc>https://pardnchiu.github.io/NanoMD</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://pardnchiu.github.io/NanoMD/index.html?lang=zh"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pardnchiu.github.io/NanoMD/index.html?lang=en"/>
+    </url>
+
+     <url>
+        <loc>https://pardnchiu.github.io/NanoMD/live.html</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://pardnchiu.github.io/NanoMD/live.html?lang=zh"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pardnchiu.github.io/NanoMD/live.html?lang=en"/>
+    </url>
+
+    <!-- Documentation pages -->
+    <url>
+        <loc>https://pardnchiu.github.io/NanoMD/doc.html?tag=installation</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=installation&amp;lang=en"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=installation&amp;lang=zh"/>
+    </url>
+    <url>
+        <loc>https://pardnchiu.github.io/NanoMD/doc.html?tag=font</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=font&amp;lang=en"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=font&amp;lang=zh"/>
+    </url>
+    <url>
+        <loc>https://pardnchiu.github.io/NanoMD/doc.html?tag=link</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=link&amp;lang=en"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=link&amp;lang=zh"/>
+    </url>
+    <url>
+        <loc>https://pardnchiu.github.io/NanoMD/doc.html?tag=image</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=image&amp;lang=en"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=image&amp;lang=zh"/>
+    </url>
+    <url>
+        <loc>https://pardnchiu.github.io/NanoMD/doc.html?tag=list</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=list&amp;lang=en"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=list&amp;lang=zh"/>
+    </url>
+    <url>
+        <loc>https://pardnchiu.github.io/NanoMD/doc.html?tag=code</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=code&amp;lang=en"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=code&amp;lang=zh"/>
+    </url>
+    <url>
+        <loc>https://pardnchiu.github.io/NanoMD/doc.html?tag=blockquote</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=blockquote&amp;lang=en"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=blockquote&amp;lang=zh"/>
+    </url>
+    <url>
+        <loc>https://pardnchiu.github.io/NanoMD/doc.html?tag=table</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=table&amp;lang=en"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=table&amp;lang=zh"/>
+    </url>
+    <url>
+        <loc>https://pardnchiu.github.io/NanoMD/doc.html?tag=more</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=more&amp;lang=en"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=more&amp;lang=zh"/>
+    </url>
+    <url>
+        <loc>https://pardnchiu.github.io/NanoMD/doc.html?tag=shortcut</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=shortcut&amp;lang=en"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=shortcut&amp;lang=zh"/>
+    </url>
+    <url>
+        <loc>https://pardnchiu.github.io/NanoMD/doc.html?tag=DEPRECATION</loc>
+        <lastmod>2024-12-04</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="en" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=DEPRECATION&amp;lang=en"/>
+        <xhtml:link rel="alternate" hreflang="zh" href="https://pardnchiu.github.io/NanoMD/doc.html?tag=DEPRECATION&amp;lang=zh"/>
+    </url>
+</urlset>
