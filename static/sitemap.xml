@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.5"
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
     <url>
         <loc>https://pardnchiu.github.io/NanoMD</loc>
@@ -10,7 +10,7 @@
         <xhtml:link rel="alternate" hreflang="en" href="https://pardnchiu.github.io/NanoMD/index.html?lang=en"/>
     </url>
 
-     <url>
+    <url>
         <loc>https://pardnchiu.github.io/NanoMD/live.html</loc>
         <lastmod>2024-12-04</lastmod>
         <changefreq>daily</changefreq>
