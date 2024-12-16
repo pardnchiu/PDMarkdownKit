@@ -6,8 +6,7 @@
 > 同時，內建虛擬 DOM 技術，僅更新變動部分，確保即時編輯中的高效渲染與流暢體驗，適合在線編輯場景。
 
 ![](https://img.shields.io/badge/tag-JavaScript%20Library-bb4444) 
-![](https://img.shields.io/github/size/pardnchiu/NanoMD/dist%2FNanoMD.js) 
-![](https://img.shields.io/github/license/pardnchiu/NanoMD)<br>
+![](https://img.shields.io/github/size/pardnchiu/NanoMD/dist%2FNanoMD.js)<br>
 [![](https://img.shields.io/github/v/release/pardnchiu/NanoMD)](https://github.com/pardnchiu/NanoMD) 
 [![](https://img.shields.io/npm/v/@pardnchiu/nanomd)](https://www.npmjs.com/package/@pardnchiu/nanomd) 
 [![](https://img.shields.io/jsdelivr/npm/hw/@pardnchiu/nanomd)](https://www.jsdelivr.com/package/npm/@pardnchiu/nanomd)<br>
