@@ -477,13 +477,14 @@ Supports standard Markdown syntax, including text styling, links, images, lists,
 
 ## License
 
-This project is licensed under [MIT](https://github.com/pardnchiu/NanoMD/blob/main/LICENSE).
+This project is licensed under a **Proprietary License**.  
+You may use, install, and run this software only under the terms specified in the [End-User License Agreement (EULA)](https://github.com/pardnchiu/NanoMD/blob/main/LICENSE).
 
 ## Obtain Complete Source Code
 
 [Contact me](mailto:dev@pardn.io) for the complete unobfuscated source code.<br>
 Feel free to modify and use for commercial purposes with the following licensing options:
-- Must retain `Powered by NanoMD` copyright notice: $7,500.
+- Must retain `Powered by @pardnchiu/nanomd` copyright notice: $7,500.
 - Fully autonomous, no copyright notice required: $10,000.
 
 ***

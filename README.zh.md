@@ -474,13 +474,14 @@
 
 ## 授權條款
 
-本專案依據 [MIT](https://github.com/pardnchiu/NanoMD/blob/main/LICENSE) 授權使用。
+本專案採用 **專有授權**。  
+更多詳細資訊，請參閱本倉庫中的 [最終使用者授權協議（EULA）](https://github.com/pardnchiu/NanoMD/blob/main/LICENSE)。
 
 ## 獲取完整原始碼
 
 [聯絡我](mailto:dev@pardn.io) 獲取完整未混淆源碼<br>
 可隨意修改、商業使用，根據需求選擇授權版本：
-- 需保留 `Powered by NanoMD` 的版權聲明：$7,500
+- 需保留 `Powered by @pardnchiu/nanomd` 的版權聲明：$7,500
 - 完全自主，無需添加版權聲明：$10,000
 
 ***

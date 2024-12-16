@@ -1,5 +1,4 @@
-# Proprietary License & End-User License Agreement (EULA)
-
+# Proprietary License & End-User License Agreement (EULA) for NanoMD  
 Copyright (c) 2024 Pardn Chiu.
 
 ## License Terms
@@ -7,14 +6,14 @@ Copyright (c) 2024 Pardn Chiu.
 1. **Grant of License**  
    You are granted a non-exclusive, non-transferable license to install and use the software ("Software") solely for internal use. You may use the Software for either commercial or non-commercial purposes, but only in its compiled form (e.g., binary files).
 
-2. **Restrictions on Modification and Redistribution**  
-   You may not modify, reverse engineer, decompile, or redistribute the Software, whether in source code or compiled form.
+2. **Restrictions on Modification, Reverse Engineering, and Redistribution**  
+   You may not modify, reverse engineer, decompile, or redistribute the Software, whether in source code or compiled form. This includes, but is not limited to, the prohibition of attempting to reverse engineer or decompile the obfuscated code, regardless of the code’s accessibility.
 
 3. **Commercial Use**  
    You may use the Software for commercial purposes, but only for internal operations and not for resale, sublicensing, or redistribution in any form.
 
 4. **Confidentiality**  
-   The Software and its related documentation are proprietary information. You may not disclose, distribute, or make the Software publicly available without explicit permission.
+   The Software, its associated documentation, and any related materials are proprietary and confidential information. You may not disclose, distribute, or make the Software publicly available without explicit permission. This includes any encrypted portions of the Software. You are obligated to maintain confidentiality regarding all proprietary aspects of the Software and its components.
 
 5. **Warranty Disclaimer and Limitation of Liability**  
    The Software is provided "as-is," without any warranties, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. The copyright holder is not liable for any claims, damages, or other liabilities arising from the use of the Software.
@@ -24,4 +23,4 @@ Copyright (c) 2024 Pardn Chiu.
 
 ## Miscellaneous
 
-- This agreement constitutes the entire agreement between you and the copyright holder regarding the Software. Any disputes will be resolved under the laws of Taiwan.
+- This agreement constitutes the entire agreement between you and the copyright holder regarding the Software. Any disputes will be resolved under the laws of Republic of China (Taiwan).
