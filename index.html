@@ -271,7 +271,7 @@
 
                             parent.dataset.index = index;
 
-                            const data = introRecord["en"][Object.keys(introRecord["en"])[index]];
+                            const data = introRecord[isZh ? "zh" : "en"][Object.keys(introRecord[isZh ? "zh" : "en"])[index]];
                             const dom = document.getElementById("intro-block");
 
                             dom.children[0].innerText = data.title;
@@ -280,7 +280,7 @@
                         }
                     },
                     data: {
-                        intro: introRecord["en"][Object.keys(introRecord["en"])[0]],
+                        intro: introRecord[isZh ? "zh" : "en"][Object.keys(introRecord[isZh ? "zh" : "en"])[0]],
                         introIndex: 0,
                         lang: isZh ? "zh" : "en",
                         change: isZh ? "en" : "zh"
