@@ -1,21 +1,27 @@
-MIT License
+# Proprietary License & End-User License Agreement (EULA)
 
-Copyright (c) 2024 邱敬幃 Pardn Chiu
+Copyright (c) 2024 Pardn Chiu.
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+## License Terms
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+1. **Grant of License**  
+   You are granted a non-exclusive, non-transferable license to install and use the software ("Software") solely for internal use. You may use the Software for either commercial or non-commercial purposes, but only in its compiled form (e.g., binary files).
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+2. **Restrictions on Modification and Redistribution**  
+   You may not modify, reverse engineer, decompile, or redistribute the Software, whether in source code or compiled form.
+
+3. **Commercial Use**  
+   You may use the Software for commercial purposes, but only for internal operations and not for resale, sublicensing, or redistribution in any form.
+
+4. **Confidentiality**  
+   The Software and its related documentation are proprietary information. You may not disclose, distribute, or make the Software publicly available without explicit permission.
+
+5. **Warranty Disclaimer and Limitation of Liability**  
+   The Software is provided "as-is," without any warranties, express or implied, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement. The copyright holder is not liable for any claims, damages, or other liabilities arising from the use of the Software.
+
+6. **Termination**  
+   This license will automatically terminate if you violate any of the terms of this agreement. Upon termination, you must immediately cease using the Software and destroy all copies in your possession.
+
+## Miscellaneous
+
+- This agreement constitutes the entire agreement between you and the copyright holder regarding the Software. Any disputes will be resolved under the laws of Taiwan.
