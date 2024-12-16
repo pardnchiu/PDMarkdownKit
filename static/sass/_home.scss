@@ -116,7 +116,7 @@
                     padding: 0 $_8;
 
                     i {
-                        font-size: $_24;
+                        font-size: $_16;
                         transition: 0.3s;
                     }
 
@@ -134,11 +134,11 @@
                     }
 
                     @media screen and (min-width: 640px) {
-                        background: linear-gradient(to top right, #4444cc, #4444ff);
-                        color: #fff;
+                        background: linear-gradient(to top right, #0000000d, #0000001a);
+                        // color: #fff;
 
                         i {
-                            font-size: $_20;
+                            font-size: $_16;
                         }
 
                         span {

@@ -63,8 +63,8 @@
         <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" as="style">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 
-        <link rel="preload" href="https://cdn.jsdelivr.net/npm/pdquickui@0.5.4/dist/PDQuickUI.js" as="script">
-        <script src="https://cdn.jsdelivr.net/npm/pdquickui@0.5.4/dist/PDQuickUI.js" copyright="Pardn Ltd"></script>
+        <link rel="preload" href="https://cdn.jsdelivr.net/npm/@pardnchiu/quickui@0.6.2/dist/QuickUI.js" as="script">
+        <script src="https://cdn.jsdelivr.net/npm/@pardnchiu/quickui@0.6.2/dist/QuickUI.js" copyright="Pardn Ltd"></script>
 
         <link rel="preload" href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swaps" as="style">
         <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
@@ -150,14 +150,14 @@
         </script>
     </head>
 
-    <body id="app" class="home">
+    <body id="app" class="home" :animation="fade-in">
         <nav>
             <section>
                 <section>
                     <img src="./static/image/logo.svg" alt="">
                 </section>
                 <section class="center" data-index="1">
-                    <a href="./index.html">
+                    <a :href="./index.html?lang={{ lang }}">
                         <i class="fa-solid fa-house"></i>
                         HOME
                     </a>
@@ -171,9 +171,9 @@
                     </a>
                 </section>
                 <section>
-                    <a href="./live.html">
-                        <i class="fa-brands fa-markdown"></i>
-                        <span>Online</span>
+                    <a :href="./doc.html?lang={{ change }}">
+                        <i class="fa-solid fa-globe"></i>
+                        <span>{{ change }}</span>
                     </a>
                 </section>
             </section>
@@ -183,47 +183,47 @@
                 <section id="doc-body-tab" class="tab" data-index="0" data-show="0">
                     <button @click="changeContent" data-title="installation">
                         <i class="fa-solid fa-screwdriver-wrench"></i>
-                        安裝與使用
+                        {{ i18n.installation }}
                     </button>
                     <button @click="changeContent" data-title="font">
                         <i class="fa-solid fa-font"></i>
-                        文字語法
+                        {{ i18n.font }}
                     </button>
                     <button @click="changeContent" data-title="link">
                         <i class="fa-solid fa-link"></i>
-                        連結語法
+                        {{ i18n.link }}
                     </button>
                     <button @click="changeContent" data-title="image">
                         <i class="fa-regular fa-image"></i>
-                        圖片語法
+                        {{ i18n.image }}
                     </button>
                     <button @click="changeContent" data-title="list">
                         <i class="fa-solid fa-list-ol"></i>
-                        列表語法
+                        {{ i18n.list }}
                     </button>
                     <button @click="changeContent" data-title="code">
                         <i class="fa-solid fa-code"></i>
-                        代碼塊語法
+                        {{ i18n.code }}
                     </button>
                     <button @click="changeContent" data-title="blockquote">
                         <i class="fa-solid fa-quote-right"></i>
-                        引用語法
+                        {{ i18n.blockquote }}
                     </button>
                     <button @click="changeContent" data-title="table">
                         <i class="fa-solid fa-table"></i>
-                        表格語法
+                        {{ i18n.table }}
                     </button>
                     <button @click="changeContent" data-title="more">
                         <i class="fa-solid fa-ellipsis"></i>
-                        其他語法
+                        {{ i18n.more }}
                     </button>
                     <button @click="changeContent" data-title="shortcut">
                         <i class="fa-solid fa-keyboard"></i>
-                        快捷鍵
+                        {{ i18n.shortcut }}
                     </button>
                     <button @click="changeContent" data-title="DEPRECATION">
                         <i class="fa-solid fa-circle-exclamation"></i>
-                        即將棄用
+                        {{ i18n.DEPRECATION }}
                     </button>
                 </section>
                 <section id="doc-body-content" class="content">
@@ -236,11 +236,28 @@
         <!--  -->
         <script>
             document.addEventListener("DOMContentLoaded", _ => {
+                const url = new URL(location.href);
+                const currentLanguage = navigator.language || navigator.userLanguage;
+                const lang = url.searchParams.get("lang");
+                let isZh = /^zh/i.test(currentLanguage);
+
+                if (lang != null) {
+                    isZh = /^zh/i.test(lang);
+                };
 
                 let editor;
 
                 const app = new QUI({
                     id: "app",
+                    i18n: {
+                        zh: "./static/i18n/doc/zh.json",
+                        en: "./static/i18n/doc/en.json",
+                    },
+                    i18nLang: isZh ? "zh" : "en",
+                    data: {
+                        lang: isZh ? "zh" : "en",
+                        change: isZh ? "en" : "zh"
+                    },
                     event: {
                         changeContent: async e => {
                             const _this = e.target;
@@ -256,26 +273,14 @@
 
                             let pre = "";
 
-                            if (title === "DEPRECATION") {
-                                await fetch("./" + title + ".md")
-                                    .then(response => response.text())
-                                    .then(data => {
-                                        pre = data;
-                                    })
-                                    .catch(error => {
-                                        console.error(error);
-                                    });
-                            }
-                            else {
-                                await fetch("./static/md/" + title + ".md")
-                                    .then(response => response.text())
-                                    .then(data => {
-                                        pre = data;
-                                    })
-                                    .catch(error => {
-                                        console.error(error);
-                                    });
-                            }
+                            await fetch("./static/md/" + (isZh ? "zh/" : "en/") + title + ".md")
+                                .then(response => response.text())
+                                .then(data => {
+                                    pre = data;
+                                })
+                                .catch(error => {
+                                    console.error(error);
+                                });
 
                             editor.init(pre);
                         },

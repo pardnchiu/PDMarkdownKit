@@ -3,9 +3,18 @@
 let elm_editor, elm_viewer;
 
 document.addEventListener("DOMContentLoaded", async _ => {
+    const url = new URL(location.href);
+    const currentLanguage = navigator.language || navigator.userLanguage;
+    const lang = url.searchParams.get("lang");
+    let isZh = /^zh/i.test(currentLanguage);
+
+    if (lang != null) {
+        isZh = /^zh/i.test(lang);
+    };
+
     let pre = "";
 
-    await fetch("./static/md/live.md")
+    await fetch("./static/md/" + (isZh ? "zh" : "en") + "/live.md")
         .then(response => response.text())
         .then(data => {
             pre = data;
@@ -16,6 +25,9 @@ document.addEventListener("DOMContentLoaded", async _ => {
 
     const app = new QUI({
         id: "app",
+        data: {
+            lang: isZh ? "zh" : "en"
+        },
         event: {
             click_show: e => {
                 const is_show = parseInt(document.body.dataset.show) === 1;

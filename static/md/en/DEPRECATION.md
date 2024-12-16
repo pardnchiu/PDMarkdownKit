@@ -1,0 +1,23 @@
+## Deprecated (Will be removed in version 2.0.0)
+
+- Standard version `PDMarkdownEditor`: replaced by `MDEditor`
+- Standard version `PDMarkdownViewer`: replaced by `MDViewer`
+- ESM version `editor`: replaced by `MDEditor`
+- ESM version `viewer`: replaced by `MDViewer`
+- Editor parameters
+    - `mode`: replaced by `style.mode`
+    - `fillMode`: replaced by `style.fill`
+    - `fontFamily`: replaced by `style.fontFamily`
+    - `showRow`: replaced by `style.showRow`
+    - `focusBackgroundColor`: replaced by `focus.backgroundColor`
+    - `focusTextColor`: replaced by `focus.color`
+    - `placeholder`: replaced by `placeholder.text`
+    - `placeholderColor`: replaced by `placeholder.color`
+- Viewer parameters
+    - `mode`: replaced by `style.mode`
+    - `fillMode`: replaced by `style.fill`
+    - `fontFamily`: replaced by `style.fontFamily`
+    - `delay`: replaced by `sync.delay`
+    - `scrollSync`: replaced by `sync.scroll`
+    - `tagPath`: replaced by `hashtag.path`
+    - `tagTarget`: replaced by `hashtag.target`

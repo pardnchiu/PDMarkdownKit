@@ -63,8 +63,8 @@
         <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css" as="style">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css">
 
-        <link rel="preload" href="https://cdn.jsdelivr.net/npm/pdquickui@0.5.4/dist/PDQuickUI.js" as="script">
-        <script src="https://cdn.jsdelivr.net/npm/pdquickui@0.5.4/dist/PDQuickUI.js" copyright="Pardn Ltd"></script>
+        <link rel="preload" href="https://cdn.jsdelivr.net/npm/@pardnchiu/quickui@0.6.2/dist/QuickUI.js" as="script">
+        <script src="https://cdn.jsdelivr.net/npm/@pardnchiu/quickui@0.6.2/dist/QuickUI.js" copyright="Pardn Ltd"></script>
 
         <link rel="preload" href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swaps" as="style">
         <link href="https://fonts.googleapis.com/css2?family=Saira+Stencil+One&display=swap" rel="stylesheet">
@@ -90,7 +90,7 @@
         </script>
     </head>
 
-    <body id="app" class="home">
+    <body id="app" class="home" :animation="fade-in">
         <nav>
             <section>
                 <section>
@@ -101,7 +101,7 @@
                         <i class="fa-solid fa-house"></i>
                         HOME
                     </a>
-                    <a href="./doc.html">
+                    <a :href="./doc.html?lang={{ lang }}">
                         <i class="fa-brands fa-readme"></i>
                         DOC
                     </a>
@@ -111,13 +111,13 @@
                     </a>
                 </section>
                 <section>
-                    <a href="./live.html">
-                        <i class="fa-brands fa-markdown"></i>
-                        <span>Online</span>
+                    <a :href="./?lang={{ change }}">
+                        <i class="fa-solid fa-globe"></i>
+                        <span>{{ change }}</span>
                     </a>
                     <!-- <div data-show="0" data-index="0" onclick="this.dataset.show=Math.abs(parseInt(this.dataset.show || 0) - 1)">
-                        <p onclick="this.parentElement.dataset.index=0">中文</p>
-                        <p onclick="this.parentElement.dataset.index=1">英文</p>
+                        <p onclick="this.parentElement.dataset.index=0">{{ i18n.zh }}</p>
+                        <p onclick="this.parentElement.dataset.index=1">{{ i18n.en }}</p>
                     </div> -->
                 </section>
             </section>
@@ -127,7 +127,7 @@
             <section>
                 <section class="logo">
                     <img src="./static//image/logo.svg" alt="">
-                    <strong>NanoMD<span>輕量且強大的編輯器</span></strong>
+                    <strong>NanoMD<span>{{ i18n.title }}</span></strong>
                 </section>
                 <section class="button">
                     <a href="https://github.com/pardnchiu/NanoMD" title="GitHub" target="_blank">
@@ -139,8 +139,8 @@
                         npm
                     </a>
                 </section>
-                <img src="./static/image/header.jpg" alt="">
-                <a href="./live.html" title="前往體驗 NanoMD">
+                <img :src="i18n.cover" alt="">
+                <a href="./live.html?lang={{ lang }}" title="前往體驗 NanoMD">
                     <i class="fa-brands fa-markdown"></i>
                     Online Editor
                     <i class="fa-solid fa-angles-right"></i>
@@ -151,12 +151,8 @@
         <section class="home-quote">
             <section>
                 <i class="fa-solid fa-quote-left"></i>
-                <p>A Markdown editor built with pure JavaScript and native APIs.<br>
-                    Supports real-time preview and automatic detection of YouTube/Vimeo videos.<br>
-                    Perfect for web integration, such as blog projects.</p>
-                <!-- <p>這是一款基於純 JavaScript 和原生 API 的 Markdown 編輯器，<br>
-                    支持標準 Markdown 語法與多項擴展功能，包括即時預覽、自動檢測 YouTube / Vimeo 影片等。<br>
-                    專為網頁整合設計，適用於部落格等需要編輯器的專案。
+                <p :html="i18n.quote"></p>
+                <!-- <p>
                 </p> -->
                 <i class="fa-solid fa-quote-right"></i>
             </section>
@@ -165,22 +161,22 @@
         <section class="home-intro">
             <section>
                 <i class="fa-solid fa-hashtag"></i>
-                <strong>功能強大、方便嵌入，立即為你的專案加上 Markdown 編輯器。</strong>
+                <strong>{{ i18n.intro }}</strong>
                 <!-- 需修正 PDQuickUI 的差異算法 -->
                 <section id="intro-block">
                     <strong>{{ intro.title }}</strong>
                     <p :html="{{ intro.description }}"></p>
-                    <a :href="{{ intro.href }}">深入瞭解<i class="fa-solid fa-angles-right"></i></a>
+                    <a :href="{{ intro.href }}">{{ i18n.more }}<i class="fa-solid fa-angles-right"></i></a>
                     <figure>
                         <img src="" alt="">
-                        <figcaption>圖片尚未製作</figcaption>
+                        <figcaption>{{ i18n.photo }}</figcaption>
                     </figure>
                     <section :data-index="introIndex">
-                        <button @click="changeIntro">輕量強大</button>
-                        <button @click="changeIntro">標準語法</button>
-                        <button @click="changeIntro">即時預覽</button>
-                        <button @click="changeIntro">自動偵測</button>
-                        <button @click="changeIntro">方便嵌入</button>
+                        <button @click="changeIntro">{{ i18n.button_0 }}</button>
+                        <button @click="changeIntro">{{ i18n.button_1 }}</button>
+                        <button @click="changeIntro">{{ i18n.button_2 }}</button>
+                        <button @click="changeIntro">{{ i18n.button_3 }}</button>
+                        <button @click="changeIntro">{{ i18n.button_4 }}</button>
                     </section>
                 </section>
             </section>
@@ -194,36 +190,79 @@
         <!--  -->
         <script>
             document.addEventListener("DOMContentLoaded", _ => {
+                const url = new URL(location.href);
+                const currentLanguage = navigator.language || navigator.userLanguage;
+                const lang = url.searchParams.get("lang");
+                let isZh = /^zh/i.test(currentLanguage);
+
+                if (lang != null) {
+                    isZh = /^zh/i.test(lang);
+                };
+
                 const introRecord = {
-                    "輕量強大": {
-                        title: "輕量且功能強大的編輯器",
-                        description: "基於純 JavaScript 和原生 API 所開發。<br>實現高效、穩定且無負擔的編輯體驗。",
-                        href: ""
+                    zh: {
+                        "輕量強大": {
+                            title: "輕量且功能強大的編輯器",
+                            description: "基於純 JavaScript 和原生 API 所開發。<br>實現高效、穩定且無負擔的編輯體驗。",
+                            href: ""
+                        },
+                        "標準語法": {
+                            title: "支持標準 Markdown 語法",
+                            description: "完整支持字體、連結、圖片、列表、表格、代碼塊與引用等標準功能，<br>並提供額外擴展以提升使用體驗。",
+                            href: ""
+                        },
+                        "即時預覽": {
+                            title: "所見即所得的即時預覽",
+                            description: "提供即時預覽，與滾動同步功能。<br>讓編輯和結果一目了然，輕鬆實現可視化編輯。",
+                            href: ""
+                        },
+                        "自動偵測": {
+                            title: "自動偵測並嵌入的功能",
+                            description: "自動檢測連結並嵌入相關內容，<br>目前已支持 Youtube、Vimeo 多種服務。",
+                            href: ""
+                        },
+                        "方便嵌入": {
+                            title: "輕鬆嵌入的模組化設計",
+                            description: "只需添加幾行代碼，即可快速將編輯器整合至網站，<br>配置靈活，操作簡單。",
+                            href: ""
+                        }
                     },
-                    "標準語法": {
-                        title: "支持標準 Markdown 語法",
-                        description: "完整支持字體、連結、圖片、列表、表格、代碼塊與引用等標準功能，<br>並提供額外擴展以提升使用體驗。",
-                        href: ""
-                    },
-                    "即時預覽": {
-                        title: "所見即所得的即時預覽",
-                        description: "提供即時預覽，與滾動同步功能。<br>讓編輯和結果一目了然，輕鬆實現可視化編輯。",
-                        href: ""
-                    },
-                    "自動偵測": {
-                        title: "自動偵測並嵌入的功能",
-                        description: "自動檢測連結並嵌入相關內容，<br>目前已支持 Youtube、Vimeo 多種服務。",
-                        href: ""
-                    },
-                    "方便嵌入": {
-                        title: "輕鬆嵌入的模組化設計",
-                        description: "只需添加幾行代碼，即可快速將編輯器整合至網站，<br>配置靈活，操作簡單。",
-                        href: ""
+                    en: {
+                        "lightweight & powerful": {
+                            title: "A lightweight and powerful editor",
+                            description: "Developed with pure JavaScript and native APIs.<br> Provides an efficient, stable, and lightweight editing experience.",
+                            href: ""
+                        },
+                        "standard syntax": {
+                            title: "Supports standard Markdown syntax",
+                            description: "Fully supports standard features such as fonts, links, images, lists, tables, code blocks, and quotes,<br> with additional extensions to enhance the user experience.",
+                            href: ""
+                        },
+                        "live preview": {
+                            title: "WYSIWYG live preview",
+                            description: "Provides live preview with scroll synchronization.<br> Allows you to see both editing and results clearly for easy visual editing.",
+                            href: ""
+                        },
+                        "auto detection": {
+                            title: "Automatic detection and embedding features",
+                            description: "Automatically detects links and embeds related content,<br> currently supports multiple services such as YouTube and Vimeo.",
+                            href: ""
+                        },
+                        "easy embedding": {
+                            title: "Modular design for easy embedding",
+                            description: "Simply add a few lines of code to quickly integrate the editor into your website,<br> flexible configuration and easy operation.",
+                            href: ""
+                        }
                     }
                 };
 
                 const app = new QUI({
                     id: "app",
+                    i18n: {
+                        zh: "./static/i18n/index/zh.json",
+                        en: "./static/i18n/index/en.json",
+                    },
+                    i18nLang: isZh ? "zh" : "en",
                     event: {
                         changeIntro: e => {
                             const _this = e.target;
@@ -232,7 +271,7 @@
 
                             parent.dataset.index = index;
 
-                            const data = introRecord[Object.keys(introRecord)[index]];
+                            const data = introRecord["en"][Object.keys(introRecord["en"])[index]];
                             const dom = document.getElementById("intro-block");
 
                             dom.children[0].innerText = data.title;
@@ -241,8 +280,10 @@
                         }
                     },
                     data: {
-                        intro: introRecord[Object.keys(introRecord)[0]],
-                        introIndex: 0
+                        intro: introRecord["en"][Object.keys(introRecord["en"])[0]],
+                        introIndex: 0,
+                        lang: isZh ? "zh" : "en",
+                        change: isZh ? "en" : "zh"
                     }
                 });
             });
