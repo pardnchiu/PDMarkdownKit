@@ -22,7 +22,7 @@
 - Includes undo/redo functions, multiple hotkeys, and supports importing/exporting files in Markdown and HTML formats.
 - Implements virtual DOM concepts for efficient rendering by updating the page on-demand.
 - Integrated [Google Icon](https://fonts.google.com/icons) and [code-prettify](https://github.com/googlearchive/code-prettify) for syntax highlighting.
-- Click here for a [preview](https://pardnchiu.github.io/NanoMD)。
+- Click here for a [preview](https://nanomd.pardn.io/)。
 
 ## Installation
 

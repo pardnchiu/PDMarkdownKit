@@ -20,7 +20,7 @@
 - 提供撤銷與重做功能，以及多項快捷鍵，並支持 Markdown 和 HTML 格式的檔案匯入與匯出。
 - 引入虛擬 DOM 概念，按需更新頁面，減少渲染所需資源。
 - 集成 [Google Icon](https://fonts.google.com/icons) 圖示與 [code-prettify](https://github.com/googlearchive/code-prettify) 語法高亮。
-- 點擊這裡 [預覽](https://pardnchiu.github.io/NanoMD)。
+- 點擊這裡 [預覽](https://nanomd.pardn.io/)。
 
 ## 安裝方式
 
